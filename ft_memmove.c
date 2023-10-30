@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 01:59:17 by lzipp            ###   ########.fr       */
+/*   Created: 2023/10/08 11:31:44 by lzipp             #+#    #+#             */
+/*   Updated: 2023/10/30 01:54:09 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char	*dest;
+	unsigned char	*source;
+	size_t			i;
 
-void	sa(int *stack_a, unsigned int height);
-void	sb(int *stack_b, unsigned int height);
-void	ss(int *stack_a, int *stack_b, int height_a, int height_b);
-
-
-
-void	*ft_memmove(void *dst, const void *src, size_t len);
-void	ft_bzero(void *s, size_t n);
-
-#endif
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
+	if (dst > src)
+	{
+		while (len-- > 0)
+			dest[len] = source[len];
+	}
+	else if (dst < src)
+	{
+		i = 0;
+		while (i < len)
+		{
+			dest[i] = source[i];
+			i++;
+		}
+	}
+	return ((void *)dst);
+}
