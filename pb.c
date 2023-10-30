@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:08:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/30 13:33:04 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	pb(int stack_a[], int stack_b[], int *height_a, int *height_b)
 // 	printf("pa worked\n");
 // 	printf("height_a: %d\n", height_a);
 // 	printf("height_b: %d\n", height_b);
-// 	printf("stack_a: %d, %d, %d, %d, %d, %d\n", stack_a[0], stack_a[1], stack_a[2], stack_a[3], stack_a[4], stack_a[5]);
-// 	printf("stack_b: %d, %d, %d, %d, %d, %d\n", stack_b[0], stack_b[1], stack_b[2], stack_b[3], stack_b[4], stack_b[5]);
+// 	printf("stack_a: %d, %d, %d, %d, %d, %d\n", stack_a[0], stack_a[1],
+// stack_a[2], stack_a[3], stack_a[4], stack_a[5]);
+// 	printf("stack_b: %d, %d, %d, %d, %d, %d\n", stack_b[0], stack_b[1],
+// stack_b[2], stack_b[3], stack_b[4], stack_b[5]);
 // 	return (0);
 // }

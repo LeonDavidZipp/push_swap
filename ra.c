@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:24:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/30 13:32:49 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ra(int stack_a[], int height_a)
 {
-	int			temp;
+	int		temp;
 
 	if (height_a <= 1)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:15:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/30 13:32:36 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /// @param el2
 void	sa(int *stack_a, unsigned int height)
 {
-	int				temp;
+	int		temp;
 
 	if (height <= 1)
 		return ;
