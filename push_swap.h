@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 11:51:33 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 16:58:04 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
+
 
 void	sa(int *stack_a, unsigned int height);
 void	sb(int *stack_b, unsigned int height);

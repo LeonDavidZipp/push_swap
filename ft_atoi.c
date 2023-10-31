@@ -6,17 +6,17 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:29:13 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 14:48:21 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 17:45:50 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	int		result;
+	int			i;
+	long		sign;
+	long		result;
 
 	i = 0;
 	sign = 1;
