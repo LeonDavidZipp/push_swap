@@ -6,12 +6,12 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 12:26:50 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 12:27:30 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep)
 {
 	char	*result;
@@ -40,7 +40,7 @@ char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep)
 		result[len1 + seplen + len2] = s2[len2];
 	return (result);
 }
-
+// #include <stdio.h>
 // int main(void)
 // {
 // 	char const *s1 = "Hello";
