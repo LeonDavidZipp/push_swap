@@ -6,13 +6,13 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:33:04 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 10:45:22 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(int stack_a[], int stack_b[], int *height_a, int *height_b)
+void	pb(int *stack_a, int *stack_b, int *height_a, int *height_b)
 {
 	if (*height_a <= 0)
 		return ;

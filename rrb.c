@@ -6,13 +6,13 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:32:40 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 10:44:01 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrb(int stack_b[], int height_b)
+void	rrb(int *stack_b, int height_b)
 {
 	int		temp;
 

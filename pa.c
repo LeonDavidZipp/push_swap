@@ -6,13 +6,13 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:24:48 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 10:45:10 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(int stack_a[], int stack_b[], int *height_a, int *height_b)
+void	pa(int *stack_a, int *stack_b, int *height_a, int *height_b)
 {
 	if (*height_b <= 0)
 		return ;
@@ -23,7 +23,6 @@ void	pa(int stack_a[], int stack_b[], int *height_a, int *height_b)
 	(*height_a)++;
 	(*height_b)--;
 }
-
 // #include <stdio.h>
 // int	main(void)
 // {

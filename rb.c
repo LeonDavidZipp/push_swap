@@ -6,13 +6,13 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/30 13:32:46 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 10:45:57 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(int stack_b[], int height_b)
+void	rb(int *stack_b, int height_b)
 {
 	int		temp;
 
@@ -27,9 +27,9 @@ void	rb(int stack_b[], int height_b)
 // {
 // 	int stack_b[6] = {1, 2, 3, 4, 5, 6};
 // 	int height_b = 6;
-// 	ra(stack_b, height_b);
-// 	ra(stack_b, height_b);
-// 	ra(stack_b, height_b);
+// 	rb(stack_b, height_b);
+// 	rb(stack_b, height_b);
+// 	rb(stack_b, height_b);
 // 	printf("pa worked\n");
 // 	printf("height_b: %d\n", height_b);
 // 	printf("stack_b: %d, %d, %d, %d, %d, %d\n", stack_b[0], stack_b[1],
