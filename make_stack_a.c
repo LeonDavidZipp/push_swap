@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 12:05:50 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 14:45:39 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,10 @@ int	*make_stack_a(int argc, char **argv)
 	int		*stack_a;
 	int		height_a;
 
-	if (!check_numeric(argc, argv) || !check_unique(argc, argv))
-		return (NULL);
 	num_string = join_input(argc, argv);
-	printf("num_string = %s|\n", num_string);
-	if (!num_string)
+	if (!check_numeric(argc, argv) || !check_unique(argc, argv) || !num_string)
 		return (NULL);
 	num_strings = ft_split(num_string, ' ');
-	// printf("num_strings[0] = %s\n", num_strings[0]);
-	// printf("num_strings[1] = %s\n", num_strings[1]);
-	// printf("num_strings[2] = %s\n", num_strings[2]);
 	free (num_string);
 	if (!num_strings)
 		return (NULL);
@@ -114,7 +108,10 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = make_stack_a(argc, argv);
 	if (!stack_a)
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	for (int i = 0; i < height_a; i++)
 	{
 		printf("%d ", stack_a[i]);
