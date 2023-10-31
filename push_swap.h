@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 10:45:41 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/31 11:51:33 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdlib.h>
 
 void	sa(int *stack_a, unsigned int height);
 void	sb(int *stack_b, unsigned int height);
@@ -27,6 +28,16 @@ void	rra(int *stack_a, int height_a);
 void	rrb(int *stack_b, int height_b);
 void	rrr(int *stack_a, int *stack_b, int height_a, int height_b);
 
+// helper functions
+void	*ft_calloc(size_t count, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
+char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep);
+int		ft_atoi(const char *str);
+int		ft_isdigit(int c);
+int		ft_strcmp(char *s1, char *s2);
+char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
+size_t	ft_strlen(const char *s);
 
 #endif
