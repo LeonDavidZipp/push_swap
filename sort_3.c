@@ -6,13 +6,13 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:01:12 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 16:19:21 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 16:29:47 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*sort_3(t_stack *stack_a)
+void	sort_3(t_stack *stack_a)
 {
 	if (stack_a->height <= 2)
 		return (sort_2(stack_a));
@@ -29,7 +29,6 @@ t_stack	*sort_3(t_stack *stack_a)
 		rra_wrapper(stack_a->stack, stack_a->height);
 	if (stack_a->stack[0] > stack_a->stack[1])
 		sa_wrapper(stack_a->stack, stack_a->height);
-	return (stack_a);
 }
 // #include <stdio.h>
 // int	main(int argc, char **argv)
@@ -42,9 +41,7 @@ t_stack	*sort_3(t_stack *stack_a)
 //     sort_3(stack_a);//, stack_b);
 //     // Print the sorted stack
 //     for (i = 0; i < stack_a->height; i++)
-//     {
 //         printf("%d ", stack_a->stack[i]);
-//     }
 //     printf("\n");
 //     free(stack_a->stack);
 //     free(stack_a);

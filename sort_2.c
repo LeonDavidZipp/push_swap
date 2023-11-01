@@ -6,13 +6,13 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:01:12 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 16:00:08 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 16:30:24 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*sort_2(t_stack *stack_a)
+void	sort_2(t_stack *stack_a)
 {
 	if (stack_a->height <= 1)
 		return (stack_a);
