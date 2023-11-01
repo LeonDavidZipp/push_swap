@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:01:12 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 16:16:16 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 16:19:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,16 @@ t_stack	*sort_3(t_stack *stack_a)
 // {
 //     t_stack	*stack_a;
 //     int i;
-
 //     if (argc == 1)
 //         return (0);
 //     stack_a = make_stack_a(argc, argv);
 //     sort_3(stack_a);//, stack_b);
-
 //     // Print the sorted stack
 //     for (i = 0; i < stack_a->height; i++)
 //     {
 //         printf("%d ", stack_a->stack[i]);
 //     }
 //     printf("\n");
-
 //     free(stack_a->stack);
 //     free(stack_a);
 //     return (0);
