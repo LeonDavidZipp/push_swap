@@ -6,13 +6,14 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:38:49 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 15:59:10 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Shift down all elements of stack_a by 1.
+/// @brief Shift down all elements of stack a by 1.
+/// The last element becomes the first one
 /// @param stack_a 
 /// @param height_a 
 void	rra(int *stack_a, int height_a)
@@ -21,9 +22,9 @@ void	rra(int *stack_a, int height_a)
 
 	if (height_a <= 1)
 		return ;
-	temp = stack_a[0];
-	ft_memmove(stack_a, &stack_a[1], (size_t)(height_a - 1) * sizeof(int));
-	stack_a[height_a - 1] = temp;
+	temp = stack_a[height_a - 1];
+	ft_memmove(&stack_a[1], stack_a, (size_t)(height_a - 1) * sizeof(int));
+	stack_a[0] = temp;
 }
 
 void	rra_wrapper(int *stack_a, int height_a)
@@ -36,9 +37,9 @@ void	rra_wrapper(int *stack_a, int height_a)
 // {
 // 	int stack_a[6] = {1, 2, 3, 4, 5, 6};
 // 	int height_a = 6;
-// 	ra(stack_a, height_a);
-// 	ra(stack_a, height_a);
-// 	ra(stack_a, height_a);
+// 	rra(stack_a, height_a);
+// 	// rra(stack_a, height_a);
+// 	// rra(stack_a, height_a);
 // 	printf("pa worked\n");
 // 	printf("height_a: %d\n", height_a);
 // 	printf("stack_a: %d, %d, %d, %d, %d, %d\n", stack_a[0], stack_a[1],

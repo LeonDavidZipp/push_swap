@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 12:15:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:40:33 by lzipp            ###   ########.fr       */
+/*   Created: 2023/11/01 15:01:12 by lzipp             #+#    #+#             */
+/*   Updated: 2023/11/01 16:00:08 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Sorts stack_a using stack_b as a temporary stack.
-/// @param stack_a 
-/// @param stack_b 
-/// @return 
-t_stack	*sort(t_stack *stack_a, t_stack *stack_b)
+t_stack	*sort_2(t_stack *stack_a)
 {
-	// if height is 1 or 0, just return
-	// if height is 2, swap if needed
+	if (stack_a->height <= 1)
+		return (stack_a);
+	if (stack_a->stack[0] > stack_a->stack[1])
+		sa_wrapper(stack_a->stack, stack_a->height);
+	return (stack_a);
 }
