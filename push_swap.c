@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:13:16 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:43:35 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int	main(int argc, char **argv)
 {
-	int	*stack_a;
-	int	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	if (argc < 2)
 		return (0);
