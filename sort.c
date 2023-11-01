@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:15:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 22:09:48 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 00:05:56 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 /// @return 
 void	sort(t_stack *stack_a, t_stack *stack_b)
 {
+	int		unsorted;
+	int		temp;
+
 	if (stack_a->height <= 1)
 		return ;
 	if (stack_a->height <= 3)
@@ -27,6 +30,13 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
+	unsorted = 1;
+	while (unsorted)
+	{
+		temp = stack_a->stack[0];
+		if (temp > stack_a->stack[1])
+			sa_wrapper(stack_a->stack, stack_a->height);
+	}
 }
 #include <stdio.h>
 int	main(int argc, char **argv)
