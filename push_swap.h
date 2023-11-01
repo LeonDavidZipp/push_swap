@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:25:59 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:48:56 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ typedef struct s_stack {
 	int	*stack;
 	int	height;
 }	t_stack;
+
+// stack creation
+t_stack	*make_stack_a(int argc, char **argv);
+t_stack	*make_stack_b(t_stack stack_a);
 
 // stack manipulation functions
 void	sa(int *stack_a, unsigned int height);

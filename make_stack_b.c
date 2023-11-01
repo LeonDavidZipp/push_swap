@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:04:22 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:47:33 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:48:11 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_stack	*make_stack_b(t_stack stack_a)
 		return (NULL);
 	stack = (int *)ft_calloc(stack_a.height, sizeof(int *));
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	stack_b->stack = stack;
 	stack_b->height = stack_a.height;
 	return (stack_b);
