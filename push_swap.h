@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 16:58:04 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 02:18:29 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rrr(int *stack_a, int *stack_b, int height_a, int height_b);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strdup(const char *s1);
