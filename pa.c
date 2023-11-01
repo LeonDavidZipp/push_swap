@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:25:33 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:31:01 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	pa(int *stack_a, int *stack_b, int *height_a, int *height_b)
 	stack_b[*height_b - 1] = 0;
 	(*height_a)++;
 	(*height_b)--;
-	ft_printf("pa\n");
+	write(1, "pa\n", 3);
 }
 // #include <stdio.h>
 // int	main(void)

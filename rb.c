@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:27:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:30:33 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	rb(int *stack_b, int height_b)
 void	rb_wrapper(int *stack_b, int *height_b)
 {
 	rb(stack_b, *height_b);
-	ft_printf("rb\n");
+	write(1, "rb\n", 3);
 }
 // #include <stdio.h>
 // int	main(void)

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:28:03 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:29:38 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sa(int *stack_a, unsigned int height)
 void	sa_wrapper(int *stack_a, int *height_a)
 {
 	sa(stack_a, *height_a);
-	ft_printf("sa\n");
+	write(1, "sa\n", 3);
 }
 // #include <stdio.h>
 // int main() {

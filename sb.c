@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:28:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:29:26 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	sb(int *stack_b, unsigned int height)
 void	sb_wrapper(int *stack_b, int *height_b)
 {
 	sb(stack_b, *height_b);
-	ft_printf("sb\n");
+	write(1, "sb\n", 3);
 }

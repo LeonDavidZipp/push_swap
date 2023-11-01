@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:25:45 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:30:54 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	pb(int *stack_a, int *stack_b, int *height_a, int *height_b)
 	stack_a[*height_a - 1] = 0;
 	(*height_b)++;
 	(*height_a)--;
-	ft_printf("pb\n");
+	write(1, "pb\n", 3);
 }
 
 // #include <stdio.h>

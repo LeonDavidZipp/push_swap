@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:27:02 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:30:42 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ra(int *stack_a, int height_a)
 void	ra_wrapper(int *stack_a, int *height_a)
 {
 	ra(stack_a, *height_a);
-	ft_printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 // #include <stdio.h>
