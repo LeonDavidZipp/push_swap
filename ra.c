@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 10:42:43 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:27:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void	ra(int *stack_a, int height_a)
 	ft_memmove(&stack_a[1], stack_a, (size_t)(height_a - 1) * sizeof(int));
 	stack_a[0] = temp;
 }
+
+void	ra_wrapper(int *stack_a, int *height_a)
+{
+	ra(stack_a, *height_a);
+	ft_printf("ra\n");
+}
+
 // #include <stdio.h>
 // int	main(void)
 // {
