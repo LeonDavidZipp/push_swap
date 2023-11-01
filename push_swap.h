@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 02:18:29 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:25:59 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 # include <stdlib.h>
 # include <limits.h>
 
+// stack struct
+typedef struct s_stack {
+	int	*stack;
+	int	height;
+}	t_stack;
 
+// stack manipulation functions
 void	sa(int *stack_a, unsigned int height);
 void	sb(int *stack_b, unsigned int height);
 void	ss(int *stack_a, int *stack_b, int height_a, int height_b);

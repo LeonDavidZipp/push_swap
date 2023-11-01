@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:01:28 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:35:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,18 @@ static char	*join_input(int argc, char **argv)
 	return (num_string);
 }
 
-static int	*build_stack(char **num_strings)
+static t_stack	*build_stack(char **num_strings)
 {
-	int		*stack_a;
+	t_stack	*stack_a;
+	int		*stack;
 	int		height_a;
 	long	num;
 
 	height_a = 0;
 	while (num_strings[height_a] != NULL)
 		height_a++;
-	stack_a = (int *)ft_calloc(height_a, sizeof(int));
-	if (!stack_a)
+	stack = (int *)ft_calloc(height_a, sizeof(int));
+	if (!stack)
 		return (NULL);
 	height_a = -1;
 	while (num_strings[++height_a] != NULL)
@@ -92,12 +93,17 @@ static int	*build_stack(char **num_strings)
 		num = ft_atoi(num_strings[height_a]);
 		if (num > INT_MAX || num < INT_MIN)
 			return (NULL);
-		stack_a[height_a] = (int)num;
+		stack[height_a] = (int)num;
 	}
+	stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
+	if (!stack_a)
+		return (NULL);
+	stack_a->stack = stack;
+	stack_a->height = height_a;
 	return (stack_a);
 }
 
-int	*make_stack_a(int argc, char **argv)
+t_stack	*make_stack_a(int argc, char **argv)
 {
 	char	*num_string;
 	char	**num_strings;
@@ -114,8 +120,9 @@ int	*make_stack_a(int argc, char **argv)
 // #include <stdio.h>
 // int	main(int argc, char **argv)
 // {
-// 	int	*stack_a;
-// 	int height_a = argc - 1;
+// 	t_stack	*stack_a;
+// 	int		height_a;
+// 	int		*stack;
 
 // 	if (argc == 1)
 // 		return (0);
@@ -125,9 +132,11 @@ int	*make_stack_a(int argc, char **argv)
 // 		write(2, "Error\n", 6);
 // 		return (0);
 // 	}
+// 	height_a = stack_a->height;
+// 	stack = stack_a->stack;
 // 	for (int i = 0; i < height_a; i++)
 // 	{
-// 		printf("|%d|\n", stack_a[i]);
+// 		printf("|%d|\n", stack[i]);
 // 	}
 // 	printf("\n");
 // 	return (0);
