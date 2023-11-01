@@ -6,21 +6,21 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:29:38 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:41:29 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Swap the first 2 elements at the top of stack a.
+/// @brief Swaps the first 2 elements at the top of stack a.
 /// Do nothing if there is only one or no elements.
 /// @param el1
 /// @param el2
-void	sa(int *stack_a, unsigned int height)
+void	sa(int *stack_a, int height_a)
 {
 	int		temp;
 
-	if (height <= 1)
+	if (height_a <= 1)
 		return ;
 	if (stack_a[0] > stack_a[1])
 	{
@@ -30,9 +30,9 @@ void	sa(int *stack_a, unsigned int height)
 	}
 }
 
-void	sa_wrapper(int *stack_a, int *height_a)
+void	sa_wrapper(int *stack_a, int height_a)
 {
-	sa(stack_a, *height_a);
+	sa(stack_a, height_a);
 	write(1, "sa\n", 3);
 }
 // #include <stdio.h>

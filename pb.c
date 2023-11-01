@@ -6,12 +6,17 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:30:54 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:36:47 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/// @brief Pushes the top element of stack_a to stack_b
+/// @param stack_a 
+/// @param stack_b 
+/// @param height_a 
+/// @param height_b 
 void	pb(int *stack_a, int *stack_b, int *height_a, int *height_b)
 {
 	if (*height_a <= 0)

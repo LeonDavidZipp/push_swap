@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:48:56 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:42:10 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,26 @@ t_stack	*make_stack_a(int argc, char **argv);
 t_stack	*make_stack_b(t_stack stack_a);
 
 // stack manipulation functions
-void	sa(int *stack_a, unsigned int height);
-void	sb(int *stack_b, unsigned int height);
+void	pa(int *stack_a, int *stack_b, int *height_a, int *height_b);
+void	pb(int *stack_a, int *stack_b, int *height_a, int *height_b);
+
+void	sa(int *stack_a, int height_a);
+void	sa_wrapper(int *stack_a, int height_a);
+void	sb(int *stack_b, int height);
+void	sb_wrapper(int *stack_b, int height_b);
 void	ss(int *stack_a, int *stack_b, int height_a, int height_b);
 
 void	ra(int *stack_a, int height_a);
+void	ra_wrapper(int *stack_a, int height_a);
 void	rb(int *stack_b, int height_b);
+void	rb_wrapper(int *stack_b, int height_b);
 void	rr(int *stack_a, int *stack_b, int height_a, int height_b);
 
 void	rra(int *stack_a, int height_a);
+void	rra_wrapper(int *stack_a, int height_a);
 void	rrb(int *stack_b, int height_b);
-void	rrr(int *stack_a, int *stack_b, int height_a, int height_b);
+void	rrb_wrapper(int *stack_b, int height_b);
+void	rrr(int stack_a, int stack_b, int height_a, int height_b);
 
 // helper functions
 void	*ft_calloc(size_t count, size_t size);

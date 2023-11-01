@@ -6,12 +6,15 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:30:12 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:38:49 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/// @brief Shift down all elements of stack_a by 1.
+/// @param stack_a 
+/// @param height_a 
 void	rra(int *stack_a, int height_a)
 {
 	int		temp;
@@ -23,9 +26,9 @@ void	rra(int *stack_a, int height_a)
 	stack_a[height_a - 1] = temp;
 }
 
-void	rra_wrapper(int *stack_a, int *height_a)
+void	rra_wrapper(int *stack_a, int height_a)
 {
-	rra(stack_a, *height_a);
+	rra(stack_a, height_a);
 	write(1, "rra\n", 4);
 }
 // #include <stdio.h>
