@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bubblesort.c                                       :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:15:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 14:35:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 22:09:48 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,17 @@
 /// @param stack_a 
 /// @param stack_b 
 /// @return 
-t_stack	*bubblesort(t_stack *stack_a)//, t_stack *stack_b)
+void	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	// if height is 1 or 0, just return
-	// if height is 2, swap if needed
-	// int		i;
-
 	if (stack_a->height <= 1)
-		return (stack_a);
-	// i = 0;
-	if (stack_a->height == 2)
+		return ;
+	if (stack_a->height <= 3)
 	{
-		if (stack_a->stack[0] > stack_a->stack[1])
-			sa_wrapper(stack_a->stack, stack_a->height);
+		sort_3_a(stack_a);
+		return ;
 	}
-	return (stack_a);
+	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
+		ra_wrapper(stack_a->stack, stack_a->height);
 }
 #include <stdio.h>
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:01:12 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 21:59:12 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 22:03:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_2_a(t_stack *stack_a)
 		sa_wrapper(stack_a->stack, stack_a->height);
 }
 
-void	sort_2_a(t_stack *stack_b)
+void	sort_2_b(t_stack *stack_b)
 {
 	if (stack_b->height <= 1)
 		return ;

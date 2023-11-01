@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 16:30:11 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 22:02:53 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ t_stack	*make_stack_a(int argc, char **argv);
 t_stack	*make_stack_b(t_stack stack_a);
 
 // sorting functions
-void	sort_2(t_stack *stack_a);
-void	sort_3(t_stack *stack_a);
+void	sort_2_a(t_stack *stack_a);
+void	sort_2_b(t_stack *stack_b);
+void	sort_3_a(t_stack *stack_a);
+void	sort_3_b(t_stack *stack_b);
 
 // stack manipulation functions
 void	pa(int *stack_a, int *stack_b, int *height_a, int *height_b);
