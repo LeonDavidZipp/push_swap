@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 02:19:22 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 09:40:09 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,15 @@ int	*make_stack_a(int argc, char **argv)
 	while (num_strings[height_a] != NULL)
 		height_a++;
 	stack_a = (int *)ft_calloc(height_a, sizeof(int));
+	if (!stack_a)
+		return (NULL);
 	height_a = -1;
 	while (num_strings[++height_a] != NULL)
 	{
 		num = ft_atoi(num_strings[height_a]);
 		if (num > INT_MAX || num < INT_MIN)
 			return (NULL);
-		stack_a[height_a] = num;
+		stack_a[height_a] = (int)num;
 	}
 	return (stack_a);
 }
