@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:36:35 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 12:54:27 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	pa(int *stack_a, int *stack_b, int *height_a, int *height_b)
 	stack_b[*height_b - 1] = 0;
 	(*height_a)++;
 	(*height_b)--;
+}
+
+void	pa_wrapper(int *stack_a, int *stack_b, int *height_a, int *height_b)
+{
+	pa(stack_a, stack_b, height_a, height_b);
 	write(1, "pa\n", 3);
 }
 // #include <stdio.h>
