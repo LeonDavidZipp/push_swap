@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   make_stack_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:07:35 by lzipp            ###   ########.fr       */
+/*   Created: 2023/11/01 11:04:22 by lzipp             #+#    #+#             */
+/*   Updated: 2023/11/01 11:05:51 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "push_swap.h"
+
+int	*make_stack_b(int height_a)
 {
-	int	*stack_a;
 	int	*stack_b;
 
-	if (argc < 2)
-		return (0);
-	stack_a = make_stack_a(argc, argv);
-	return (0);
+	stack_b = (int *)ft_calloc(height_a, sizeof(int));
+	if (!stack_b)
+		return (NULL);
+	return (stack_b);
 }
