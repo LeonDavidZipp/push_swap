@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 09:40:09 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/01 11:01:28 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,12 @@ static char	*join_input(int argc, char **argv)
 	return (num_string);
 }
 
-int	*make_stack_a(int argc, char **argv)
+static int	*build_stack(char **num_strings)
 {
-	char	*num_string;
-	char	**num_strings;
 	int		*stack_a;
 	int		height_a;
 	long	num;
 
-	num_string = join_input(argc, argv);
-	if (!check_numeric(argc, argv) || !check_unique(argc, argv) || !num_string)
-		return (NULL);
-	num_strings = ft_split(num_string, ' ');
-	free (num_string);
-	if (!num_strings)
-		return (NULL);
 	height_a = 0;
 	while (num_strings[height_a] != NULL)
 		height_a++;
@@ -106,25 +97,40 @@ int	*make_stack_a(int argc, char **argv)
 	return (stack_a);
 }
 
-#include <stdio.h>
-int	main(int argc, char **argv)
+int	*make_stack_a(int argc, char **argv)
 {
-	int	*stack_a;
-	int height_a = argc - 1;
+	char	*num_string;
+	char	**num_strings;
 
-	if (argc == 1)
-		return (0);
-	stack_a = make_stack_a(argc, argv);
-	if (!stack_a)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	for (int i = 0; i < height_a; i++)
-	{
-		printf("%d ", stack_a[i]);
-	}
-	printf("\n");
-	return (0);
+	num_string = join_input(argc, argv);
+	if (!check_numeric(argc, argv) || !check_unique(argc, argv) || !num_string)
+		return (NULL);
+	num_strings = ft_split(num_string, ' ');
+	free (num_string);
+	if (!num_strings)
+		return (NULL);
+	return (build_stack(num_strings));
 }
-// cc make_stack_a.c ft_strdup.c ft_isdigit.c ft_strcmp.c ft_strsepjoin.c ft_calloc.c ft_strlen.c ft_atoi.c ft_split.c ft_substr.c
+// #include <stdio.h>
+// int	main(int argc, char **argv)
+// {
+// 	int	*stack_a;
+// 	int height_a = argc - 1;
+
+// 	if (argc == 1)
+// 		return (0);
+// 	stack_a = make_stack_a(argc, argv);
+// 	if (!stack_a)
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (0);
+// 	}
+// 	for (int i = 0; i < height_a; i++)
+// 	{
+// 		printf("|%d|\n", stack_a[i]);
+// 	}
+// 	printf("\n");
+// 	return (0);
+// }
+// cc make_stack_a.c ft_strdup.c ft_isdigit.c ft_strcmp.c ft_strsepjoin.c
+// ft_calloc.c ft_strlen.c ft_atoi.c ft_split.c ft_substr.c
