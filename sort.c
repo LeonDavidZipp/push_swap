@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:15:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 00:05:56 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 00:24:13 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 /// @return 
 void	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int		unsorted;
 	int		temp;
+	int		stack_flag;
 
 	if (stack_a->height <= 1)
 		return ;
@@ -30,14 +30,34 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
-	unsorted = 1;
-	while (unsorted)
+	stack_flag = 1;
+	while (1)
 	{
 		temp = stack_a->stack[0];
-		if (temp > stack_a->stack[1])
-			sa_wrapper(stack_a->stack, stack_a->height);
+		while (temp > stack_a->stack[1])
+		{
+			if (stack_flag == 1)
+			{
+				ra_wrapper(stack_a->stack, stack_a->height);
+				if (stack_a->height <= 3)
+					sort_3_a(stack_a);
+			}
+			else if (stack_flag == -1)
+			{
+				pb_wrapper(stack_a, stack_b,
+					&stack_a->height, &stack_b->height);
+				rb_wrapper(stack_b->stack, stack_b->height);
+				if (stack_b->height <= 3)
+					sort_3_b(stack_b);
+			}
+			temp = stack_a->stack[0];
+		}
+		stack_flag *= -1;
+		if (stack_b->height == 0)
+			break;
 	}
 }
+
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
