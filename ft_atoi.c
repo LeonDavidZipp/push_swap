@@ -6,12 +6,12 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:29:13 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 02:20:52 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:18:56 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 long	ft_atoi(const char *str)
 {
 	int			i;

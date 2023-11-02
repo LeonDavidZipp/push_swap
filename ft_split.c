@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:23 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 11:50:07 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:19:11 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_count_words(const char *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c)) 
+		if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
 			count++;
 		i++;
 	}
