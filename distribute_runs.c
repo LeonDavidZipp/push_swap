@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   distribute_runs.c								  :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: lzipp <lzipp@student.42.fr>				+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2023/11/01 12:15:05 by lzipp			 #+#	#+#			 */
-/*   Updated: 2023/11/02 11:12:03 by lzipp			###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   distribute_runs.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
+/*   Updated: 2023/11/02 12:36:22 by lzipp            ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
@@ -68,17 +68,18 @@ void	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 		ra_wrapper(stack_a->stack, stack_a->height);
 	stack_flag = 1;
 	runs_a = count_runs(stack_a);
-	printf("runs_a: %d\n", runs_a);
+	// printf("runs_a: %d\n", runs_a);
 	runs_b = 0;
 	while (runs_a != runs_b && runs_a != runs_b + 1 && runs_a != runs_b - 1)
 	{
 		move_run(stack_a, stack_b, stack_flag);
+		printf("run moved\n");
 		runs_a--;
 		runs_b++;
 		stack_flag *= -1;
-		printf("runs_a: %d\n", runs_a);
-		printf("runs_b: %d\n", runs_b);
-		printf("stack_flag: %d\n", stack_flag);
+		// printf("runs_a: %d\n", runs_a);
+		// printf("runs_b: %d\n", runs_b);
+		// printf("stack_flag: %d\n", stack_flag);
 	}
 }
 
