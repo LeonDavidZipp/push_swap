@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 20:38:31 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 22:16:27 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 		return (1);
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
+	printf("runs: %d", count_runs(stack_a->stack, stack_a->height));
 	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
 	runs_b = 0;
@@ -119,12 +120,12 @@ int main()
 	stack_b->stack = (int *)malloc(stack_a->height * sizeof(int));
 	// Fill stack_a with some values
 	stack_a->stack[0] = 10;
-	stack_a->stack[1] = 2;
-	stack_a->stack[2] = 3;
-	stack_a->stack[3] = 4;
-	stack_a->stack[4] = 5;
+	stack_a->stack[1] = 11;
+	stack_a->stack[2] = 14;
+	stack_a->stack[3] = 13;
+	stack_a->stack[4] = 15;
 	stack_a->stack[5] = 6;
-	stack_a->stack[6] = 7;
+	stack_a->stack[6] = 5;
 	stack_a->stack[7] = 8;
 	// Call distribute_runs
 	int sorted = distribute_runs(stack_a, stack_b);
@@ -152,5 +153,4 @@ int main()
 	free(stack_b);
 	return 0;
 }
-// cc bubblesort.c sa.c make_stack_a.c make_stack_b.c ft_atoi.c ft_calloc.c ft_isdigit.c ft_split.c ft_strcmp.c ft_strdup.c ft_strsepjoin.c ft_strlen.c ft_substr.c 
 // Stack A: 1 0 -1 -2 6 7 10 12 	
