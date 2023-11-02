@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:15:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 10:41:57 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 10:50:59 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ static int	count_runs(t_stack *stack_a)
 	return (count);
 }
 
+/// @brief Moves a run to the bottom of stack_a or stack_b.
+/// @param stack_a 
+/// @param stack_b 
+/// @param stack_flag Determines whether the run is moved to stack_a or stack_b.
 static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 {
 	int		temp;
@@ -61,6 +65,8 @@ static void	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 	int		runs_a;
 	int		runs_b;
 
+	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
+		ra_wrapper(stack_a->stack, stack_a->height);
 	stack_flag = 1;
 	runs_a = count_runs(stack_a);
 	runs_b = 0;
@@ -85,8 +91,6 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		sort_3_a(stack_a);
 		return ;
 	}
-	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
-		ra_wrapper(stack_a->stack, stack_a->height);
 	distribute_runs(stack_a, stack_b);
 }
 
