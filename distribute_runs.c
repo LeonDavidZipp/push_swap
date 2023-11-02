@@ -6,12 +6,26 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 20:28:11 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 20:38:31 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+static int	is_sorted(int *stack, int height)
+{
+	int		i;
+
+	i = -1;
+	while (++i < height - 1)
+	{
+		if (stack[i] > stack[i + 1])
+			return (0);
+	}
+	return (1);
+}
+
 /// @brief Counts the number of runs in stack_a.
 /// A run is a sequence of numbers that are in ascending order.
 /// @param stack_a 
@@ -71,27 +85,21 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 	int		runs_a;
 	int		runs_b;
 
+	if (is_sorted(stack_a->stack, stack_a->height) == 1)
+		return (1);
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
-	stack_flag = -1;
+	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
-	// printf("%d\n", runs_a);
 	runs_b = 0;
-	// while (runs_a != runs_b && runs_a != runs_b + 1 && runs_a != runs_b - 1)
 	while (1)
 	{
-		if (move_run(stack_a, stack_b, stack_flag) == 1)
-			return (1);
+		move_run(stack_a, stack_b, stack_flag);
 		if (runs_a == runs_b || runs_a == runs_b + 1 || runs_a == runs_b - 1)
 			break ;
 		runs_a--;
 		runs_b++;
 		stack_flag *= -1;
-		printf("runs_a: %d\n", runs_a);
-		printf("runs_b: %d\n", runs_b);
-		printf("stack_flag: %d\n", stack_flag);
-		// if (runs_a == runs_b || runs_a == runs_b + 1 || runs_a == runs_b - 1)
-		// 	break ;
 	}
 	return (0);
 }
@@ -110,17 +118,16 @@ int main()
 	stack_b->height = 0;
 	stack_b->stack = (int *)malloc(stack_a->height * sizeof(int));
 	// Fill stack_a with some values
-	stack_a->stack[0] = 6;
-	stack_a->stack[1] = 7;
-	stack_a->stack[2] = 10;
-	stack_a->stack[3] = 12;
-	stack_a->stack[4] = 1;
-	stack_a->stack[5] = 0;
-	stack_a->stack[6] = -1;
-	stack_a->stack[7] = -2;
-
+	stack_a->stack[0] = 10;
+	stack_a->stack[1] = 2;
+	stack_a->stack[2] = 3;
+	stack_a->stack[3] = 4;
+	stack_a->stack[4] = 5;
+	stack_a->stack[5] = 6;
+	stack_a->stack[6] = 7;
+	stack_a->stack[7] = 8;
 	// Call distribute_runs
-	distribute_runs(stack_a, stack_b);
+	int sorted = distribute_runs(stack_a, stack_b);
 	// while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 	// 	ra_wrapper(stack_a->stack, stack_a->height);
 	// printf("runs: %d\n", count_runs(stack_a->stack, stack_a->height));
