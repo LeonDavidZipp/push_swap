@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:54:46 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 11:33:28 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	pb_wrapper(int *stack_a, int *stack_b, int *height_a, int *height_b)
 // 	int height_a = 5;
 // 	int height_b = 1;
 
-// 	pa(stack_a, stack_b, &height_a, &height_b);
+// 	pb_wrapper(stack_a, stack_b, &height_a, &height_b);
+// 	pb_wrapper(stack_a, stack_b, &height_a, &height_b);
 // 	printf("pa worked\n");
 // 	printf("height_a: %d\n", height_a);
 // 	printf("height_b: %d\n", height_b);

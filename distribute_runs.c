@@ -66,7 +66,6 @@ void	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
-	printf("done here\n");
 	stack_flag = 1;
 	runs_a = count_runs(stack_a);
 	printf("runs_a: %d\n", runs_a);
