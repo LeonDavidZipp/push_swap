@@ -3,26 +3,72 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:15:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 00:24:13 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/02 10:06:15 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Sorts stack_a using stack_b as a temporary stack.
+/// @brief Counts the number of runs in stack_a.
+/// A run is a sequence of numbers that are in ascending order.
+/// @param stack_a 
+/// @return 
+static int	count_runs(t_stack *stack_a)
+{
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (i < stack_a->height - 1)
+	{
+		if (stack_a->stack[i] > stack_a->stack[i + 1])
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+/// @brief Distributes the runs evenly between stack_a and stack_b.
 /// @param stack_a 
 /// @param stack_b 
-/// @return 
-void	sort(t_stack *stack_a, t_stack *stack_b)
+static void	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 {
 	int		temp;
 	int		stack_flag;
+	int		runs;
 
-	if (stack_a->height <= 1)
-		return ;
+	stack_flag = 1;
+	runs = count_runs(stack_a);
+	while (1)
+	{
+		temp = stack_a->stack[0];
+		while (temp < stack_a->stack[1])
+		{
+			if (stack_flag == 1)
+				ra_wrapper(stack_a->stack, stack_a->height);
+			else if (stack_flag == -1)
+			{
+				pb_wrapper(stack_a, stack_b,
+					&stack_a->height, &stack_b->height);
+				rb_wrapper(stack_b->stack, stack_b->height);
+			}
+			temp = stack_a->stack[0];
+		}
+		stack_flag *= -1;
+	}
+}
+
+/// @brief Sorts stack_a using stack_b as a temporary stack.
+/// @param stack_a 
+/// @param stack_b 
+void	sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int		runs;
+
 	if (stack_a->height <= 3)
 	{
 		sort_3_a(stack_a);
@@ -30,32 +76,6 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
-	stack_flag = 1;
-	while (1)
-	{
-		temp = stack_a->stack[0];
-		while (temp > stack_a->stack[1])
-		{
-			if (stack_flag == 1)
-			{
-				ra_wrapper(stack_a->stack, stack_a->height);
-				if (stack_a->height <= 3)
-					sort_3_a(stack_a);
-			}
-			else if (stack_flag == -1)
-			{
-				pb_wrapper(stack_a, stack_b,
-					&stack_a->height, &stack_b->height);
-				rb_wrapper(stack_b->stack, stack_b->height);
-				if (stack_b->height <= 3)
-					sort_3_b(stack_b);
-			}
-			temp = stack_a->stack[0];
-		}
-		stack_flag *= -1;
-		if (stack_b->height == 0)
-			break;
-	}
 }
 
 #include <stdio.h>
