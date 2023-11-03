@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   distribute_runs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 22:18:10 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 11:08:43 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 static int	is_sorted(int *stack, int height)
 {
 	int		i;
@@ -84,10 +84,11 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 	int		runs_a;
 	int		runs_b;
 
-	if (is_sorted(stack_a->stack, stack_a->height) == 1)
-		return (1);
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
+	if (is_sorted(stack_a->stack, stack_a->height) == 1)
+		return (1);
+	printf("wrapped ra\n");
 	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
 	runs_b = 0;
