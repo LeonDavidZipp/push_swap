@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 14:47:09 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 16:00:00 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,20 +109,24 @@ int main(void)
     t_stack stack_b;
 
     // Initialize the heights of the stacks
-    stack_a.height = 6;
     stack_b.height = 0;
 
     // Allocate memory for the stacks
-    stack_a.stack = malloc(stack_a.height * sizeof(int));
-    stack_b.stack = malloc(stack_a.height * sizeof(int));
+	int stacka[50] = {11, 2, 3, 4, 99, 6, 7, 8, 9, -300, 12, 13, 14, 15, 16, 17, 18, 19, 60000, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 900, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 52, 53};
+    stack_a.stack = stacka;
+    stack_a.height = 50;
+
+    int stackb[50] = {0};
+    stack_b.stack = stackb;
+    stack_b.height = 0;
 
     // Fill stack_a with some unsorted numbers
-    stack_a.stack[0] = 5;
-    stack_a.stack[1] = 6;
-    stack_a.stack[2] = 4;
-    stack_a.stack[3] = 2;
-    stack_a.stack[4] = 1;
-	stack_a.stack[5] = 1000;
+    // stack_a.stack[0] = 5;
+    // stack_a.stack[1] = 6;
+    // stack_a.stack[2] = 4;
+    // stack_a.stack[3] = 2;
+    // stack_a.stack[4] = 1;
+	// stack_a.stack[5] = 1000;
 
     // Sort stack_a using stack_b as a temporary stack
     sort(&stack_a, &stack_b);
@@ -133,11 +137,6 @@ int main(void)
         printf("%d ", stack_a.stack[i]);
     }
     printf("\n");
-
-    // Free the memory allocated for the stacks
-    free(stack_a.stack);
-    free(stack_b.stack);
-
     return 0;
 }
 // cc sort.c pb.c rb.c ft_memmove.c sort_3.c sort_2.c distribute_runs.c ra.c rra.c rrb.c sa.c sb.c pa.c
