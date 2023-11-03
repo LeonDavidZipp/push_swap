@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 17:12:28 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:15:24 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,44 +112,44 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 	return (0);
 }
 
-#include "push_swap.h"
-#include <stdio.h>
-int main()
-{
-	t_stack *stack_a = (t_stack *)malloc(sizeof(t_stack));
-	t_stack *stack_b = (t_stack *)malloc(sizeof(t_stack));
-	// Initialize the stacks
-	int stacka[8] = {1, 2, 3, 4, -900, 5, 6, 0};
-	int stackb[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-	stack_a->stack = stacka;
-	stack_a->height = 8;
-	stack_b->stack = stackb;
-	stack_b->height = 0;
-	// Call distribute_runs
-	int sorted = distribute_runs(stack_a, stack_b);
-	sorted += 1;
-	// while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
-	// 	ra_wrapper(stack_a->stack, stack_a->height);
-	// printf("runs: %d\n", count_runs(stack_a->stack, stack_a->height));
+// #include "push_swap.h"
+// #include <stdio.h>
+// int main()
+// {
+// 	t_stack *stack_a = (t_stack *)malloc(sizeof(t_stack));
+// 	t_stack *stack_b = (t_stack *)malloc(sizeof(t_stack));
+// 	// Initialize the stacks
+// 	int stacka[8] = {1, 2, 3, 4, 900, 5, 6, 0};
+// 	int stackb[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+// 	stack_a->stack = stacka;
+// 	stack_a->height = 8;
+// 	stack_b->stack = stackb;
+// 	stack_b->height = 0;
+// 	// Call distribute_runs
+// 	int sorted = distribute_runs(stack_a, stack_b);
+// 	sorted += 1;
+// 	// while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
+// 	// 	ra_wrapper(stack_a->stack, stack_a->height);
+// 	// printf("runs: %d\n", count_runs(stack_a->stack, stack_a->height));
 
-	// Print the results
-	printf("Stack A: ");
-	for (int i = 0; i < stack_a->height; i++)
-	{
-		printf("%d ", stack_a->stack[i]);
-	}
-	printf("\n");
-	printf("Stack B: ");
-	for (int i = 0; i < stack_b->height; i++)
-	{
-		printf("%d ", stack_b->stack[i]);
-	}
-	printf("\n");
-	// Free the stacks
-	free(stack_a->stack);
-	free(stack_b->stack);
-	free(stack_a);
-	free(stack_b);
-	return 0;
-}
+// 	// Print the results
+// 	printf("Stack A: ");
+// 	for (int i = 0; i < stack_a->height; i++)
+// 	{
+// 		printf("%d ", stack_a->stack[i]);
+// 	}
+// 	printf("\n");
+// 	printf("Stack B: ");
+// 	for (int i = 0; i < stack_b->height; i++)
+// 	{
+// 		printf("%d ", stack_b->stack[i]);
+// 	}
+// 	printf("\n");
+// 	// Free the stacks
+// 	free(stack_a->stack);
+// 	free(stack_b->stack);
+// 	free(stack_a);
+// 	free(stack_b);
+// 	return 0;
+// }
 // cc distribute_runs.c ra.c pb.c rb.c ft_memmove.c
