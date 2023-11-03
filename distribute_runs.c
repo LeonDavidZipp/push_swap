@@ -6,12 +6,16 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 15:45:34 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 15:47:57 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
+/// @brief Checks whether stack_a is sorted & thus skips unnecessary steps.
+/// @param stack 
+/// @param height 
+/// @return 1 if sorted, 0 if not sorted.
 static int	is_sorted(int *stack, int height)
 {
 	int		i;
@@ -28,7 +32,7 @@ static int	is_sorted(int *stack, int height)
 /// @brief Counts the number of runs in stack_a.
 /// A run is a sequence of numbers that are in ascending order.
 /// @param stack_a 
-/// @return 
+/// @return number of runs in stack_a.
 static int	count_runs(int *stack, int height)
 {
 	int		i;
@@ -80,6 +84,7 @@ static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 /// @brief Distributes the runs evenly between stack_a and stack_b.
 /// @param stack_a 
 /// @param stack_b 
+/// @return 1 if sorted, 0 if not sorted.
 int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 {
 	int		stack_flag;
@@ -88,18 +93,15 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
-	write(1, "after spinning\n", 15);
 	if (is_sorted(stack_a->stack, stack_a->height) == 1)
 		return (1);
 	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
 	runs_b = 0;
-	// while (1)
+
 	while (runs_a != runs_b && runs_a  != runs_b + 1 && runs_a != runs_b - 1)
 	{
 		move_run(stack_a, stack_b, stack_flag);
-		// if (runs_a == runs_b || runs_a == runs_b + 1 || runs_a == runs_b - 1)
-		// 	break ;
 		if (stack_flag == -1)
 		{
 			runs_a--;
@@ -107,7 +109,6 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 		}
 		stack_flag *= -1;
 	}
-	printf("runs_a: %d\n", runs_a);
 	return (0);
 }
 
