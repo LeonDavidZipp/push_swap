@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 11:08:43 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 15:45:34 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,24 @@ static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 	{
 		if (stack_flag == 1)
 			ra_wrapper(stack_a->stack, stack_a->height);
-		else if (stack_flag == -1)
+		else
 		{
 			pb_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-			rrb_wrapper(stack_b->stack, stack_b->height);
+			if (stack_b->height > 1)
+				rb_wrapper(stack_b->stack, stack_b->height);
 		}
 	}
 	if (stack_a->stack[0] > stack_a->stack[1])
 	{
 		if (stack_flag == 1)
 			ra_wrapper(stack_a->stack, stack_a->height);
-		else if (stack_flag == -1)
+		else
 		{
 			pb_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-			rrb_wrapper(stack_b->stack, stack_b->height);
+			if (stack_b->height > 1)
+				rb_wrapper(stack_b->stack, stack_b->height);
 		}
 	}
 }
@@ -86,21 +88,26 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
+	write(1, "after spinning\n", 15);
 	if (is_sorted(stack_a->stack, stack_a->height) == 1)
 		return (1);
-	printf("wrapped ra\n");
 	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
 	runs_b = 0;
-	while (1)
+	// while (1)
+	while (runs_a != runs_b && runs_a  != runs_b + 1 && runs_a != runs_b - 1)
 	{
 		move_run(stack_a, stack_b, stack_flag);
-		if (runs_a == runs_b || runs_a == runs_b + 1 || runs_a == runs_b - 1)
-			break ;
-		runs_a--;
-		runs_b++;
+		// if (runs_a == runs_b || runs_a == runs_b + 1 || runs_a == runs_b - 1)
+		// 	break ;
+		if (stack_flag == -1)
+		{
+			runs_a--;
+			runs_b++;
+		}
 		stack_flag *= -1;
 	}
+	printf("runs_a: %d\n", runs_a);
 	return (0);
 }
 
@@ -116,16 +123,25 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 // 	stack_b->height = 0;
 // 	stack_b->stack = (int *)malloc(stack_a->height * sizeof(int));
 // 	// Fill stack_a with some values
-// 	stack_a->stack[0] = 10;
-// 	stack_a->stack[1] = 11;
-// 	stack_a->stack[2] = 14;
-// 	stack_a->stack[3] = 13;
-// 	stack_a->stack[4] = 15;
-// 	stack_a->stack[5] = 6;
-// 	stack_a->stack[6] = 5;
-// 	stack_a->stack[7] = 8;
+// 	// stack_a->stack[0] = 10;
+// 	// stack_a->stack[1] = 11;
+// 	// stack_a->stack[2] = 14;
+// 	// stack_a->stack[3] = 13;
+// 	// stack_a->stack[4] = 15;
+// 	// stack_a->stack[5] = 6;
+// 	// stack_a->stack[6] = 5;
+// 	// stack_a->stack[7] = 8;
+// 	stack_a->stack[0] = 5;
+//     stack_a->stack[1] = 6;
+//     stack_a->stack[2] = 4;
+//     stack_a->stack[3] = 2;
+//     stack_a->stack[4] = 1;
+// 	stack_a->stack[5] = 1000;
+// 	stack_a->stack[6] = 1001;
+// 	stack_a->stack[7] = 10;
 // 	// Call distribute_runs
 // 	int sorted = distribute_runs(stack_a, stack_b);
+// 	sorted += 1;
 // 	// while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 // 	// 	ra_wrapper(stack_a->stack, stack_a->height);
 // 	// printf("runs: %d\n", count_runs(stack_a->stack, stack_a->height));

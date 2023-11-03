@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:39:02 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 15:30:38 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	rrb(int *stack_b, int height_b)
 
 	if (height_b <= 1)
 		return ;
-	temp = stack_b[0];
-	ft_memmove(stack_b, &stack_b[1], (size_t)(height_b - 1) * sizeof(int));
-	stack_b[height_b - 1] = temp;
+	temp = stack_b[height_b - 1];
+	ft_memmove(&stack_b[1], stack_b, (size_t)(height_b - 1) * sizeof(int));
+	stack_b[0] = temp;
 }
 
 void	rrb_wrapper(int *stack_b, int height_b)
