@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 19:23:05 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 16:40:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	rra(int *stack_a, int height_a);
 void	rra_wrapper(int *stack_a, int height_a);
 void	rrb(int *stack_b, int height_b);
 void	rrb_wrapper(int *stack_b, int height_b);
-void	rrr(int stack_a, int stack_b, int height_a, int height_b);
+void	rrr(int *stack_a, int *stack_b, int height_a, int height_b);
 void	rrr_wrapper(int *stack_a, int *stack_b, int height_a, int height_b);
 
 // helper functions

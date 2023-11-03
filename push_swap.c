@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:12:15 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 16:28:50 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 	stack_b = make_stack_b(*stack_a);
 	if (!stack_b)
 		return (0);
+	sort(stack_a, stack_b);
 	return (0);
 }

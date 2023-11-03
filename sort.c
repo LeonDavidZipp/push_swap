@@ -6,12 +6,12 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 16:00:00 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 17:06:58 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 static void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->stack[0] > stack_b->stack[0])
@@ -20,35 +20,18 @@ static void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 	ra_wrapper(stack_a->stack, stack_a->height);
 	while (stack_a->stack[stack_a->height - 1] < stack_a->stack[0])
 	{
-		// printf("in first while\n");
 		if (stack_a->stack[0] > stack_b->stack[0])
 			pa_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
 		ra_wrapper(stack_a->stack, stack_a->height);
-		// printf("stack A: ");
-		// for (int i = 0; i < stack_a->height; i++)
-		// 	printf("%d ", stack_a->stack[i]);
 	}
 	while (stack_a->stack[stack_a->height - 1] < stack_b->stack[0])
 	{
-		// printf("in second while\n");
 		pa_wrapper(stack_a->stack, stack_b->stack,
 			&(stack_a->height), &(stack_b->height));
 		ra_wrapper(stack_a->stack, stack_a->height);
 	}
 }
-
-// static void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	while (stack_a->stack[0] < stack_b->stack[0] && stack_b->height > 0)
-// 		ra_wrapper(stack_a->stack, stack_a->height);
-// 	while (stack_a->stack[0] > stack_b->stack[0] && stack_b->height > 0)
-// 	{
-// 		pa_wrapper(stack_a->stack, stack_b->stack,
-// 			&(stack_a->height), &(stack_b->height));
-// 		ra_wrapper(stack_a->stack, stack_a->height);
-// 	}
-// }
 
 static void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 {
@@ -71,13 +54,11 @@ static void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-#include<stdio.h>
 /// @brief Sorts stack_a using stack_b as a temporary stack.
 /// @param stack_a 
 /// @param stack_b 
 void	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	// int		runs;
 	int		stack_flag;
 
 	if (stack_a->height <= 3)
@@ -96,30 +77,24 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 			merge_to_b(stack_a, stack_b);
 		stack_flag *= -1;
 	}
-	// while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1]
-	// || stack_a->stack[0] > stack_a->stack[1])
-	// 	ra_wrapper(stack_a->stack, stack_a->height);
 }
 #include "push_swap.h"
 #include <stdio.h>
-
 int main(void)
 {
     t_stack stack_a;
     t_stack stack_b;
-
     // Initialize the heights of the stacks
     stack_b.height = 0;
-
     // Allocate memory for the stacks
-	int stacka[50] = {11, 2, 3, 4, 99, 6, 7, 8, 9, -300, 12, 13, 14, 15, 16, 17, 18, 19, 60000, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 900, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 52, 53};
-    stack_a.stack = stacka;
-    stack_a.height = 50;
-
+	// int stacka[50] = {11, 2, 3, 4, 99, 6, 7, 8, 9, -300, 12, 13, 14, 15, 16, 17, 18, 19, 60000, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 900, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 52, 53};
+    int stacka[8] = {1, 2, 3, 4, 900, 5, 6, 0};
+	stack_a.stack = stacka;
+    // stack_a.height = 50;
+	stack_a.height = 8;
     int stackb[50] = {0};
     stack_b.stack = stackb;
     stack_b.height = 0;
-
     // Fill stack_a with some unsorted numbers
     // stack_a.stack[0] = 5;
     // stack_a.stack[1] = 6;
@@ -127,10 +102,8 @@ int main(void)
     // stack_a.stack[3] = 2;
     // stack_a.stack[4] = 1;
 	// stack_a.stack[5] = 1000;
-
     // Sort stack_a using stack_b as a temporary stack
     sort(&stack_a, &stack_b);
-
     // Print the sorted numbers
     for (int i = 0; i < stack_a.height; i++)
     {
