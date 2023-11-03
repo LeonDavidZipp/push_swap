@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   distribute_runs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 17:15:24 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/03 23:01:39 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,10 +119,10 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 // 	t_stack *stack_a = (t_stack *)malloc(sizeof(t_stack));
 // 	t_stack *stack_b = (t_stack *)malloc(sizeof(t_stack));
 // 	// Initialize the stacks
-// 	int stacka[8] = {1, 2, 3, 4, 900, 5, 6, 0};
-// 	int stackb[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+// 	int stacka[50] = {11, 2, 3, 4, 99, 6, 7, 8, 9, -300, 12, 13, 14, 15, 16, 17, 18, 19, 60000, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 900, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 52, 53};
 // 	stack_a->stack = stacka;
-// 	stack_a->height = 8;
+// 	stack_a->height = 50;
+// 	int stackb[50] = {0};
 // 	stack_b->stack = stackb;
 // 	stack_b->height = 0;
 // 	// Call distribute_runs
@@ -146,10 +146,10 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 // 	}
 // 	printf("\n");
 // 	// Free the stacks
-// 	free(stack_a->stack);
-// 	free(stack_b->stack);
-// 	free(stack_a);
-// 	free(stack_b);
+// 	// free(stack_a->stack);
+// 	// free(stack_b->stack);
+// 	// free(stack_a);
+// 	// free(stack_b);
 // 	return 0;
 // }
 // cc distribute_runs.c ra.c pb.c rb.c ft_memmove.c
