@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/04 21:38:19 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 00:19:42 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,16 @@ static void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 			&(stack_a->height), &(stack_b->height));
 		rb_wrapper(stack_b->stack, stack_b->height);
 	}
+	while (stack_a->stack[0] < stack_a->stack[1])
+	{
+		if (stack_a->stack[0] < stack_b->stack[0])
+			pb_wrapper(stack_a->stack, stack_b->stack,
+			&(stack_a->height), &(stack_b->height));
+		rb_wrapper(stack_b->stack, stack_b->height);
+		counter++;
+	}
+	while (counter-- > 0)
+		rrb_wrapper(stack_b->stack, stack_b->height)
 }
 #include <stdio.h>
 /// @brief Sorts stack_a using stack_b as a temporary stack.
