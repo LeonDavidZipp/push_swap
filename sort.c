@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 23:06:49 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/04 21:38:19 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,9 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		sort_3_b(stack_b);
 	if (distribute_runs(stack_a, stack_b) == 1)
 		return ;
-	// printf("Stack A: ");
-	// for (int i = 0; i < stack_a->height; i++)
-	// {
-	// 	printf("%d ", stack_a->stack[i]);
-	// }
-	// printf("\n");
-	// printf("Stack B: ");
-	// for (int i = 0; i < stack_b->height; i++)
-	// {
-	// 	printf("%d ", stack_b->stack[i]);
-	// }
-	// printf("\n");
 	stack_flag = 1;
+	if (stack_b->height < stack_a->height)
+		stack_flag = -1;
 	while (stack_b->height > 0)
 	{
 		if (stack_flag == 1)
@@ -110,10 +100,10 @@ int main(void)
     // Initialize the heights of the stacks
     // Allocate memory for the stacks
 	int stacka[50] = {11, 2, 3, 4, 99, 6, 7, 8, 9, -300, 12, 13, 14, 15, 16, 17, 18, 19, 60000, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 900, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 52, 53};
-    // int stacka[6] = {4, 67, 3, 87, 100, 10000};
+    // int stacka[5] = {4, 67, 3, 87, 23};
 	stack_a.stack = stacka;
     stack_a.height = 50;
-	// stack_a->height = 6;
+	// stack_a.height = 5;
     int stackb[50] = {0};
     stack_b.stack = stackb;
     stack_b.height = 0;
@@ -125,7 +115,7 @@ int main(void)
     // stack_a.stack[4] = 1;
 	// stack_a.stack[5] = 1000;
     // Sort stack_a using stack_b as a temporary stack
-	printf("now sorting");
+	printf("now sorting\n");
     sort(&stack_a, &stack_b);
     // Print the sorted numbers
     for (int i = 0; i < stack_a.height; i++)
