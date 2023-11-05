@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 11:35:21 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 15:54:25 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static int	check_numeric(int argc, char **argv)
 {
@@ -25,7 +26,7 @@ static int	check_numeric(int argc, char **argv)
 			j++;
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]))
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ')
 				return (0);
 			j++;
 		}
@@ -66,9 +67,11 @@ static char	*join_input(int argc, char **argv)
 	{
 		temp = ft_strsepjoin(num_string, argv[i++], " ");
 		free (num_string);
+		printf("before creation\n");
 		if (!temp)
 			return (NULL);
 		num_string = ft_strdup(temp);
+		printf("num string: |%s|\n", num_string);
 		free (temp);
 	}
 	return (num_string);
