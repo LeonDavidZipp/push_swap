@@ -25,3 +25,6 @@ whiel one run is ongoing (stack_a[0] < stack_a[1])
 	counter++;
 while counter-- > 0
 	rotate b to front
+
+23 4 67
+3 87

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 23:01:39 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 00:33:45 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
 	if (is_sorted(stack_a->stack, stack_a->height) == 1)
-		return (1);
+		return (-1);
 	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
 	runs_b = 0;
@@ -109,7 +109,7 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 		}
 		stack_flag *= -1;
 	}
-	return (0);
+	return (runs_a + runs_b);
 }
 
 // #include "push_swap.h"
