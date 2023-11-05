@@ -6,54 +6,11 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 16:54:41 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 17:41:15 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-static void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->stack[0] > stack_b->stack[0])
-		pa_wrapper(stack_a->stack, stack_b->stack,
-			&(stack_a->height), &(stack_b->height));
-	ra_wrapper(stack_a->stack, stack_a->height);
-	while (stack_a->stack[stack_a->height - 1] < stack_a->stack[0])
-	{
-		if (stack_a->stack[0] > stack_b->stack[0])
-			pa_wrapper(stack_a->stack, stack_b->stack,
-				&(stack_a->height), &(stack_b->height));
-		ra_wrapper(stack_a->stack, stack_a->height);
-	}
-	while (stack_a->stack[stack_a->height - 1] < stack_b->stack[0])
-	{
-		pa_wrapper(stack_a->stack, stack_b->stack,
-			&(stack_a->height), &(stack_b->height));
-		ra_wrapper(stack_a->stack, stack_a->height);
-	}
-}
-
-static void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_b->stack[0] > stack_a->stack[0])
-		pb_wrapper(stack_a->stack, stack_b->stack,
-			&(stack_a->height), &(stack_b->height));
-	rb_wrapper(stack_b->stack, stack_b->height);
-	while (stack_b->stack[stack_b->height - 1] < stack_b->stack[0])
-	{
-		if (stack_b->stack[0] > stack_a->stack[0])
-			pb_wrapper(stack_a->stack, stack_b->stack,
-				&(stack_a->height), &(stack_b->height));
-		rb_wrapper(stack_b->stack, stack_b->height);
-	}
-	while (stack_b->stack[stack_b->height - 1] < stack_a->stack[0])
-	{
-		pb_wrapper(stack_a->stack, stack_b->stack,
-			&(stack_a->height), &(stack_b->height));
-		rb_wrapper(stack_b->stack, stack_b->height);
-	}
-}
 
 /// @brief Sorts stack_a using stack_b as a temporary stack.
 /// @param stack_a 
@@ -68,19 +25,19 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b->height <= 3)
 		sort_3_b(stack_b);
 	runs = distribute_runs(stack_a, stack_b);
-	printf("stacks after splitting");
-	printf("stack a: ");
-	for (int i = 0; i < stack_a->height; i++)
-	{
-		printf("%d ", stack_a->stack[i]);
-	}
-	printf("\n");
-	printf("stack b: ");
-	for (int i = 0; i < stack_b->height; i++)
-	{
-		printf("%d ", stack_b->stack[i]);
-	}
-	printf("\n");
+	// printf("stacks after splitting");
+	// printf("stack a: ");
+	// for (int i = 0; i < stack_a->height; i++)
+	// {
+	// 	printf("%d ", stack_a->stack[i]);
+	// }
+	// printf("\n");
+	// printf("stack b: ");
+	// for (int i = 0; i < stack_b->height; i++)
+	// {
+	// 	printf("%d ", stack_b->stack[i]);
+	// }
+	// printf("\n");
 	if (runs == -1)
 		return ;
 	stack_flag = 1;
@@ -93,18 +50,18 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		else
 			merge_to_b(stack_a, stack_b);
 		// break ;
-		printf("stack a: ");
-		for (int i = 0; i < stack_a->height; i++)
-		{
-			printf("%d ", stack_a->stack[i]);
-		}
-		printf("\n");
-		printf("stack b: ");
-		for (int i = 0; i < stack_b->height; i++)
-		{
-			printf("%d ", stack_b->stack[i]);
-		}
-		printf("\n");
+		// printf("stack a: ");
+		// for (int i = 0; i < stack_a->height; i++)
+		// {
+		// 	printf("%d ", stack_a->stack[i]);
+		// }
+		// printf("\n");
+		// printf("stack b: ");
+		// for (int i = 0; i < stack_b->height; i++)
+		// {
+		// 	printf("%d ", stack_b->stack[i]);
+		// }
+		// printf("\n");
 		stack_flag *= -1;
 	}
 }

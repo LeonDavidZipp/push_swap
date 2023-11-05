@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 11:33:28 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 17:14:39 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	pb(int *stack_a, int *stack_b, int *height_a, int *height_b)
 	(*height_b)++;
 	(*height_a)--;
 }
-
+// #include <stdio.h>
 void	pb_wrapper(int *stack_a, int *stack_b, int *height_a, int *height_b)
 {
 	pb(stack_a, stack_b, height_a, height_b);
 	write(1, "pb\n", 3);
+	// printf("height b and a after pb wrapper: %d %d\n", *height_a, *height_b);
 }
 
 // #include <stdio.h>

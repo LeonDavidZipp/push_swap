@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 16:40:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 17:39:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ t_stack	*make_stack_b(t_stack stack_a);
 
 // run functions
 int		distribute_runs(t_stack *stack_a, t_stack *stack_b);
+
+// merge functions
+void	merge_to_a(t_stack *stack_a, t_stack *stack_b);
+void	merge_to_b(t_stack *stack_a, t_stack *stack_b);
 
 // sorting functions
 void	sort_2_a(t_stack *stack_a);

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 15:54:25 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 16:59:05 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ static char	*join_input(int argc, char **argv)
 	{
 		temp = ft_strsepjoin(num_string, argv[i++], " ");
 		free (num_string);
-		printf("before creation\n");
+		// printf("before creation\n");
 		if (!temp)
 			return (NULL);
 		num_string = ft_strdup(temp);
-		printf("num string: |%s|\n", num_string);
+		// printf("num string: |%s|\n", num_string);
 		free (temp);
 	}
 	return (num_string);

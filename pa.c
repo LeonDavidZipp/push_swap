@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:54:27 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 17:14:34 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	pa(int *stack_a, int *stack_b, int *height_a, int *height_b)
 	(*height_a)++;
 	(*height_b)--;
 }
-
+// #include <stdio.h>
 void	pa_wrapper(int *stack_a, int *stack_b, int *height_a, int *height_b)
 {
 	pa(stack_a, stack_b, height_a, height_b);
 	write(1, "pa\n", 3);
+	// printf("height b and a after pa wrapper: %d %d\n", *height_a, *height_b);
 }
 // #include <stdio.h>
 // int	main(void)
