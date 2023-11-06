@@ -3,10 +3,11 @@
 
 int	main(void)
 {
-	int stacka[6] = {1, 2, 3, 4, 0, 5};
+	int stacka[6] = {-1, 2, 3, 4, 0, 5};
 	int temp = stacka[0];
 	while (temp <= stacka[0])
 	{
+		temp = stacka[0];
 		ra_wrapper(stacka, 6);
 	}
 	printf("stack a: ");
