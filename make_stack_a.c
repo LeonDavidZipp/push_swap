@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 16:59:05 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/05 18:55:09 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,25 @@
 
 static int	check_numeric(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	int		sign_flag;
 
 	i = 1;
+	sign_flag = 0;
 	while (i < argc)
 	{
 		j = 0;
-		if (argv[i][j] == '-' || argv[i][j] == '+')
-			j++;
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ')
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
+				&& argv[i][j] != '-' && argv[i][j] != '+')
+				return (0);
+			else if ((argv[i][j] == '-' || argv[i][j] == '+') && sign_flag == 0)
+				sign_flag = 1;
+			else if (ft_isdigit(argv[i][j]))
+				sign_flag = 0; 
+			else if (!ft_isdigit(argv[i][j]) && sign_flag == 1)
 				return (0);
 			j++;
 		}

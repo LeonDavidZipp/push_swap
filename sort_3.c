@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 15:01:12 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 23:12:06 by lzipp            ###   ########.fr       */
+/*   Created: 2023/11/05 18:08:10 by lzipp             #+#    #+#             */
+/*   Updated: 2023/11/05 18:08:42 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	sort_3_b(t_stack *stack_b)
 {
 	if (stack_b->height <= 2)
 		sort_2_b(stack_b);
+	if (stack_b->stack[0] < stack_b->stack[1]
+		&& stack_b->stack[1] < stack_b->stack[2])
+		return;
 	if (stack_b->stack[0] > stack_b->stack[1]
 		&& stack_b->stack[2] > stack_b->stack[1]
 		&& stack_b->stack[0] > stack_b->stack[2])
@@ -49,22 +52,44 @@ void	sort_3_b(t_stack *stack_b)
 	if (stack_b->stack[0] > stack_b->stack[1])
 		sb_wrapper(stack_b->stack, stack_b->height);
 }
+
+void reverse_sort_3_b(t_stack *stack_b)
+{
+	if (stack_b->stack[0] > stack_b->stack[1]
+		&& stack_b->stack[1] > stack_b->stack[2])
+		return;
+	else if (stack_b->stack[0] < stack_b->stack[1]
+		&& stack_b->stack[1] < stack_b->stack[2])
+	{
+		sb_wrapper(stack_b->stack, stack_b->height);
+		rb_wrapper(stack_b->stack, stack_b->height);
+	}
+	else if (stack_b->stack[0] > stack_b->stack[1]
+		&& stack_b->stack[1] < stack_b->stack[2])
+		rrb_wrapper(stack_b->stack, stack_b->height);
+	else if (stack_b->stack[0] < stack_b->stack[1]
+		&& stack_b->stack[1] > stack_b->stack[2])
+		rb_wrapper(stack_b->stack, stack_b->height);
+	else
+		sb_wrapper(stack_b->stack, stack_b->height);
+}
+
 // #include <stdio.h>
 // int	main(int argc, char **argv)
 // {
-//     t_stack	*stack_a;
-//     int i;
-//     if (argc == 1)
-//         return (0);
-//     stack_a = make_stack_a(argc, argv);
-//     sort_3(stack_a);//, stack_b);
-//     // Print the sorted stack
-//     for (i = 0; i < stack_a->height; i++)
-//         printf("%d ", stack_a->stack[i]);
-//     printf("\n");
-//     free(stack_a->stack);
-//     free(stack_a);
-//     return (0);
+//	 t_stack	*stack_a;
+//	 int i;
+//	 if (argc == 1)
+//		 return (0);
+//	 stack_a = make_stack_a(argc, argv);
+//	 sort_3(stack_a);//, stack_b);
+//	 // Print the sorted stack
+//	 for (i = 0; i < stack_a->height; i++)
+//		 printf("%d ", stack_a->stack[i]);
+//	 printf("\n");
+//	 free(stack_a->stack);
+//	 free(stack_a);
+//	 return (0);
 // }
 // cc sort_3.c sa.c make_stack_a.c make_stack_b.c ft_atoi.c ft_calloc.c
 //  ft_isdigit.c ft_split.c ft_strcmp.c ft_strdup.c ft_strsepjoin.c

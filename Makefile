@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/11/04 21:30:13 by lzipp            ###   ########.fr        #
+#    Updated: 2023/11/05 17:53:39 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ ft_strsepjoin.c \
 ft_substr.c \
 make_stack_a.c \
 make_stack_b.c \
+merge_to_a.c \
+merge_to_b.c \
 pa.c \
 pb.c \
 push_swap.c \
@@ -42,6 +44,7 @@ sa.c \
 sb.c \
 sort_2.c \
 sort_3.c \
+sort_6.c \
 sort.c \
 ss.c
 
