@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 22:29:57 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/06 11:54:55 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,6 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	int		runs;
 
 	runs = distribute_runs(stack_a, stack_b);
-	printf("stacks after splitting");
-	printf("stack a: ");
-	for (int i = 0; i < stack_a->height; i++)
-	{
-		printf("%d ", stack_a->stack[i]);
-	}
-	printf("\n");
-	printf("stack b: ");
-	for (int i = 0; i < stack_b->height; i++)
-	{
-		printf("%d ", stack_b->stack[i]);
-	}
-	printf("\n");
 	if (runs == -1)
 		return ;
 	// if (stack_a->height + stack_b->height <= 6)
@@ -50,19 +37,19 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 			merge_to_a(stack_a, stack_b);
 		else
 			merge_to_b(stack_a, stack_b);
-		break ;
-		printf("stack a: ");
-		for (int i = 0; i < stack_a->height; i++)
-		{
-			printf("%d ", stack_a->stack[i]);
-		}
-		printf("\n");
-		printf("stack b: ");
-		for (int i = 0; i < stack_b->height; i++)
-		{
-			printf("%d ", stack_b->stack[i]);
-		}
-		printf("\n");
+		// break ;
+		// printf("stack a: ");
+		// for (int i = 0; i < stack_a->height; i++)
+		// {
+		// 	printf("%d ", stack_a->stack[i]);
+		// }
+		// printf("\n");
+		// printf("stack b: ");
+		// for (int i = 0; i < stack_b->height; i++)
+		// {
+		// 	printf("%d ", stack_b->stack[i]);
+		// }
+		// printf("\n");
 		stack_flag *= -1;
 	}
 }
