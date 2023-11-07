@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:39:41 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/07 11:55:29 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/07 12:04:03 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 			rb_wrapper(stack_b->stack, stack_b->height);
 			pb_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-				printf("stack_a0: %d\n", stack_a->stack[0]);
+			printf("stack_a0: %d\n", stack_a->stack[0]);
 		}
 		// printf("stack a:	");
 		// for (int i = 0; i < stack_a->height; i++) {
