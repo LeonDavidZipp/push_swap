@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_to_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/06 18:25:57 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/07 10:21:53 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,13 @@
 // 	}
 // }
 
+/*
+Merging run A to B means the following:
+As long as the top of A is less than the top of B, push A to B. Then rotate B.
+When the top of A is greater than the top of B, rotate B, at max until the top of B is greater than the nextmost element.
+Rotate again, then push A to B.
+If there is only one element in A, rotate B until B > A OR B[0] > B[1], then push A to B.
+*/
 void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int	temp;
@@ -136,33 +143,33 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-// int main() {
-//     t_stack *stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
-//     t_stack *stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
+int main() {
+    t_stack *stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
+    t_stack *stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
 
-//     // Initialize the heights of the stacks
-//     stack_a->height = 5;
-//     stack_b->height = 5;
+    // Initialize the heights of the stacks
+    stack_a->height = 5;
+    stack_b->height = 5;
 
-//     // Initialize the stacks with some values
-//     int stack_a_values[] = {10, 100, 300, 2, 1};
-//     int stack_b_values[] = {-3, 111, 308, 700, 6};
-//     stack_a->stack = stack_a_values;
-//     stack_b->stack = stack_b_values;
+    // Initialize the stacks with some values
+    int stack_a_values[] = {10, 100, 300, 2, 1};
+    int stack_b_values[] = {-3, 111, 308, 700, 6};
+    stack_a->stack = stack_a_values;
+    stack_b->stack = stack_b_values;
 
-//     // Call the merge_to_a function
-//     merge_to_a(stack_a, stack_b);
+    // Call the merge_to_a function
+    merge_to_a(stack_a, stack_b);
 
-//     // Print the values in stack A after the merge
-//     for (int i = 0; i < stack_a->height; i++) {
-//         printf("%d, ", stack_a->stack[i]);
-//     }
-// 	// printf("hi");
-//     printf("\n");
-// 	for (int i = 0; i < stack_b->height; i++) {
-//         printf("%d, ", stack_b->stack[i]);
-//     }
-// 	// printf("hi");
-//     printf("\n");
-//     return 0;
-// }
+    // Print the values in stack A after the merge
+    for (int i = 0; i < stack_a->height; i++) {
+        printf("%d, ", stack_a->stack[i]);
+    }
+	// printf("hi");
+    printf("\n");
+	for (int i = 0; i < stack_b->height; i++) {
+        printf("%d, ", stack_b->stack[i]);
+    }
+	// printf("hi");
+    printf("\n");
+    return 0;
+}
