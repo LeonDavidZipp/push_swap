@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/06 11:48:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/06 18:25:57 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,12 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 	int	temp;
 
 	temp = stack_a->stack[0];
-	while (stack_b->height > 0 && temp <= stack_a->stack[0])
+	while (stack_b->height > 0 && stack_a->height > 1
+		&& temp <= stack_a->stack[0])
 	{
+		printf("temp: %d, stack 0: %d\n", temp, stack_a->stack[0]);
 		temp = stack_a->stack[0];
+		printf("a loop 1\n");
 		if (stack_b->stack[0] < stack_a->stack[0])
 			pa_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
@@ -125,6 +128,7 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 	temp = stack_b->stack[0];
 	while (stack_b->height > 0 && temp <= stack_b->stack[0])
 	{
+		printf("a loop 2\n");
 		temp = stack_b->stack[0];
 		pa_wrapper(stack_a->stack, stack_b->stack,
 			&(stack_a->height), &(stack_b->height));

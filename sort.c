@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/06 11:54:55 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/06 18:36:45 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,26 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (stack_flag == 1)
 			merge_to_a(stack_a, stack_b);
+			// break ;}
 		else
 			merge_to_b(stack_a, stack_b);
 		// break ;
-		// printf("stack a: ");
-		// for (int i = 0; i < stack_a->height; i++)
-		// {
-		// 	printf("%d ", stack_a->stack[i]);
-		// }
-		// printf("\n");
-		// printf("stack b: ");
-		// for (int i = 0; i < stack_b->height; i++)
-		// {
-		// 	printf("%d ", stack_b->stack[i]);
-		// }
-		// printf("\n");
+		printf("stack a: ");
+		for (int i = 0; i < stack_a->height; i++)
+		{
+			printf("%d ", stack_a->stack[i]);
+		}
+		printf("\n");
+		printf("stack b: ");
+		for (int i = 0; i < stack_b->height; i++)
+		{
+			printf("%d ", stack_b->stack[i]);
+		}
+		printf("\n");
 		stack_flag *= -1;
 	}
+	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
+		ra_wrapper(stack_a->stack, stack_a->height);
 }
 // #include "push_swap.h"
 // #include <stdio.h>
