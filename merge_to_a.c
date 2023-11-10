@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   merge_to_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 16:58:31 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 22:14:57 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 static void	merge_helper(int *stack_a, int *stack_b,
 	int *height_a, int *height_b)
 {
@@ -26,9 +26,10 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 
 	temp_b = stack_b->stack[0];
 	temp_a = stack_a->stack[0];
-	while (stack_b->height >= 1 && temp_a <= stack_a->stack[0]
+	while (stack_b->height >= 1 //&& temp_a <= stack_a->stack[0]
 		&& temp_b <= stack_b->stack[0])
 	{
+		printf("in first merge a while loop, currently merging %d to A\n", stack_b->stack[0]);
 		temp_b = stack_b->stack[0];
 		if (stack_a->stack[0] > stack_b->stack[0])
 			pa_wrapper(stack_a->stack, stack_b->stack,
@@ -39,6 +40,19 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 				&(stack_a->height), &(stack_b->height));
 		ra_wrapper(stack_a->stack, stack_a->height);
 		temp_a = stack_a->stack[0];
+		printf("trying to put %d on %d\n", stack_b->stack[0], stack_a->stack[0]);
+		printf("stack a: ");
+		for (int i = 0; i < stack_a->height; i++)
+		{
+			printf("%d ", stack_a->stack[i]);
+		}
+		printf("\n");
+		printf("stack b: ");
+		for (int i = 0; i < stack_b->height; i++)
+		{
+			printf("%d ", stack_b->stack[i]);
+		}
+		printf("\n");
 	}
 	while (temp_a <= stack_a->stack[0] && stack_a->stack[0] > stack_a->stack[1])
 	{

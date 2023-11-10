@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/07 16:36:57 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 22:16:59 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,45 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	int		stack_flag;
 	int		runs;
 
+	printf("\n---------------\ndistributing runs\n");
 	runs = distribute_runs(stack_a, stack_b);
+	printf("stack a: ");
+	for (int i = 0; i < stack_a->height; i++)
+	{
+		printf("%d ", stack_a->stack[i]);
+	}
+	printf("\n");
+	printf("stack b: ");
+	for (int i = 0; i < stack_b->height; i++)
+	{
+		printf("%d ", stack_b->stack[i]);
+	}
+	printf("\n");
+	// return ;
 	if (runs == -1)
 		return ;
-	// if (stack_a->height + stack_b->height <= 6)
-	// {
-	// 	sort_6(stack_a, stack_b);
-	// 	return ;
-	// }
+	if (stack_a->height + stack_b->height <= 6)
+	{
+		printf("\n---------------\nnow sorting 6 or less\n");
+		sort_6(stack_a, stack_b);
+		return ;
+	}
 	stack_flag = 1;
 	if (runs % 2 == 1)
 		stack_flag = -1;
-	printf("now sorting\n");
-	int counter = 0;
+	printf("\n---------------\nnow sorting\n");
 	while (stack_b->height > 0)
 	{
 		if (stack_flag == 1)
+		{
+			printf("\n---------------\nmerging to a\n");
 			merge_to_a(stack_a, stack_b);
+		}
 		else
+		{
+			printf("\n---------------\nmerging to b\n");
 			merge_to_b(stack_a, stack_b);
-		counter++ ;
-		if (counter == 10)
-			break ;
+		}
 		printf("stack a: ");
 		for (int i = 0; i < stack_a->height; i++)
 		{
@@ -55,7 +72,9 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		}
 		printf("\n");
 		stack_flag *= -1;
+		break ;
 	}
+	printf("\n---------------\ndone\n");
 }
 // #include "push_swap.h"
 // #include <stdio.h>
