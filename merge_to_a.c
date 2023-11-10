@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 16:57:18 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:58:09 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,34 +48,34 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int main() {
-    t_stack *stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
-    t_stack *stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
+// int main() {
+//     t_stack *stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
+//     t_stack *stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
 
-    // Initialize the heights of the stacks
-    stack_a->height = 4;
-    stack_b->height = 3;
+//     // Initialize the heights of the stacks
+//     stack_a->height = 4;
+//     stack_b->height = 3;
 
-    // Initialize the stacks with some values
-    int stack_a_values[12] = {10, 100, 600, 700, 0, 0, 0,0 ,0 ,0 ,0 ,0};
-    // int stack_b_values[] = {-3, 111, 308, 700, 6};
-    int stack_b_values[12] = {3, 100000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    stack_a->stack = stack_a_values;
-    stack_b->stack = stack_b_values;
+//     // Initialize the stacks with some values
+//     int stack_a_values[12] = {10, 100, 600, 700, 0, 0, 0,0 ,0 ,0 ,0 ,0};
+//     // int stack_b_values[] = {-3, 111, 308, 700, 6};
+//     int stack_b_values[12] = {3, 100000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+//     stack_a->stack = stack_a_values;
+//     stack_b->stack = stack_b_values;
 
-    // Call the merge_to_a function
-    merge_to_a(stack_a, stack_b);
+//     // Call the merge_to_a function
+//     merge_to_a(stack_a, stack_b);
 
-    // Print the values in stack A after the merge
-    for (int i = 0; i < stack_a->height; i++) {
-        printf("%d, ", stack_a->stack[i]);
-    }
-	// printf("hi");
-    printf("\n");
-	for (int i = 0; i < stack_b->height; i++) {
-        printf("%d, ", stack_b->stack[i]);
-    }
-	// printf("hi");
-    printf("\n");
-    return (0);
-}
+//     // Print the values in stack A after the merge
+//     for (int i = 0; i < stack_a->height; i++) {
+//         printf("%d, ", stack_a->stack[i]);
+//     }
+// 	// printf("hi");
+//     printf("\n");
+// 	for (int i = 0; i < stack_b->height; i++) {
+//         printf("%d, ", stack_b->stack[i]);
+//     }
+// 	// printf("hi");
+//     printf("\n");
+//     return (0);
+// }
