@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:08:10 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 18:08:42 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 10:42:04 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort_3_b(t_stack *stack_b)
 		sort_2_b(stack_b);
 	if (stack_b->stack[0] < stack_b->stack[1]
 		&& stack_b->stack[1] < stack_b->stack[2])
-		return;
+		return ;
 	if (stack_b->stack[0] > stack_b->stack[1]
 		&& stack_b->stack[2] > stack_b->stack[1]
 		&& stack_b->stack[0] > stack_b->stack[2])
@@ -57,7 +57,7 @@ void reverse_sort_3_b(t_stack *stack_b)
 {
 	if (stack_b->stack[0] > stack_b->stack[1]
 		&& stack_b->stack[1] > stack_b->stack[2])
-		return;
+		return ;
 	else if (stack_b->stack[0] < stack_b->stack[1]
 		&& stack_b->stack[1] < stack_b->stack[2])
 	{
