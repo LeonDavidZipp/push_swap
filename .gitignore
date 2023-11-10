@@ -56,3 +56,4 @@ dkms.conf
 push_swap
 *.dSYM
 test.c
+test
