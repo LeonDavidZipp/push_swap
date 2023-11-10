@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_6.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 21:02:25 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:59:53 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	sort_6(t_stack *stack_a, t_stack *stack_b)
 		sort_3_a(stack_a);
 		return ;
 	}
-	height = 2 + (stack_a->height == 6);
+	height = 2;
+	if (stack_a->height == 6)
+		height = 3;
 	while (i++ < height)
 	{
 		// if (stack_a->stack[0] > stack_a->stack[1])

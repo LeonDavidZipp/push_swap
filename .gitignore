@@ -57,3 +57,4 @@ push_swap
 *.dSYM
 test.c
 test
+checker_Mac
