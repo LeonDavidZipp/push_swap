@@ -54,3 +54,4 @@ dkms.conf
 # others
 *.txt
 push_swap
+*.dSYM
