@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 16:39:40 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:45:06 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,32 +110,13 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 	// while (stack_a->stack[0] < stack_a->stack[1] && temp_a <= stack_a->stack[0])// stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 	while (temp_a <= stack_a->stack[0])
 	{
+		// if (stack_a->stack[0] <= stack_a->stack[1])
+		// 	break ;
 		temp_a = stack_a->stack[0];
 		ra_wrapper(stack_a->stack, stack_a->height);
 		// temp_a = stack_a->stack[0];
 	}
 }
-/*
-Merging run A to B means the following:
-As long as the top of A is less than the top of B, push A to B. Then rotate B.
-When the top of A is greater than the top of B, rotate B, at max until the top of B is greater than the nextmost element.
-Rotate again, then push A to B.
-If there is only one element in A, rotate B until B > A OR B[0] > B[1], then push A to B.
-*/
-// void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int		temp;
-
-// 	temp = stack_b->stack[0];
-// 	while (temp <= stack_b->stack[0] || stack_b->height == 1)
-// 	{
-// 		temp = stack_b->stack[0];
-// 		if (stack_a->stack[0] > stack_b->stack[0])
-// 			pa_wrapper(stack_a->stack, stack_b->stack,
-// 				&(stack_a->height), &(stack_b->height));
-// 		ra_wrapper(stack_a->stack, stack_a->height);
-// 	}
-// }
 
 int main() {
     t_stack *stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
@@ -143,12 +124,12 @@ int main() {
 
     // Initialize the heights of the stacks
     stack_a->height = 4;
-    stack_b->height = 3;
+    stack_b->height = 2;
 
     // Initialize the stacks with some values
     int stack_a_values[12] = {10, 100, 600, 700, 0, 0, 0,0 ,0 ,0 ,0 ,0};
     // int stack_b_values[] = {-3, 111, 308, 700, 6};
-    int stack_b_values[12] = {0, 50, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int stack_b_values[12] = {3, 100000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     stack_a->stack = stack_a_values;
     stack_b->stack = stack_b_values;
 
