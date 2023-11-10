@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 10:35:20 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 15:21:18 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 		{
 			pb_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-			// if (stack_b->height > 1)
-			// 	rb_wrapper(stack_b->stack, stack_b->height);
+			if (stack_b->height > 1)
+				rb_wrapper(stack_b->stack, stack_b->height);
 		}
 	}
 	if (stack_a->stack[0] > stack_a->stack[1])
@@ -75,8 +75,8 @@ static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 		{
 			pb_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-			// if (stack_b->height > 1)
-			// 	rb_wrapper(stack_b->stack, stack_b->height);
+			if (stack_b->height > 1)
+				rb_wrapper(stack_b->stack, stack_b->height);
 		}
 	}
 }
