@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 18:04:19 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:52:00 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack {
 
 // stack creation
 t_stack	*make_stack_a(int argc, char **argv);
-t_stack	*make_stack_b(t_stack stack_a);
+t_stack	*make_stack_b(t_stack *stack_a);
 
 // run functions
 int		distribute_runs(t_stack *stack_a, t_stack *stack_b);

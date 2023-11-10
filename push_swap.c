@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 20:59:53 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:52:14 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	stack_b = make_stack_b(*stack_a);
+	stack_b = make_stack_b(stack_a);
 	if (!stack_b)
 		return (0);
 	sort(stack_a, stack_b);
