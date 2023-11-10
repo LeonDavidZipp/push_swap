@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 15:37:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 15:40:03 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,6 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 
 	temp_b = stack_b->stack[0];
 	temp_a = stack_a->stack[0];
-	printf("0th cond: %d\n", stack_b->height >= 1);
-	printf("first cond: %d\n", temp_b >= stack_b->stack[0]);
-	printf("second cond: %d\n", temp_a <= stack_a->stack[0]);
-	// return ;
 	while (stack_b->height >= 1 && temp_a <= stack_a->stack[0] && temp_b <= stack_b->stack[0])
 	{
 		temp_b = stack_b->stack[0];
@@ -142,12 +138,12 @@ int main() {
 
     // Initialize the heights of the stacks
     stack_a->height = 7;
-    stack_b->height = 3;
+    stack_b->height = 1;
 
     // Initialize the stacks with some values
     int stack_a_values[12] = {10, 100, 600, 2, 1, -1, 333 ,0 ,0 ,0 ,0 ,0};
     // int stack_b_values[] = {-3, 111, 308, 700, 6};
-    int stack_b_values[12] = {3, 420, 601, 0, 0, 0, 0, 0, 0, 0, 0};
+    int stack_b_values[12] = {666, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     stack_a->stack = stack_a_values;
     stack_b->stack = stack_b_values;
 
