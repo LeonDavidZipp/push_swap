@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 16:45:06 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:47:30 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,10 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 		ra_wrapper(stack_a->stack, stack_a->height);
 		temp_a = stack_a->stack[0];
 	}
-	// printf("stack_a:\n");
-	// for (int i = 0; i < stack_a->height; i++) {
-	// 	printf("%d, ", stack_a->stack[i]);
-	// }
-	printf("\n-----------\n");
-	// to rotate run to the bottom. necessary because it is more efficient to merge runs of similar length
-	// temp_a = stack_a->stack[0];
-	// while (stack_a->stack[0] < stack_a->stack[1] && temp_a <= stack_a->stack[0])// stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 	while (temp_a <= stack_a->stack[0])
 	{
-		// if (stack_a->stack[0] <= stack_a->stack[1])
-		// 	break ;
 		temp_a = stack_a->stack[0];
 		ra_wrapper(stack_a->stack, stack_a->height);
-		// temp_a = stack_a->stack[0];
 	}
 }
 
