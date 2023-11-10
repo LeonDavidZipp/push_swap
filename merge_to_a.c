@@ -6,12 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 16:58:09 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 16:58:31 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	merge_helper(int *stack_a, int *stack_b,
 	int *height_a, int *height_b)
@@ -47,7 +46,7 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 		ra_wrapper(stack_a->stack, stack_a->height);
 	}
 }
-
+// #include <stdio.h>
 // int main() {
 //     t_stack *stack_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
 //     t_stack *stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
