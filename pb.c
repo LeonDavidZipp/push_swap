@@ -6,52 +6,57 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/07 14:11:01 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 14:27:43 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Pushes the top element of stack_a to stack_b
-/// @param stack_a 
-/// @param stack_b 
-/// @param height_a 
-/// @param height_b 
-void	pb(int *stack_a, int *stack_b, int *height_a, int *height_b)
+/// @brief Pushes the top element of st_a to st_b
+/// @param st_a 
+/// @param st_b 
+/// @param h_a 
+/// @param h_b 
+void	pb(int *st_a, int *st_b, int *h_a, int *h_b)
 {
-	if (*height_a <= 0)
+	if (*h_a <= 0)
 		return ;
-	ft_memmove(&stack_b[1], stack_b, (size_t)(*height_b) * sizeof(int));
-	stack_b[0] = stack_a[0];
-	ft_memmove(stack_a, &stack_a[1], (size_t)(*height_a) * sizeof(int));
-	stack_a[*height_a - 1] = 0;
-	(*height_b)++;
-	(*height_a)--;
+	ft_memmove(&st_b[1], st_b, (size_t)(*h_b) * sizeof(int));
+	st_b[0] = st_a[0];
+	ft_memmove(st_a, &st_a[1], (size_t)(*h_a) * sizeof(int));
+	st_a[*h_a - 1] = 0;
+	(*h_b)++;
+	(*h_a)--;
 }
-// #include <stdio.h>
-void	pb_wrapper(int *stack_a, int *stack_b, int *height_a, int *height_b)
+
+/// @brief Wrapper of pb writing "pb\n" to stdout
+/// @param st_a stack a
+/// @param st_b stack b
+/// @param h_a height of stack a
+/// @param h_b height of stack b
+void	pb_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 {
-	pb(stack_a, stack_b, height_a, height_b);
+	pb(st_a, st_b, h_a, h_b);
 	write(1, "pb\n", 3);
-	// printf("height b and a after pb wrapper: %d %d\n", *height_a, *height_b);
+	// printf("height b and a after pb wrapper: %d %d\n", *h_a, *h_b);
 }
 
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	int stack_a[6] = {1, 2, 3, 4, 5, 0};
-// 	int stack_b[6] = {7, 0, 0, 0, 0, 0};
-// 	int height_a = 5;
-// 	int height_b = 1;
+// 	int st_a[6] = {1, 2, 3, 4, 5, 0};
+// 	int st_b[6] = {7, 0, 0, 0, 0, 0};
+// 	int h_a = 5;
+// 	int h_b = 1;
 
-// 	pb_wrapper(stack_a, stack_b, &height_a, &height_b);
-// 	pb_wrapper(stack_a, stack_b, &height_a, &height_b);
+// 	pb_wrapper(st_a, st_b, &h_a, &h_b);
+// 	pb_wrapper(st_a, st_b, &h_a, &h_b);
 // 	printf("pa worked\n");
-// 	printf("height_a: %d\n", height_a);
-// 	printf("height_b: %d\n", height_b);
-// 	printf("stack_a: %d, %d, %d, %d, %d, %d\n", stack_a[0], stack_a[1],
-// stack_a[2], stack_a[3], stack_a[4], stack_a[5]);
-// 	printf("stack_b: %d, %d, %d, %d, %d, %d\n", stack_b[0], stack_b[1],
-// stack_b[2], stack_b[3], stack_b[4], stack_b[5]);
+// 	printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+// 	printf("st_a: %d, %d, %d, %d, %d, %d\n", st_a[0], st_a[1],
+// st_a[2], st_a[3], st_a[4], st_a[5]);
+// 	printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
+// st_b[2], st_b[3], st_b[4], st_b[5]);
 // 	return (0);
 // }

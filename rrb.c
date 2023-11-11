@@ -6,42 +6,45 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 15:30:38 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 14:26:00 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Shifts all elements of stack_b up by one
-/// @param stack_b 
-/// @param height_b 
-void	rrb(int *stack_b, int height_b)
+/// @brief Shifts all elements of st_b up by one
+/// @param st_b stack b
+/// @param h_b height of stack b
+void	rrb(int *st_b, int h_b)
 {
 	int		temp;
 
-	if (height_b <= 1)
+	if (h_b <= 1)
 		return ;
-	temp = stack_b[height_b - 1];
-	ft_memmove(&stack_b[1], stack_b, (size_t)(height_b - 1) * sizeof(int));
-	stack_b[0] = temp;
+	temp = st_b[h_b - 1];
+	ft_memmove(&st_b[1], st_b, (size_t)(h_b - 1) * sizeof(int));
+	st_b[0] = temp;
 }
 
-void	rrb_wrapper(int *stack_b, int height_b)
+/// @brief wrapper for rrb writing "rrb\n" to stdout
+/// @param st_b stack b
+/// @param h_b height of stack b
+void	rrb_wrapper(int *st_b, int h_b)
 {
-	rrb(stack_b, height_b);
+	rrb(st_b, h_b);
 	write(1, "rrb\n", 4);
 }
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	int stack_b[6] = {1, 2, 3, 4, 5, 6};
-// 	int height_b = 6;
-// 	ra(stack_b, height_b);
-// 	ra(stack_b, height_b);
-// 	ra(stack_b, height_b);
+// 	int st_b[6] = {1, 2, 3, 4, 5, 6};
+// 	int h_b = 6;
+// 	ra(st_b, h_b);
+// 	ra(st_b, h_b);
+// 	ra(st_b, h_b);
 // 	printf("pa worked\n");
-// 	printf("height_b: %d\n", height_b);
-// 	printf("stack_b: %d, %d, %d, %d, %d, %d\n", stack_b[0], stack_b[1],
-// stack_b[2], stack_b[3], stack_b[4], stack_b[5]);
+// 	printf("h_b: %d\n", h_b);
+// 	printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
+// st_b[2], st_b[3], st_b[4], st_b[5]);
 // 	return (0);
 // }

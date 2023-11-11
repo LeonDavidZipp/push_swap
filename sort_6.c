@@ -6,101 +6,104 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:07:45 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 14:23:40 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static void	sort_2_a(t_stack *stack_a)
+static void	sort_2_a(t_stack *st_a)
 {
-	if (stack_a->height <= 1)
+	if (st_a->height <= 1)
 		return ;
-	if (stack_a->stack[0] > stack_a->stack[1])
-		sa_wrapper(stack_a->stack, stack_a->height);
+	if (st_a->stack[0] > st_a->stack[1])
+		sa_wrapper(st_a->stack, st_a->height);
 }
 
-static void	sort_2_b(t_stack *stack_b)
+static void	sort_2_b(t_stack *st_b)
 {
-	if (stack_b->height <= 1)
+	if (st_b->height <= 1)
 		return ;
-	if (stack_b->stack[0] > stack_b->stack[1])
-		sb_wrapper(stack_b->stack, stack_b->height);
+	if (st_b->stack[0] > st_b->stack[1])
+		sb_wrapper(st_b->stack, st_b->height);
 }
 
-static void	sort_3_a(t_stack *stack_a)
+static void	sort_3_a(t_stack *st_a)
 {
-	if (stack_a->height <= 2)
+	if (st_a->height <= 2)
 	{
-		sort_2_a(stack_a);
+		sort_2_a(st_a);
 		return ;
 	}
-	if (stack_a->stack[0] > stack_a->stack[1]
-		&& stack_a->stack[2] > stack_a->stack[1]
-		&& stack_a->stack[0] > stack_a->stack[2])
+	if (st_a->stack[0] > st_a->stack[1]
+		&& st_a->stack[2] > st_a->stack[1]
+		&& st_a->stack[0] > st_a->stack[2])
 	{
-		ra_wrapper(stack_a->stack, stack_a->height);
+		ra_wrapper(st_a->stack, st_a->height);
 		return ;
 	}
-	if (stack_a->stack[0] > stack_a->stack[1])
-		sa_wrapper(stack_a->stack, stack_a->height);
-	if (stack_a->stack[1] > stack_a->stack[2])
-		rra_wrapper(stack_a->stack, stack_a->height);
-	if (stack_a->stack[0] > stack_a->stack[1])
-		sa_wrapper(stack_a->stack, stack_a->height);
+	if (st_a->stack[0] > st_a->stack[1])
+		sa_wrapper(st_a->stack, st_a->height);
+	if (st_a->stack[1] > st_a->stack[2])
+		rra_wrapper(st_a->stack, st_a->height);
+	if (st_a->stack[0] > st_a->stack[1])
+		sa_wrapper(st_a->stack, st_a->height);
 }
 
-static void	sort_3_b(t_stack *stack_b)
+static void	sort_3_b(t_stack *st_b)
 {
-	if (stack_b->height <= 2)
+	if (st_b->height <= 2)
 	{
-		sort_2_b(stack_b);
+		sort_2_b(st_b);
 		return ;
 	}
-	if (stack_b->stack[0] < stack_b->stack[1]
-		&& stack_b->stack[1] < stack_b->stack[2])
+	if (st_b->stack[0] < st_b->stack[1]
+		&& st_b->stack[1] < st_b->stack[2])
 		return ;
-	if (stack_b->stack[0] > stack_b->stack[1]
-		&& stack_b->stack[2] > stack_b->stack[1]
-		&& stack_b->stack[0] > stack_b->stack[2])
+	if (st_b->stack[0] > st_b->stack[1]
+		&& st_b->stack[2] > st_b->stack[1]
+		&& st_b->stack[0] > st_b->stack[2])
 	{
-		rb_wrapper(stack_b->stack, stack_b->height);
+		rb_wrapper(st_b->stack, st_b->height);
 		return ;
 	}
-	if (stack_b->stack[0] > stack_b->stack[1])
-		sb_wrapper(stack_b->stack, stack_b->height);
-	if (stack_b->stack[1] > stack_b->stack[2])
-		rrb_wrapper(stack_b->stack, stack_b->height);
-	if (stack_b->stack[0] > stack_b->stack[1])
-		sb_wrapper(stack_b->stack, stack_b->height);
+	if (st_b->stack[0] > st_b->stack[1])
+		sb_wrapper(st_b->stack, st_b->height);
+	if (st_b->stack[1] > st_b->stack[2])
+		rrb_wrapper(st_b->stack, st_b->height);
+	if (st_b->stack[0] > st_b->stack[1])
+		sb_wrapper(st_b->stack, st_b->height);
 }
 
-void	sort_6(t_stack *stack_a, t_stack *stack_b)
+/// @brief Sorts 6 or less elements
+/// @param st_a stack a struct
+/// @param st_b stack b struct
+void	sort_6(t_stack *st_a, t_stack *st_b)
 {
-	if (stack_a->height > 3)
-		pb_wrapper(stack_a->stack, stack_b->stack,
-			&stack_a->height, &stack_b->height);
-	if (stack_a->height > 3)
-		pb_wrapper(stack_a->stack, stack_b->stack,
-			&stack_a->height, &stack_b->height);
-	if (stack_a->height > 3)
-		pb_wrapper(stack_a->stack, stack_b->stack,
-			&stack_a->height, &stack_b->height);
-	sort_3_a(stack_a);
+	if (st_a->height > 3)
+		pb_wrapper(st_a->stack, st_b->stack,
+			&st_a->height, &st_b->height);
+	if (st_a->height > 3)
+		pb_wrapper(st_a->stack, st_b->stack,
+			&st_a->height, &st_b->height);
+	if (st_a->height > 3)
+		pb_wrapper(st_a->stack, st_b->stack,
+			&st_a->height, &st_b->height);
+	sort_3_a(st_a);
 	printf("stack a after sort_3_a: ");
-	for (int i = 0; i < stack_a->height; i++)
+	for (int i = 0; i < st_a->height; i++)
 	{
-		printf("%d ", stack_a->stack[i]);
+		printf("%d ", st_a->stack[i]);
 	}
 	printf("\n");
-	sort_3_b(stack_b);
+	sort_3_b(st_b);
 	printf("\nstack b after sort_3_b: ");
-	for (int i = 0; i < stack_b->height; i++)
+	for (int i = 0; i < st_b->height; i++)
 	{
-		printf("%d ", stack_b->stack[i]);
+		printf("%d ", st_b->stack[i]);
 	}
 	printf("\n--------------\n");
-	if (stack_b->height > 0)
-		merge_to_a(stack_a, stack_b);
+	if (st_b->height > 0)
+		merge_to_a(st_a, st_b);
 }

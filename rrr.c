@@ -6,25 +6,30 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:25:25 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/03 16:40:06 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 14:25:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Shift down all elements of stack_a & stack_b by 1.
-/// @param stack_a 
-/// @param stack_b 
-/// @param height_a 
-/// @param height_b 
-void	rrr(int *stack_a, int *stack_b, int height_a, int height_b)
+/// @brief Shift down all elements of st_a & st_b by 1.
+/// @param st_a stack a
+/// @param st_b stack b
+/// @param h_a height of stack a
+/// @param h_b height of stack b
+void	rrr(int *st_a, int *st_b, int h_a, int h_b)
 {
-	rra(stack_a, height_a);
-	rrb(stack_b, height_b);
+	rra(st_a, h_a);
+	rrb(st_b, h_b);
 }
 
-void	rrr_wrapper(int *stack_a, int *stack_b, int height_a, int height_b)
+/// @brief wrapper for rrr writing "rrr\n" to stdout
+/// @param st_a stack a
+/// @param st_b stack b
+/// @param h_a height of stack a
+/// @param h_b height of stack b
+void	rrr_wrapper(int *st_a, int *st_b, int h_a, int h_b)
 {
-	rrr(stack_a, stack_b, height_a, height_b);
+	rrr(st_a, st_b, h_a, h_b);
 	write(1, "rrr\n", 4);
 }

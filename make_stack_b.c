@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_stack_b.c                                     :+:      :+:    :+:   */
+/*   make_st_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,22 @@
 
 #include "push_swap.h"
 
-t_stack	*make_stack_b(t_stack *stack_a)
+/// @brief Generates stack b.
+/// @param st_a stack a
+/// @return an empty stack b of same size as stack a
+t_stack	*make_stack_b(t_stack *st_a)
 {
-	t_stack	*stack_b;
+	t_stack	*st_b;
 	int		*stack;
 
-	stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
-	if (!stack_b)
+	st_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
+	if (!st_b)
 		return (NULL);
-	stack = (int *)ft_calloc(stack_a->height, sizeof(int *));
+	stack = (int *)ft_calloc(st_a->height, sizeof(int *));
 	if (!stack)
 		return (NULL);
-	stack_b->stack = stack;
-	stack_b->height = 0;
-	return (stack_b);
+	st_b->stack = stack;
+	st_b->height = 0;
+	st_b->runs = 0;
+	return (st_b);
 }

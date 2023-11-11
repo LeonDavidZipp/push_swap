@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/01 12:41:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 14:25:03 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,27 @@
 
 /// @brief Swaps the first 2 elements at the top of stack b.
 /// Do nothing if there is only one or no elements.
-/// @param el1
-/// @param el2
-void	sb(int *stack_b, int height_b)
+/// @param st_b stack b
+/// @param h_b height of stack b
+void	sb(int *st_b, int h_b)
 {
 	int		temp;
 
-	if (height_b <= 1)
+	if (h_b <= 1)
 		return ;
-	if (stack_b[0] > stack_b[1])
+	if (st_b[0] > st_b[1])
 	{
-		temp = stack_b[0];
-		stack_b[0] = stack_b[1];
-		stack_b[1] = temp;
+		temp = st_b[0];
+		st_b[0] = st_b[1];
+		st_b[1] = temp;
 	}
 }
 
-void	sb_wrapper(int *stack_b, int height_b)
+/// @brief wrapper for sb writing "sb\n" to stdout
+/// @param st_b stack b
+/// @param h_b height of stack b
+void	sb_wrapper(int *st_b, int h_b)
 {
-	sb(stack_b, height_b);
+	sb(st_b, h_b);
 	write(1, "sb\n", 3);
 }
