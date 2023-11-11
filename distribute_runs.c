@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 12:07:58 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 12:08:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 	int		temp;
 
 	temp = stack_a->stack[0];
-	// while (stack_a->stack[0] < stack_a->stack[1])
 	while (temp <= stack_a->stack[0])
 	{
 		temp = stack_a->stack[0];
