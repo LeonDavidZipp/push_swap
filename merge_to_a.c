@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 11:51:35 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 13:09:52 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,32 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 
 	temp_b = stack_b->stack[0];
 	temp_a = stack_a->stack[0];
-	while (stack_b->height >= 1 //&& temp_a <= stack_a->stack[0]
-		&& temp_b <= stack_b->stack[0])
+	while (stack_b->height >= 1 && temp_b <= stack_b->stack[0])
 	{
 		printf("in first merge a while loop, currently merging %d to A\n", stack_b->stack[0]);
 		temp_b = stack_b->stack[0];
 		if (stack_a->stack[0] > stack_b->stack[0])
 			pa_wrapper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-		else if (stack_a->stack[0] > stack_a->stack[1]
+		if (stack_a->stack[0] > stack_a->stack[1]
 			&& stack_a->stack[0] < stack_b->stack[0])
 			merge_helper(stack_a->stack, stack_b->stack,
 				&(stack_a->height), &(stack_b->height));
-		ra_wrapper(stack_a->stack, stack_a->height);
+		// if (stack_b->height > 1)
+			ra_wrapper(stack_a->stack, stack_a->height);
 		temp_a = stack_a->stack[0];
-		printf("trying to put %d on %d\n", stack_b->stack[0], stack_a->stack[0]);
+		// printf("trying to put %d on %d\n", stack_b->stack[0], stack_a->stack[0]);
 		printf("stack a: ");
 		for (int i = 0; i < stack_a->height; i++)
-		{
 			printf("%d ", stack_a->stack[i]);
-		}
 		printf("\n");
 		printf("stack b: ");
 		for (int i = 0; i < stack_b->height; i++)
-		{
 			printf("%d ", stack_b->stack[i]);
-		}
 		printf("\n");
 	}
-	while (temp_a <= stack_a->stack[0] || stack_a->stack[0] > stack_a->stack[1])
+	while (stack_a->runs > 1 && (temp_a <= stack_a->stack[0]
+			|| stack_a->stack[0] > stack_a->stack[1]))
 	{
 		temp_a = stack_a->stack[0];
 		ra_wrapper(stack_a->stack, stack_a->height);

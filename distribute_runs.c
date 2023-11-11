@@ -6,29 +6,12 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 12:08:21 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 12:38:53 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/// @brief Checks whether stack_a is sorted & thus skips unnecessary steps.
-/// @param stack 
-/// @param height 
-/// @return 1 if sorted, 0 if not sorted.
-// static int	is_sorted(int *stack, int height)
-// {
-// 	int		i;
-
-// 	i = -1;
-// 	while (++i < height - 1)
-// 	{
-// 		if (stack[i] > stack[i + 1])
-// 			return (0);
-// 	}
-// 	return (1);
-// }
-
+#include <stdio.h>
 /// @brief Counts the number of runs in stack_a.
 /// A run is a sequence of numbers that are in ascending order.
 /// @param stack_a 
@@ -85,15 +68,12 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 
 	while (stack_a->stack[0] > stack_a->stack[stack_a->height - 1])
 		ra_wrapper(stack_a->stack, stack_a->height);
-	// if (is_sorted(stack_a->stack, stack_a->height) == 1)
-	// 	return (-1);
 	stack_flag = 1;
 	runs_a = count_runs(stack_a->stack, stack_a->height);
 	if (runs_a == 1)
 		return (-1);
 	runs_b = 0;
-
-	while (runs_a != runs_b && runs_a  != runs_b + 1 && runs_a != runs_b - 1)
+	while (runs_a != runs_b && runs_a != runs_b + 1 && runs_a != runs_b - 1)
 	{
 		move_run(stack_a, stack_b, stack_flag);
 		if (stack_flag == -1)
@@ -103,6 +83,8 @@ int	distribute_runs(t_stack *stack_a, t_stack *stack_b)
 		}
 		stack_flag *= -1;
 	}
+	stack_a->runs = runs_a;
+	stack_b->runs = runs_b;
 	return (runs_a + runs_b);
 }
 // #include "push_swap.h"
