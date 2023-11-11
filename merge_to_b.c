@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:39:41 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:28:25 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 14:38:11 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	merge_helper(int *st_a, int *st_b,
 	pb_wrapper(st_a, st_b, h_a, h_b);
 }
 
-/// @brief Merges th etopmost run of stack a to stack b
+/// @brief Merges the etopmost run of stack a to stack b
 /// @param st_a stack a struct
 /// @param st_b stack b struct
 void	merge_to_b(t_stack *st_a, t_stack *st_b)

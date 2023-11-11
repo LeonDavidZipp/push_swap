@@ -12,8 +12,8 @@
 
 #include "push_swap.h"
 
-/// @brief Generates stack b.
-/// @param st_a stack a
+/// @brief Generates stack b from stack a.
+/// @param st_a stack a struct
 /// @return an empty stack b of same size as stack a
 t_stack	*make_stack_b(t_stack *st_a)
 {

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	check_numeric(int argc, char **argv)
 {
@@ -108,10 +107,10 @@ static t_stack	*build_stack(char **num_strings, int h_a)
 	return (st_a);
 }
 
-/// @brief Generates stack a from the terminal input
+/// @brief Generates stack a from input
 /// @param argc 
 /// @param argv 
-/// @return stack a
+/// @return stack a filled with input
 t_stack	*make_stack_a(int argc, char **argv)
 {
 	char	*num_string;
