@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:39:41 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 17:45:12 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 11:51:05 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 
 	temp_b = stack_b->stack[0];
 	temp_a = stack_a->stack[0];
-	while (stack_a->height >= 1 && temp_b <= stack_b->stack[0]
+	while (stack_a->height >= 1 //&& temp_b <= stack_b->stack[0]
 		&& temp_a <= stack_a->stack[0])
 	{
+		printf("in first merge b while loop, currently merging %d to B\n", stack_a->stack[0]);
 		temp_a = stack_a->stack[0];
 		if (stack_b->stack[0] > stack_a->stack[0])
 			pb_wrapper(stack_a->stack, stack_b->stack,
@@ -40,9 +41,14 @@ void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 				&(stack_a->height), &(stack_b->height));
 		rb_wrapper(stack_b->stack, stack_b->height);
 		temp_b = stack_a->stack[0];
+		printf("next el to merge: %d\n", stack_a->stack[0]);
+		printf("cond 1: %d\n", stack_a->height >= 1);
+		printf("cond 2: %d\n", temp_b <= stack_b->stack[0]);
+		printf("cond 3: %d\n", temp_a <= stack_a->stack[0]);
 	}
 	while (temp_b <= stack_b->stack[0] || stack_b->stack[0] > stack_b->stack[1])
 	{
+		printf("in second merge b while loop, currently rotating run to bottom\n");
 		temp_b = stack_b->stack[0];
 		rb_wrapper(stack_b->stack, stack_b->height);
 	}

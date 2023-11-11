@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 17:31:35 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 11:52:06 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 #include <stdio.h>
 void	sort_6(t_stack *stack_a, t_stack *stack_b)
 {
-	int		i;
-	int		height;
+	// int		i;
+	// int		height;
 
-	if (stack_a->height <= 3)
-	{
-		sort_3_a(stack_a);
-		return ;
-	}
-	height = 2;
-	if (stack_a->height == 6)
-		height = 3;
-	i = 0;
-	while (i++ < height)
-	{
-		// if (stack_a->stack[0] > stack_a->stack[1])
-		// 	sa(stack_a->stack, stack_a->height);
-		pb_wrapper(stack_a->stack, stack_b->stack,
-			&stack_a->height, &stack_b->height);
-	}
-	printf("\nsorting a\n");
+	// i = 0;
+	// if (stack_a->height <= 3)
+	// {
+	// 	sort_3_a(stack_a);
+	// 	return ;
+	// }
+	// height = 2;
+	// if (stack_a->height == 6)
+	// 	height = 3;
+	// while (i++ < height)
+	// {
+	// 	// if (stack_a->stack[0] > stack_a->stack[1])
+	// 	// 	sa(stack_a->stack, stack_a->height);
+	// 	pb_wrapper(stack_a->stack, stack_b->stack,
+	// 		&stack_a->height, &stack_b->height);
+	// }
 	sort_3_a(stack_a);
 	printf("a after sort: ");
 	for (int i = 0; i < stack_a->height; i++)
@@ -42,11 +41,6 @@ void	sort_6(t_stack *stack_a, t_stack *stack_b)
 	}
 	printf("\nsorting b\n");
 	sort_3_b(stack_b);
-	printf("b after sort: ");
-	for (int i = 0; i < stack_b->height; i++)
-	{
-		printf("%d ", stack_b->stack[i]);
-	}
-	printf("\nmerging\n");
-	merge_to_a(stack_a, stack_b);
+	if (stack_b->height > 0)
+		merge_to_a(stack_a, stack_b);
 }
