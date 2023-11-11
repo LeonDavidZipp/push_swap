@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 12:27:30 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep)
 // 	char *result = ft_strsepjoin(s1, s2, sep);
 // 	if (result)
 // 	{
-// 		printf("Result: %s\n", result);
+// 		// printf("Result: %s\n", result);
 // 		free(result);
 // 	}
 // 	else
 // 	{
-// 		printf("Error: ft_strsepjoin returned NULL\n");
+// 		// printf("Error: ft_strsepjoin returned NULL\n");
 // 	}
 // 	return 0;
 // }

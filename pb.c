@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:27:43 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	pb_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 {
 	pb(st_a, st_b, h_a, h_b);
 	write(1, "pb\n", 3);
-	// printf("height b and a after pb wrapper: %d %d\n", *h_a, *h_b);
+	// // printf("height b and a after pb wrapper: %d %d\n", *h_a, *h_b);
 }
 
 // #include <stdio.h>
@@ -51,12 +51,12 @@ void	pb_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 
 // 	pb_wrapper(st_a, st_b, &h_a, &h_b);
 // 	pb_wrapper(st_a, st_b, &h_a, &h_b);
-// 	printf("pa worked\n");
-// 	printf("h_a: %d\n", h_a);
-// 	printf("h_b: %d\n", h_b);
-// 	printf("st_a: %d, %d, %d, %d, %d, %d\n", st_a[0], st_a[1],
+// 	// printf("pa worked\n");
+// 	// printf("h_a: %d\n", h_a);
+// 	// printf("h_b: %d\n", h_b);
+// 	// printf("st_a: %d, %d, %d, %d, %d, %d\n", st_a[0], st_a[1],
 // st_a[2], st_a[3], st_a[4], st_a[5]);
-// 	printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
+// 	// printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
 // st_b[2], st_b[3], st_b[4], st_b[5]);
 // 	return (0);
 // }

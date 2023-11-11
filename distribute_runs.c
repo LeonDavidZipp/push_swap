@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:14:18 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,21 +105,21 @@ int	distribute_runs(t_stack *st_a, t_stack *st_b)
 // 	sorted += 1;
 // 	// while (st_a->stack[0] > st_a->stack[st_a->height - 1])
 // 	// 	ra_wrapper(st_a->stack, st_a->height);
-// 	// printf("runs: %d\n", count_runs(st_a->stack, st_a->height));
+// 	// // printf("runs: %d\n", count_runs(st_a->stack, st_a->height));
 
 // 	// Print the results
-// 	printf("Stack A: ");
+// 	// printf("Stack A: ");
 // 	for (int i = 0; i < st_a->height; i++)
 // 	{
-// 		printf("%d ", st_a->stack[i]);
+// 		// printf("%d ", st_a->stack[i]);
 // 	}
-// 	printf("\n");
-// 	printf("Stack B: ");
+// 	// printf("\n");
+// 	// printf("Stack B: ");
 // 	for (int i = 0; i < st_b->height; i++)
 // 	{
-// 		printf("%d ", st_b->stack[i]);
+// 		// printf("%d ", st_b->stack[i]);
 // 	}
-// 	printf("\n");
+// 	// printf("\n");
 // 	// Free the stacks
 // 	// free(st_a->stack);
 // 	// free(st_b->stack);

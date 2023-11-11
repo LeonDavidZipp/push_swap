@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:17:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ void	pa_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 // 	int h_b = 1;
 
 // 	pa(st_a, st_b, &h_a, &h_b);
-// 	printf("pa worked\n");
-// 	printf("h_a: %d\n", h_a);
-// 	printf("h_b: %d\n", h_b);
-// 	printf("st_a: %d, %d, %d, %d, %d, %d\n", st_a[0], st_a[1],
+// 	// printf("pa worked\n");
+// 	// printf("h_a: %d\n", h_a);
+// 	// printf("h_b: %d\n", h_b);
+// 	// printf("st_a: %d, %d, %d, %d, %d, %d\n", st_a[0], st_a[1],
 // st_a[2], st_a[3], st_a[4], st_a[5]);
-// 	printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
+// 	// printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
 // st_b[2], st_b[3], st_b[4], st_b[5]);
 // 	return (0);
 // }

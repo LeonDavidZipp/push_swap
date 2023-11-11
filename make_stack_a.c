@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_st_a.c                                     :+:      :+:    :+:   */
+/*   make_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/05 18:55:09 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ t_stack	*make_stack_a(int argc, char **argv)
 
 // 	if (argc == 1)
 // 		return (0);
-// 	st_a = make_st_a(argc, argv);
+// 	st_a = make_stack_a(argc, argv);
 // 	if (!st_a)
 // 	{
 // 		write(2, "Error\n", 6);
@@ -148,10 +148,10 @@ t_stack	*make_stack_a(int argc, char **argv)
 // 	stack = st_a->stack;
 // 	for (int i = 0; i < h_a; i++)
 // 	{
-// 		printf("|%d|\n", stack[i]);
+// 		// printf("|%d|\n", stack[i]);
 // 	}
-// 	printf("\n");
+// 	// printf("\n");
 // 	return (0);
 // }
-// cc make_st_a.c ft_strdup.c ft_isdigit.c ft_strcmp.c ft_strsepjoin.c
+// cc make_stack_a.c ft_strdup.c ft_isdigit.c ft_strcmp.c ft_strsepjoin.c
 // ft_calloc.c ft_strlen.c ft_atoi.c ft_split.c ft_substr.c

@@ -6,44 +6,86 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:28:40 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	merge_helper(int *st_a, int *st_b, int *h_a, int *h_b)
-{
-	ra_wrapper(st_a, *h_a);
-	pa_wrapper(st_a, st_b, h_a, h_b);
-}
+#include <stdio.h>
+// static void	merge_helper(int *st_a, int *st_b, int *h_a, int *h_b)
+// {
+// 	ra_wrapper(st_a, *h_a);
+// 	pa_wrapper(st_a, st_b, h_a, h_b);
+// }
 
 /// @brief Merges the topmost run of stack b to stack a
 /// @param st_a stack a struct
 /// @param st_b stack b struct
+// void	merge_to_a(t_stack *st_a, t_stack *st_b)
+// {
+// 	int		temp_a;
+// 	int		temp_b;
+
+// 	temp_b = st_b->stack[0];
+// 	temp_a = st_a->stack[0];
+// 	while (st_b->height >= 1 && temp_b <= st_b->stack[0])
+// 	{
+// 		temp_b = st_b->stack[0];
+// 		if (st_a->stack[0] > st_b->stack[0])
+// 			pa_wrapper(st_a->stack, st_b->stack,
+// 				&(st_a->height), &(st_b->height));
+// 		if (st_a->stack[0] > st_a->stack[1] && st_a->stack[0] < st_b->stack[0])
+// 			merge_helper(st_a->stack, st_b->stack,
+// 				&(st_a->height), &(st_b->height));
+// 		ra_wrapper(st_a->stack, st_a->height);
+// 		temp_a = st_a->stack[0];
+// 	}
+// 	while (st_a->runs > 1 && (temp_a <= st_a->stack[0]
+// 	// while ((temp_a <= st_a->stack[0]
+// 			|| st_a->stack[0] > st_a->stack[1]))
+// 	{
+// 		temp_a = st_a->stack[0];
+// 		ra_wrapper(st_a->stack, st_a->height);
+// 	}
+// }
+
+// if top of B < top of A:
+//     pa
+// ra
+// while bottom of A <= top of A:
+//     if top of B < top of A:
+//         pa
+//     ra
+// while bottom of B <= top of A:
+//     pa
+//     ra
+
 void	merge_to_a(t_stack *st_a, t_stack *st_b)
 {
-	int		temp_a;
-	int		temp_b;
-
-	temp_b = st_b->stack[0];
-	temp_a = st_a->stack[0];
-	while (st_b->height >= 1 && temp_b <= st_b->stack[0])
+	if (st_b->stack[0] < st_a->stack[0])
+		pa_wrapper(st_a->stack, st_b->stack,
+			&(st_a->height), &(st_b->height));
+	ra_wrapper(st_a->stack, st_a->height);
+	while (st_a->height > 0 && st_a->stack[st_a->height -1] <= st_a->stack[0])
 	{
-		temp_b = st_b->stack[0];
-		if (st_a->stack[0] > st_b->stack[0])
+		// printf("\n1st while-----------\n");
+		if (st_b->stack[0] < st_a->stack[0])
 			pa_wrapper(st_a->stack, st_b->stack,
 				&(st_a->height), &(st_b->height));
-		if (st_a->stack[0] > st_a->stack[1] && st_a->stack[0] < st_b->stack[0])
-			merge_helper(st_a->stack, st_b->stack,
-				&(st_a->height), &(st_b->height));
 		ra_wrapper(st_a->stack, st_a->height);
-		temp_a = st_a->stack[0];
 	}
-	while (st_a->runs > 1 && (temp_a <= st_a->stack[0]
-			|| st_a->stack[0] > st_a->stack[1]))
+	while (st_b->height > 0 && st_b->stack[st_b->height - 1] <= st_a->stack[0])
 	{
-		temp_a = st_a->stack[0];
+		// printf("\n2nd while-----------\n");
+		pa_wrapper(st_a->stack, st_b->stack,
+			&(st_a->height), &(st_b->height));
+		ra_wrapper(st_a->stack, st_a->height);
+	}
+	while (st_b->height > 0 && st_b->stack[0] > st_a->stack[0])
+	{
+		// printf("\n3rd while-----------\n");
+		pa_wrapper(st_a->stack, st_b->stack,
+			&(st_a->height), &(st_b->height));
 		ra_wrapper(st_a->stack, st_a->height);
 	}
 }
@@ -68,14 +110,14 @@ void	merge_to_a(t_stack *st_a, t_stack *st_b)
 
 //     // Print the values in stack A after the merge
 //     for (int i = 0; i < st_a->height; i++) {
-//         printf("%d, ", st_a->stack[i]);
+//         // printf("%d, ", st_a->stack[i]);
 //     }
-// 	// printf("hi");
-//     printf("\n");
+// 	// // printf("hi");
+//     // printf("\n");
 // 	for (int i = 0; i < st_b->height; i++) {
-//         printf("%d, ", st_b->stack[i]);
+//         // printf("%d, ", st_b->stack[i]);
 //     }
-// 	// printf("hi");
-//     printf("\n");
+// 	// // printf("hi");
+//     // printf("\n");
 //     return (0);
 // }

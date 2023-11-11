@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:23 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 22:19:11 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,13 @@ char	**ft_split(char const *s, char c)
 // 	system("leaks a.out");
 
 //     if (!result) {
-//         printf("Memory allocation error in ft_split\n");
+//         // printf("Memory allocation error in ft_split\n");
 //         return 1;
 //     }
 
 //     // Print the split strings
 //     for (int i = 0; result[i] != NULL; i++) {
-//         printf("Token %d: %s\n", i, result[i]);
+//         // printf("Token %d: %s\n", i, result[i]);
 //     }
 
 //     // Free the memory allocated by ft_split

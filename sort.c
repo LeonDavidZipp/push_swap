@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:22:55 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:10:56 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,61 +47,61 @@ void	sort(t_stack *st_a, t_stack *st_b)
 // 	int		stack_flag;
 // 	int		runs;
 
-// 	printf("\n---------------\ndistributing runs\n");
+// 	// printf("\n---------------\ndistributing runs\n");
 // 	runs = distribute_runs(st_a, st_b);
-// 	printf("stack a: ");
+// 	// printf("stack a: ");
 // 	for (int i = 0; i < st_a->height; i++)
 // 	{
-// 		printf("%d ", st_a->stack[i]);
+// 		// printf("%d ", st_a->stack[i]);
 // 	}
-// 	printf("\n");
-// 	printf("stack b: ");
+// 	// printf("\n");
+// 	// printf("stack b: ");
 // 	for (int i = 0; i < st_b->height; i++)
 // 	{
-// 		printf("%d ", st_b->stack[i]);
+// 		// printf("%d ", st_b->stack[i]);
 // 	}
-// 	printf("\n");
+// 	// printf("\n");
 // 	// return ;
 // 	if (runs == -1)
 // 		return ;
 // 	if (st_a->height + st_b->height <= 6)
 // 	{
-// 		printf("\n---------------\nnow sorting 6 or less\n");
+// 		// printf("\n---------------\nnow sorting 6 or less\n");
 // 		sort_6(st_a, st_b);
 // 		return ;
 // 	}
 // 	stack_flag = 1;
 // 	if (runs % 2 == 1)
 // 		stack_flag = -1;
-// 	printf("\n---------------\nnow sorting\n");
+// 	// printf("\n---------------\nnow sorting\n");
 // 	while (st_b->height > 0)
 // 	{
 // 		if (stack_flag == 1)
 // 		{
-// 			printf("\n---------------\nmerging to a\n");
+// 			// printf("\n---------------\nmerging to a\n");
 // 			merge_to_a(st_a, st_b);
 // 		}
 // 		else
 // 		{
-// 			printf("\n---------------\nmerging to b\n");
+// 			// printf("\n---------------\nmerging to b\n");
 // 			merge_to_b(st_a, st_b);
 // 		}
-// 		printf("stack a: ");
+// 		// printf("stack a: ");
 // 		for (int i = 0; i < st_a->height; i++)
 // 		{
-// 			printf("%d ", st_a->stack[i]);
+// 			// printf("%d ", st_a->stack[i]);
 // 		}
-// 		printf("\n");
-// 		printf("stack b: ");
+// 		// printf("\n");
+// 		// printf("stack b: ");
 // 		for (int i = 0; i < st_b->height; i++)
 // 		{
-// 			printf("%d ", st_b->stack[i]);
+// 			// printf("%d ", st_b->stack[i]);
 // 		}
-// 		printf("\n");
+// 		// printf("\n");
 // 		stack_flag *= -1;
 // 		// break ;
 // 	}
-// 	printf("\n---------------\ndone\n");
+// 	// printf("\n---------------\ndone\n");
 // }
 // #include "push_swap.h"
 // #include <stdio.h>
@@ -120,19 +120,19 @@ void	sort(t_stack *st_a, t_stack *st_b)
 //     st_b.stack = stackb;
 //     st_b.height = 0;
 //     // Sort st_a using st_b as a temporary stack
-// 	printf("stack before sorting: \n");
-// 	printf("stack a: ");
+// 	// printf("stack before sorting: \n");
+// 	// printf("stack a: ");
 //     for (int i = 0; i < st_a.height; i++)
 //     {
-//         printf("%d ", st_a.stack[i]);
+//         // printf("%d ", st_a.stack[i]);
 //     }
-//     printf("\n");
-// 	printf("stack b: ");
+//     // printf("\n");
+// 	// printf("stack b: ");
 //     for (int i = 0; i < st_b.height; i++)
 //     {
-//         printf("%d ", st_b.stack[i]);
+//         // printf("%d ", st_b.stack[i]);
 //     }
-//     printf("\n");
+//     // printf("\n");
 //     sort(&st_a, &st_b);
 //     // Print the sorted numbers
 //     return 0;

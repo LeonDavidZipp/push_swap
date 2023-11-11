@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:26:00 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	rrb_wrapper(int *st_b, int h_b)
 // 	ra(st_b, h_b);
 // 	ra(st_b, h_b);
 // 	ra(st_b, h_b);
-// 	printf("pa worked\n");
-// 	printf("h_b: %d\n", h_b);
-// 	printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
+// 	// printf("pa worked\n");
+// 	// printf("h_b: %d\n", h_b);
+// 	// printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
 // st_b[2], st_b[3], st_b[4], st_b[5]);
 // 	return (0);
 // }

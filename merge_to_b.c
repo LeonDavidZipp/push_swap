@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:39:41 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:38:11 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	merge_to_b(t_stack *st_a, t_stack *st_b)
 		rb_wrapper(st_b->stack, st_b->height);
 		temp_b = st_a->stack[0];
 	}
-	while (st_b->runs > 1 && (temp_b <= st_b->stack[0]
+	// while (st_b->runs > 1 && (temp_b <= st_b->stack[0]
+	while ((temp_b <= st_b->stack[0]
 			|| st_b->stack[0] > st_b->stack[1]))
 	{
 		temp_b = st_b->stack[0];
@@ -55,36 +56,36 @@ void	merge_to_b(t_stack *st_a, t_stack *st_b)
 
 // int main(int argc, char **argv)
 // {
-// 	t_stack	*st_a = make_st_a(argc, argv);
-// 	t_stack	*st_b = make_st_b(st_a);
+// 	t_stack	*st_a = make_stack_a(argc, argv);
+// 	t_stack	*st_b = make_stack_b(st_a);
 
 // 	distribute_runs(st_a, st_b);
-// 	printf("stack a before merge:	");
+// 	// printf("stack a before merge:	");
 // 	for (int i = 0; i < st_a->height; i++) {
-// 	printf("%d, ", st_a->stack[i]);
+// 	// printf("%d, ", st_a->stack[i]);
 // 		}
-// 		printf("\n");
-// 		// printf("hi");
-// 	printf("stack b:	");
+// 		// printf("\n");
+// 		// // printf("hi");
+// 	// printf("stack b:	");
 // 		for (int i = 0; i < st_b->height; i++) {
-// 	printf("%d, ", st_b->stack[i]);
+// 	// printf("%d, ", st_b->stack[i]);
 // 		}
-// 		// printf("hi");
-// 	printf("\n");
-// 	printf("merging stack a to stack b\n");
+// 		// // printf("hi");
+// 	// printf("\n");
+// 	// printf("merging stack a to stack b\n");
 // 	merge_to_b(st_a, st_b);
 // 	// Print the values in stack A after the merge
-// 	printf("stack a:	");
+// 	// printf("stack a:	");
 // 	for (int i = 0; i < st_a->height; i++) {
-// 	printf("%d, ", st_a->stack[i]);
+// 	// printf("%d, ", st_a->stack[i]);
 // 		}
-// 		printf("\n");
-// 		// printf("hi");
-// 	printf("stack b:	");
+// 		// printf("\n");
+// 		// // printf("hi");
+// 	// printf("stack b:	");
 // 		for (int i = 0; i < st_b->height; i++) {
-// 	printf("%d, ", st_b->stack[i]);
+// 	// printf("%d, ", st_b->stack[i]);
 // 		}
-// 		// printf("hi");
-// 	printf("\n");
+// 		// // printf("hi");
+// 	// printf("\n");
 // 	return 0;
 // }

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:24:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,26 +44,26 @@ void	sa_wrapper(int *st_a, int h_a)
 //     int st_a[] = {3, 1, 2, 4};
 //     unsigned int height = 4;
 
-//     printf("Original Array: ");
+//     // printf("Original Array: ");
 //     for (unsigned int i = 0; i < height; i++) {
-//         printf("%d ", st_a[i]);
+//         // printf("%d ", st_a[i]);
 //     }
-//     printf("\n");
+//     // printf("\n");
 
 //     // Apply the sa function
 //     sa(st_a, height);
 
-//     printf("After sa function: ");
+//     // printf("After sa function: ");
 //     for (unsigned int i = 0; i < height; i++) {
-//         printf("%d ", st_a[i]);
+//         // printf("%d ", st_a[i]);
 //     }
-//     printf("\n");
+//     // printf("\n");
 
 //     // Check if the sa function worked
 //     if (st_a[0] < st_a[1]) {
-//         printf("Test Passed: Elements swapped correctly.\n");
+//         // printf("Test Passed: Elements swapped correctly.\n");
 //     } else {
-//         printf("Test Failed: Elements not swapped correctly.\n");
+//         // printf("Test Failed: Elements not swapped correctly.\n");
 //     }
 
 //     return 0;

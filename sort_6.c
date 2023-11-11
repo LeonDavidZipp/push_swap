@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:23:40 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 17:08:24 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,9 @@ void	sort_6(t_stack *st_a, t_stack *st_b)
 		pb_wrapper(st_a->stack, st_b->stack,
 			&st_a->height, &st_b->height);
 	sort_3_a(st_a);
-	printf("stack a after sort_3_a: ");
-	for (int i = 0; i < st_a->height; i++)
-	{
-		printf("%d ", st_a->stack[i]);
-	}
-	printf("\n");
+	st_a->runs = 1;
 	sort_3_b(st_b);
-	printf("\nstack b after sort_3_b: ");
-	for (int i = 0; i < st_b->height; i++)
-	{
-		printf("%d ", st_b->stack[i]);
-	}
-	printf("\n--------------\n");
+	st_b->runs = 1;
 	if (st_b->height > 0)
 		merge_to_a(st_a, st_b);
 }
