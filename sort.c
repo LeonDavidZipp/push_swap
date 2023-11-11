@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/07 16:36:57 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:19:27 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	int		stack_flag;
 	int		runs;
 
+	if (stack_a->height + stack_b->height <= 6)
+	{
+		sort_6(stack_a, stack_b);
+		return ;
+	}
 	runs = distribute_runs(stack_a, stack_b);
 	if (runs == -1)
 		return ;
-	// if (stack_a->height + stack_b->height <= 6)
-	// {
-	// 	sort_6(stack_a, stack_b);
-	// 	return ;
-	// }
 	stack_flag = 1;
 	if (runs % 2 == 1)
 		stack_flag = -1;
@@ -40,20 +40,20 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 		else
 			merge_to_b(stack_a, stack_b);
 		counter++ ;
-		if (counter == 10)
-			break ;
-		printf("stack a: ");
-		for (int i = 0; i < stack_a->height; i++)
-		{
-			printf("%d ", stack_a->stack[i]);
-		}
-		printf("\n");
-		printf("stack b: ");
-		for (int i = 0; i < stack_b->height; i++)
-		{
-			printf("%d ", stack_b->stack[i]);
-		}
-		printf("\n");
+		// if (counter == 10)
+		// 	break ;
+		// printf("stack a: ");
+		// for (int i = 0; i < stack_a->height; i++)
+		// {
+		// 	printf("%d ", stack_a->stack[i]);
+		// }
+		// printf("\n");
+		// printf("stack b: ");
+		// for (int i = 0; i < stack_b->height; i++)
+		// {
+		// 	printf("%d ", stack_b->stack[i]);
+		// }
+		// printf("\n");
 		stack_flag *= -1;
 	}
 }

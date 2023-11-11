@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 16:58:31 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:43:17 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 		ra_wrapper(stack_a->stack, stack_a->height);
 		temp_a = stack_a->stack[0];
 	}
-	while (temp_a <= stack_a->stack[0] && stack_a->stack[0] > stack_a->stack[1])
+	while (temp_a <= stack_a->stack[0] || stack_a->stack[0] > stack_a->stack[1])
 	{
 		temp_a = stack_a->stack[0];
 		ra_wrapper(stack_a->stack, stack_a->height);
@@ -52,13 +52,13 @@ void	merge_to_a(t_stack *stack_a, t_stack *stack_b)
 //     t_stack *stack_b = (t_stack *)ft_calloc(1, sizeof(t_stack));
 
 //     // Initialize the heights of the stacks
-//     stack_a->height = 4;
-//     stack_b->height = 3;
+//     stack_a->height = 3;
+//     stack_b->height = 2;
 
 //     // Initialize the stacks with some values
-//     int stack_a_values[12] = {10, 100, 600, 700, 0, 0, 0,0 ,0 ,0 ,0 ,0};
+//     int stack_a_values[12] = {2, 4, 5, 0, 0, 0, 0,0 ,0 ,0 ,0 ,0};
 //     // int stack_b_values[] = {-3, 111, 308, 700, 6};
-//     int stack_b_values[12] = {3, 100000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+//     int stack_b_values[12] = {1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 //     stack_a->stack = stack_a_values;
 //     stack_b->stack = stack_b_values;
 

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:08:10 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 10:42:04 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:29:35 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	sort_3_a(t_stack *stack_a)
 {
 	if (stack_a->height <= 2)
+	{
 		sort_2_a(stack_a);
+		return ;
+	}
 	if (stack_a->stack[0] > stack_a->stack[1]
 		&& stack_a->stack[2] > stack_a->stack[1]
 		&& stack_a->stack[0] > stack_a->stack[2])
@@ -34,7 +37,10 @@ void	sort_3_a(t_stack *stack_a)
 void	sort_3_b(t_stack *stack_b)
 {
 	if (stack_b->height <= 2)
+	{
 		sort_2_b(stack_b);
+		return ;
+	}
 	if (stack_b->stack[0] < stack_b->stack[1]
 		&& stack_b->stack[1] < stack_b->stack[2])
 		return ;
@@ -50,27 +56,6 @@ void	sort_3_b(t_stack *stack_b)
 	if (stack_b->stack[1] > stack_b->stack[2])
 		rrb_wrapper(stack_b->stack, stack_b->height);
 	if (stack_b->stack[0] > stack_b->stack[1])
-		sb_wrapper(stack_b->stack, stack_b->height);
-}
-
-void reverse_sort_3_b(t_stack *stack_b)
-{
-	if (stack_b->stack[0] > stack_b->stack[1]
-		&& stack_b->stack[1] > stack_b->stack[2])
-		return ;
-	else if (stack_b->stack[0] < stack_b->stack[1]
-		&& stack_b->stack[1] < stack_b->stack[2])
-	{
-		sb_wrapper(stack_b->stack, stack_b->height);
-		rb_wrapper(stack_b->stack, stack_b->height);
-	}
-	else if (stack_b->stack[0] > stack_b->stack[1]
-		&& stack_b->stack[1] < stack_b->stack[2])
-		rrb_wrapper(stack_b->stack, stack_b->height);
-	else if (stack_b->stack[0] < stack_b->stack[1]
-		&& stack_b->stack[1] > stack_b->stack[2])
-		rb_wrapper(stack_b->stack, stack_b->height);
-	else
 		sb_wrapper(stack_b->stack, stack_b->height);
 }
 

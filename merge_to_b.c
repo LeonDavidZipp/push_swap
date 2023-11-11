@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:39:41 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 17:12:59 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:45:12 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	merge_to_b(t_stack *stack_a, t_stack *stack_b)
 		rb_wrapper(stack_b->stack, stack_b->height);
 		temp_b = stack_a->stack[0];
 	}
-	while (temp_b <= stack_b->stack[0] && stack_b->stack[0] > stack_b->stack[1])
+	while (temp_b <= stack_b->stack[0] || stack_b->stack[0] > stack_b->stack[1])
 	{
 		temp_b = stack_b->stack[0];
 		rb_wrapper(stack_b->stack, stack_b->height);

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/07 15:52:00 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:22:12 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	sort_2_a(t_stack *stack_a);
 void	sort_2_b(t_stack *stack_b);
 void	sort_3_a(t_stack *stack_a);
 void	sort_3_b(t_stack *stack_b);
-void	reverse_sort_3_b(t_stack *stack_b);
 void	sort_6(t_stack *stack_a, t_stack *stack_b);
 void	sort(t_stack *stack_a, t_stack *stack_b);
 
