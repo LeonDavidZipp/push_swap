@@ -6,6 +6,10 @@ permutations=$(echo ${numbers[@]} | tr ' ' '\n' | sort -u | awk 'BEGIN{perm=""}{
 
 # Execute push_swap with each permutation and count the number of lines in the output
 while read -r permutation; do
+    # Skip permutations that do not contain exactly 5 numbers
+    if [ $(echo $permutation | wc -w) -ne 5 ]; then
+        continue
+    fi
     echo "Processing permutation: $permutation"
-    ./push_swap "$permutation" | wc -l
+./push_swap "$permutation" | wc -l
 done <<< "$permutations"
