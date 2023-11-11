@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   distribute_runs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/10 22:23:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/11 12:07:58 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,13 @@ static int	count_runs(int *stack, int height)
 /// @param stack_flag Determines whether the run is moved to stack_a or stack_b.
 static void	move_run(t_stack *stack_a, t_stack *stack_b, int stack_flag)
 {
-	while (stack_a->stack[0] < stack_a->stack[1])
+	int		temp;
+
+	temp = stack_a->stack[0];
+	// while (stack_a->stack[0] < stack_a->stack[1])
+	while (temp <= stack_a->stack[0])
 	{
-		if (stack_flag == 1)
-			ra_wrapper(stack_a->stack, stack_a->height);
-		else
-		{
-			pb_wrapper(stack_a->stack, stack_b->stack,
-				&(stack_a->height), &(stack_b->height));
-			if (stack_b->height > 1)
-				rb_wrapper(stack_b->stack, stack_b->height);
-		}
-	}
-	if (stack_a->stack[0] > stack_a->stack[1])
-	{
+		temp = stack_a->stack[0];
 		if (stack_flag == 1)
 			ra_wrapper(stack_a->stack, stack_a->height);
 		else
