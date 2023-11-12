@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/12 16:33:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,11 @@ void	sort(t_stack *st_a, t_stack *st_b)
 
 	if (st_a->h <= 6)
 	{
-		sort_6(st_a, st_b);
+		sort_5(st_a, st_b);
 		return ;
 	}
 	if (distribute_runs(st_a, st_b) == -1)
 		return ;
-	// if (st_a->h + st_b->h <= 6)
-	// {
-	// 	sort_6(st_a, st_b);
-	// 	return ;
-	// }
 	stack_flag = 1 - 2 * ((st_a->runs + st_b->runs) % 2);
 	while (st_b->h > 0)
 	{
