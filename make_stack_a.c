@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ static t_stack	*build_stack(char **num_strings, int h_a)
 	st_a = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	if (!st_a)
 		return (NULL);
-	st_a->stack = stack;
-	st_a->height = h_a;
+	st_a->st = stack;
+	st_a->h = h_a;
 	st_a->runs = 0;
 	return (st_a);
 }
@@ -144,8 +144,8 @@ t_stack	*make_stack_a(int argc, char **argv)
 // 		write(2, "Error\n", 6);
 // 		return (0);
 // 	}
-// 	h_a = st_a->height;
-// 	stack = st_a->stack;
+// 	h_a = st_a->h;
+// 	stack = st_a->st;
 // 	for (int i = 0; i < h_a; i++)
 // 	{
 // 		// printf("|%d|\n", stack[i]);

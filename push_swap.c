@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 21:26:27 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ int	main(int argc, char **argv)
 	if (!st_b)
 		return (0);
 	sort(st_a, st_b);
-	// printf("stack a:\n");
-	// for (int i = 0; i < st_a->height; i++)
-	// {
-	// 	printf("%d ", st_a->stack[i]);
-	// }
-	// printf("\n");
-	// printf("stack b: ");
-	// for (int i = 0; i < st_b->height; i++)
-	// {
-	// 	printf("%d ", st_b->stack[i]);
-	// }
-	// printf("\n----------------------\n");
+	printf("stack a:\n");
+	for (int i = 0; i < st_a->h; i++)
+	{
+		printf("%d ", st_a->st[i]);
+	}
+	printf("\n");
+	printf("stack b: ");
+	for (int i = 0; i < st_b->h; i++)
+	{
+		printf("%d ", st_b->st[i]);
+	}
+	printf("\n----------------------\n");
 	return (0);
 }

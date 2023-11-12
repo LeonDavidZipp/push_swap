@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   distribute_runs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ static void	move_run(t_stack *st_a, t_stack *st_b, int stack_flag)
 {
 	int		temp;
 
-	temp = st_a->stack[0];
-	while (temp <= st_a->stack[0])
+	temp = st_a->st[0];
+	while (temp <= st_a->st[0])
 	{
-		temp = st_a->stack[0];
+		temp = st_a->st[0];
 		if (stack_flag == 1)
-			ra_wrapper(st_a->stack, st_a->height);
+			ra_wrapper(st_a->st, st_a->h);
 		else
 		{
-			pb_wrapper(st_a->stack, st_b->stack,
-				&(st_a->height), &(st_b->height));
-			if (st_b->height > 1)
-				rb_wrapper(st_b->stack, st_b->height);
+			pb_wrapper(st_a->st, st_b->st,
+				&(st_a->h), &(st_b->h));
+			if (st_b->h > 1)
+				rb_wrapper(st_b->st, st_b->h);
 		}
 	}
 }
@@ -66,10 +66,10 @@ int	distribute_runs(t_stack *st_a, t_stack *st_b)
 	int		runs_a;
 	int		runs_b;
 
-	while (st_a->stack[0] > st_a->stack[st_a->height - 1])
-		ra_wrapper(st_a->stack, st_a->height);
+	while (st_a->st[0] > st_a->st[st_a->h - 1])
+		ra_wrapper(st_a->st, st_a->h);
 	stack_flag = 1;
-	runs_a = count_runs(st_a->stack, st_a->height);
+	runs_a = count_runs(st_a->st, st_a->h);
 	if (runs_a == 1)
 		return (-1);
 	runs_b = 0;
@@ -95,34 +95,34 @@ int	distribute_runs(t_stack *st_a, t_stack *st_b)
 // 	t_stack *st_b = (t_stack *)malloc(sizeof(t_stack));
 // 	// Initialize the stacks
 // 	int stacka[50] = {11, 2, 3, 4, 99, 6, 7, 8, 9, -300, 12, 13, 14, 15, 16, 17, 18, 19, 60000, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 900, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 52, 53};
-// 	st_a->stack = stacka;
-// 	st_a->height = 50;
+// 	st_a->st = stacka;
+// 	st_a->h = 50;
 // 	int stackb[50] = {0};
-// 	st_b->stack = stackb;
-// 	st_b->height = 0;
+// 	st_b->st = stackb;
+// 	st_b->h = 0;
 // 	// Call distribute_runs
 // 	int sorted = distribute_runs(st_a, st_b);
 // 	sorted += 1;
-// 	// while (st_a->stack[0] > st_a->stack[st_a->height - 1])
-// 	// 	ra_wrapper(st_a->stack, st_a->height);
-// 	// // printf("runs: %d\n", count_runs(st_a->stack, st_a->height));
+// 	// while (st_a->st[0] > st_a->st[st_a->h - 1])
+// 	// 	ra_wrapper(st_a->st, st_a->h);
+// 	// // printf("runs: %d\n", count_runs(st_a->st, st_a->h));
 
 // 	// Print the results
 // 	// printf("Stack A: ");
-// 	for (int i = 0; i < st_a->height; i++)
+// 	for (int i = 0; i < st_a->h; i++)
 // 	{
-// 		// printf("%d ", st_a->stack[i]);
+// 		// printf("%d ", st_a->st[i]);
 // 	}
 // 	// printf("\n");
 // 	// printf("Stack B: ");
-// 	for (int i = 0; i < st_b->height; i++)
+// 	for (int i = 0; i < st_b->h; i++)
 // 	{
-// 		// printf("%d ", st_b->stack[i]);
+// 		// printf("%d ", st_b->st[i]);
 // 	}
 // 	// printf("\n");
 // 	// Free the stacks
-// 	// free(st_a->stack);
-// 	// free(st_b->stack);
+// 	// free(st_a->st);
+// 	// free(st_b->st);
 // 	// free(st_a);
 // 	// free(st_b);
 // 	return 0;
