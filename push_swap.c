@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/12 17:25:40 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	main(int argc, char **argv)
 		printf("%d ", st_a->st[i]);
 	}
 	printf("\n");
-	printf("stack b: ");
-	for (int i = 0; i < st_b->h; i++)
-	{
-		printf("%d ", st_b->st[i]);
-	}
-	printf("\n----------------------\n");
+	// printf("stack b: ");
+	// for (int i = 0; i < st_b->h; i++)
+	// {
+	// 	printf("%d ", st_b->st[i]);
+	// }
+	// printf("\n----------------------\n");
 	return (0);
 }

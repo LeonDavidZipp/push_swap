@@ -11,6 +11,14 @@ while read -r permutation; do
         continue
     fi
     result=$(./push_swap "$permutation")
-    echo -e "Processing permutation: $permutation\n"
-	echo -e $result
+    echo "Processing permutation: $permutation"
+	echo $result
 done <<< "$permutations"
+
+echo $(./push_swap "3 2 1 5 4")
+echo $(./push_swap "3 2 5 4 1")
+echo $(./push_swap "3 4 1 5 2")
+echo $(./push_swap "3 4 2 1 5")
+echo $(./push_swap "3 4 2 5 1")
+echo $(./push_swap "3 4 5 1 2")
+echo $(./push_swap "3 4 5 2 1")

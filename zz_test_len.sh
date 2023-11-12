@@ -7,11 +7,11 @@ permutations=$(echo ${numbers[@]} | tr ' ' '\n' | sort -u | awk 'BEGIN{perm=""}{
 # Execute push_swap with each permutation and count the number of lines in the output
 while read -r permutation; do
     # Skip permutations that do not contain exactly 5 numbers
-    if [ $(echo $permutation | wc -w) -ne 4 ]; then
+    if [ $(echo $permutation | wc -w) -ne 5 ]; then
         continue
     fi
-    result=$(./push_swap "$permutation")
-    if [ $result -gt 12 | wc -l]; then
+    result=$(./push_swap "$permutation" | wc -l)
+    if [ $result -gt 12 ]; then
         echo "Processing permutation: $permutation"
         echo $result
     fi

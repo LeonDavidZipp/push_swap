@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 16:16:23 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/12 16:35:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ void	merge_to_a(t_stack *st_a, t_stack *st_b);
 void	merge_to_b(t_stack *st_a, t_stack *st_b);
 
 // sorting functions
-void	sort_4(t_stack *st_a, t_stack *st_b);
-void	sort_6(t_stack *st_a, t_stack *st_b);
+void	sort_5(t_stack *st_a, t_stack *st_b);
 void	sort(t_stack *st_a, t_stack *st_b);
 
 // stack manipulation functions
