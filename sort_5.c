@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 17:34:12 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/21 11:13:51 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	pa_ra_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 	ra_wrapper(st_a, *h_a);
 }
 
-static void	rra_pa_ra_ra_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
-{
-	rra_wrapper(st_a, *h_a);
-	pa_ra_wrapper(st_a, st_b, h_a, h_b);
-	ra_wrapper(st_a, *h_a);
-}
+// static void	rra_pa_ra_ra_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
+// {
+// 	rra_wrapper(st_a, *h_a);
+// 	pa_ra_wrapper(st_a, st_b, h_a, h_b);
+// 	ra_wrapper(st_a, *h_a);
+// }
 
 static void	sort_3(t_stack *st_a)
 {
@@ -89,27 +89,35 @@ void	sort_5(t_stack *st_a, t_stack *st_b)
 		return ;
 	}
 	pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	write(1, "------", 6);
-	sort_4(st_a, st_b);
-	write(1, "------", 6);
-	if (st_b->st[0] < st_a->st[0])
-		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	else if (st_b->st[0] > st_a->st[st_a->h - 1])
-		pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	else if (st_b->st[0] > st_a->st[0] && st_b->st[0] < st_a->st[1])
-	{
-		ra_wrapper(st_a->st, st_a->h);
-		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-		rra_wrapper(st_a->st, st_a->h);
-	}
-	else if (st_b->st[0] > st_a->st[1] && st_b->st[0] < st_a->st[2])
-	{
-		rra_wrapper(st_a->st, st_a->h);
-		rra_pa_ra_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-		ra_wrapper(st_a->st, st_a->h);
-	}
-	else
-		rra_pa_ra_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	sort_3(st_a);
+	st_a->runs = 1;
+	if (st_b->st[0] > st_b->st[1])
+		sb_wrapper(st_b->st, st_b->h);
+	st_b->runs = 1;
+	merge_to_a(st_a, st_b);
+	st_b->runs = 0;
+	// write(1, "------", 6);
+	// sort_4(st_a, st_b);
+	// write(1, "------", 6);
+	// if (st_b->st[0] < st_a->st[0])
+	// 	pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	// else if (st_b->st[0] > st_a->st[st_a->h - 1])
+	// 	pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	// else if (st_b->st[0] > st_a->st[0] && st_b->st[0] < st_a->st[1])
+	// {
+	// 	ra_wrapper(st_a->st, st_a->h);
+	// 	pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	// 	rra_wrapper(st_a->st, st_a->h);
+	// }
+	// else if (st_b->st[0] > st_a->st[1] && st_b->st[0] < st_a->st[2])
+	// {
+	// 	rra_wrapper(st_a->st, st_a->h);
+	// 	rra_pa_ra_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	// 	ra_wrapper(st_a->st, st_a->h);
+	// }
+	// else
+	// 	rra_pa_ra_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 }
 
 // void	sort_6(t_stack *st_a, t_stack *st_b)
