@@ -3,51 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   merge_to_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:39:41 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:13:13 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static void	merge_helper(int *st_a, int *st_b,
-	int *h_a, int *h_b)
-{
-	rb_wrapper(st_b, *h_b);
-	pb_wrapper(st_a, st_b, h_a, h_b);
-}
+// static void	merge_helper(int *st_a, int *st_b,
+// 	int *h_a, int *h_b)
+// {
+// 	rb_wrapper(st_b, *h_b);
+// 	pb_wrapper(st_a, st_b, h_a, h_b);
+// }
 
 /// @brief Merges the etopmost run of stack a to stack b
 /// @param st_a stack a struct
 /// @param st_b stack b struct
 void	merge_to_b(t_stack *st_a, t_stack *st_b)
 {
-	int		temp_a;
-	int		temp_b;
-
-	temp_b = st_b->st[0];
-	temp_a = st_a->st[0];
-	while (st_a->h >= 1 && temp_a <= st_a->st[0])
+	if (st_a->st[0] < st_b->st[0])
+		pb_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
+	rb_wrapper(st_b->st, st_b->h);
+	while (st_a->h > 0 && st_b->st[st_b->h -1] < st_b->st[0])
 	{
-		temp_a = st_a->st[0];
-		if (st_b->st[0] > st_a->st[0])
-			pb_wrapper(st_a->st, st_b->st,
-				&(st_a->h), &(st_b->h));
-		else if (st_b->st[0] > st_b->st[1]
-			&& st_b->st[0] < st_a->st[0])
-			merge_helper(st_a->st, st_b->st,
-				&(st_a->h), &(st_b->h));
+		printf("\n1st while-----b------\n");
+		if (st_a->st[0] < st_b->st[0])
+			pb_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
 		rb_wrapper(st_b->st, st_b->h);
-		temp_b = st_a->st[0];
 	}
-	// while (st_b->runs > 1 && (temp_b <= st_b->st[0]
-	while ((temp_b <= st_b->st[0]
-			|| st_b->st[0] > st_b->st[1]))
+	while (st_a->h > 0 && st_a->st[st_a->h - 1] < st_b->st[0])
 	{
-		temp_b = st_b->st[0];
+		printf("\n2nd while-----b------\n");
+		pb_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
+		rb_wrapper(st_b->st, st_b->h);
+	}
+	while (st_a->h > 0 && st_a->st[0] > st_b->st[0])
+	{
+		printf("\n3rd while------b-----\n");
+		pb_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
 		rb_wrapper(st_b->st, st_b->h);
 	}
 }

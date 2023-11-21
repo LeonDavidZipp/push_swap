@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_to_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:13:06 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,23 @@ void	merge_to_a(t_stack *st_a, t_stack *st_b)
 		pa_wrapper(st_a->st, st_b->st,
 			&(st_a->h), &(st_b->h));
 	ra_wrapper(st_a->st, st_a->h);
-	while (st_a->h > 0 && st_a->st[st_a->h -1] <= st_a->st[0])
+	while (st_a->st[st_a->h -1] < st_a->st[0])
 	{
-		// printf("\n1st while-----------\n");
-		if (st_b->st[0] < st_a->st[0])
-			pa_wrapper(st_a->st, st_b->st,
-				&(st_a->h), &(st_b->h));
+		printf("\n1st while-----a------\n");
+		if (st_b->h > 0 && st_b->st[0] < st_a->st[0])
+			pa_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
 		ra_wrapper(st_a->st, st_a->h);
 	}
-	while (st_b->h > 0 && st_b->st[st_b->h - 1] <= st_a->st[0])
+	while (st_b->h > 0 && st_b->st[st_b->h - 1] < st_a->st[0])
 	{
-		// printf("\n2nd while-----------\n");
+		printf("\n2nd while-----a------\n");
 		pa_wrapper(st_a->st, st_b->st,
 			&(st_a->h), &(st_b->h));
 		ra_wrapper(st_a->st, st_a->h);
 	}
 	while (st_b->h > 0 && st_b->st[0] > st_a->st[0])
 	{
-		// printf("\n3rd while-----------\n");
+		printf("\n3rd while------a-----\n");
 		pa_wrapper(st_a->st, st_b->st,
 			&(st_a->h), &(st_b->h));
 		ra_wrapper(st_a->st, st_a->h);

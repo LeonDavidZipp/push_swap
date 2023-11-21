@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 17:29:24 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/21 13:23:24 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,20 @@ void	sort(t_stack *st_a, t_stack *st_b)
 	}
 	if (distribute_runs(st_a, st_b) == -1)
 		return ;
+	printf("stack a:\n");
+	for (int i = 0; i < st_a->h; i++)
+	{
+		printf("%d ", st_a->st[i]);
+	}
+	printf("\nstack b:\n");
+	for (int i = 0; i < st_b->h; i++)
+	{
+		printf("%d ", st_b->st[i]);
+	}
+	printf("\n");
 	stack_flag = 1 - 2 * ((st_a->runs + st_b->runs) % 2);
+	if (st_a->runs < st_b->runs)
+		merge_to_a(st_a, st_b);
 	while (st_b->h > 0)
 	{
 		if (stack_flag == 1)
@@ -39,6 +52,17 @@ void	sort(t_stack *st_a, t_stack *st_b)
 			merge_to_b(st_a, st_b);
 			st_a->runs--;
 		}
+		printf("stack a:\n");
+		for (int i = 0; i < st_a->h; i++)
+		{
+			printf("%d ", st_a->st[i]);
+		}
+		printf("\nstack b:\n");
+		for (int i = 0; i < st_b->h; i++)
+		{
+			printf("%d ", st_b->st[i]);
+		}
+		printf("\n");
 		stack_flag *= -1;
 	}
 }

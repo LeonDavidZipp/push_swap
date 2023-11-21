@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   distribute_runs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:30:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 11:23:26 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/21 12:40:18 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,45 @@ int	distribute_runs(t_stack *st_a, t_stack *st_b)
 	st_b->runs = runs_b;
 	return (runs_a + runs_b);
 }
+
+// int	distribute_runs_alternative(t_stack *st_a, t_stack *st_b)
+// {
+// 	int		height;
+
+// 	height = st_a->h / 2;
+// 	while (st_a->h > height)
+// 		pb_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
+// }
+
+// int	sort_alternate(t_stack *st_a, t_stack *st_b)
+// {
+// 	int		stack_flag;
+// 	int		run_len;
+// 	int		i;
+
+// 	distribute_runs_alternative(st_a, st_b);
+// 	stack_flag = -1;
+// 	run_len = 2;
+// 	while (st_b->h > 0)
+// 	{
+// 		i = 0;
+// 		while (i < run_len)
+// 		{
+// 			if (stack_flag == 1) // merge to a
+// 			{
+// 				;
+// 			}
+// 			else // merge to b
+// 			{
+// 				;
+// 			}
+// 			if (i == run_len - 1)
+// 				stack_flag *= -1;
+// 			i++;
+// 		}
+// 		run_len *= 2;
+// 	}
+// }
 // #include "push_swap.h"
 // #include <stdio.h>
 // int main()
