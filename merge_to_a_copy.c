@@ -1,93 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_to_a.c                                       :+:      :+:    :+:   */
+/*   merge_to_a_copy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/22 13:53:12 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/22 13:52:23 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-// static void	merge_helper(int *st_a, int *st_b, int *h_a, int *h_b)
-// {
-// 	ra_wrapper(st_a, *h_a);
-// 	pa_wrapper(st_a, st_b, h_a, h_b);
-// }
-
-/// @brief Merges the topmost run of stack b to stack a
-/// @param st_a stack a struct
-/// @param st_b stack b struct
-// void	merge_to_a(t_stack *st_a, t_stack *st_b)
-// {
-// 	int		temp_a;
-// 	int		temp_b;
-
-// 	temp_b = st_b->st[0];
-// 	temp_a = st_a->st[0];
-// 	while (st_b->h >= 1 && temp_b <= st_b->st[0])
-// 	{
-// 		temp_b = st_b->st[0];
-// 		if (st_a->st[0] > st_b->st[0])
-// 			pa_wrapper(st_a->st, st_b->st,
-// 				&(st_a->h), &(st_b->h));
-// 		if (st_a->st[0] > st_a->st[1] && st_a->st[0] < st_b->st[0])
-// 			merge_helper(st_a->st, st_b->st,
-// 				&(st_a->h), &(st_b->h));
-// 		ra_wrapper(st_a->st, st_a->h);
-// 		temp_a = st_a->st[0];
-// 	}
-// 	while (st_a->runs > 1 && (temp_a <= st_a->st[0]
-// 	// while ((temp_a <= st_a->st[0]
-// 			|| st_a->st[0] > st_a->st[1]))
-// 	{
-// 		temp_a = st_a->st[0];
-// 		ra_wrapper(st_a->st, st_a->h);
-// 	}
-// }
-
-// if top of B < top of A:
-//     pa
-// ra
-// while bottom of A <= top of A:
-//     if top of B < top of A:
-//         pa
-//     ra
-// while bottom of B <= top of A:
-//     pa
-//     ra
-
-// void	merge_to_a(t_stack *st_a, t_stack *st_b)
-// {
-// 	if (st_b->st[0] < st_a->st[0])
-// 		pa_wrapper(st_a->st, st_b->st,
-// 			&(st_a->h), &(st_b->h));
-// 	ra_wrapper(st_a->st, st_a->h);
-// 	while (st_a->st[st_a->h -1] < st_a->st[0])
-// 	{
-// 		printf("\n1st while-----a------\n");
-// 		if (st_b->h > 0 && st_b->st[0] < st_a->st[0])
-// 			pa_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
-// 		ra_wrapper(st_a->st, st_a->h);
-// 	}
-// 	while (st_b->h > 0 && st_b->st[st_b->h - 1] < st_a->st[0])
-// 	{
-// 		printf("\n2nd while-----a------\n");
-// 		pa_wrapper(st_a->st, st_b->st,
-// 			&(st_a->h), &(st_b->h));
-// 		ra_wrapper(st_a->st, st_a->h);
-// 	}
-// 	while (st_b->h > 0 && st_b->st[0] > st_a->st[0])
-// 	{
-// 		printf("\n3rd while------a-----\n");
-// 		pa_wrapper(st_a->st, st_b->st,
-// 			&(st_a->h), &(st_b->h));
-// 		ra_wrapper(st_a->st, st_a->h);
-// 	}
-// }
 
 void	merge_to_a(t_stack *st_a, t_stack *st_b)
 {

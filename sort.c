@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/21 14:09:27 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/22 12:21:10 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort(t_stack *st_a, t_stack *st_b)
 		printf("%d ", st_b->st[i]);
 	}
 	printf("\n");
-	if (st_a->runs < st_b->runs)
+	while (st_a->runs < st_b->runs)
 	{
 		merge_to_a(st_a, st_b);
 		st_b->runs--;
