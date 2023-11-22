@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/22 13:53:12 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/22 15:21:22 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,26 +95,30 @@ void	merge_to_a(t_stack *st_a, t_stack *st_b)
 	int		i;
 	int		temp;
 
-	run_len = 1;
-	while(run_len < st_a->h - 1 && st_a->st[run_len] < st_a->st[run_len + 1])
+	run_len = 0;
+	while (run_len < st_a->h - 1 && st_a->st[run_len] < st_a->st[run_len + 1])
 		run_len++;
+	printf("height: %d\n", st_a->h);
+	printf("run_len: %d\n", run_len);
 	temp = st_b->st[0];
 	i = 0;
-	while (st_b->h > 0 && st_b->st[0] <= temp)
+	while (st_b->h > 0 && st_b->st[0] <= temp && i <= run_len)
 	{
+		
+		temp = st_b->st[0];
 		if (st_b->st[0] < st_a->st[0])
 		{
 			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-			ra_wrapper(st_a->st, &st_a->h);
+			ra_wrapper(st_a->st, st_a->h);
 		}
 		else if (i == run_len && st_b->st[0] > st_a->st[0])
 		{
 			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-			ra_wrapper(st_a->st, &st_a->h);
+			ra_wrapper(st_a->st, st_a->h);
 		}
 		else
 		{
-			ra_wrapper(st_a->st, &st_a->h);
+			ra_wrapper(st_a->st, st_a->h);
 			i++;
 		}
 	}
