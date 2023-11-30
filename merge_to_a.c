@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_to_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/21 13:13:06 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/11/21 18:36:36 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@
 void	merge_to_a(t_stack *st_a, t_stack *st_b)
 {
 	if (st_b->st[0] < st_a->st[0])
-		pa_wrapper(st_a->st, st_b->st,
-			&(st_a->h), &(st_b->h));
+		pa_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
 	ra_wrapper(st_a->st, st_a->h);
 	while (st_a->st[st_a->h -1] < st_a->st[0])
 	{
