@@ -6,18 +6,18 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/21 11:13:51 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/02 17:33:05 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static void	pa_ra_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
-{
-	pa_wrapper(st_a, st_b, h_a, h_b);
-	ra_wrapper(st_a, *h_a);
-}
+// static void	pa_ra_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
+// {
+// 	pa_wrapper(st_a, st_b, h_a, h_b);
+// 	ra_wrapper(st_a, *h_a);
+// }
 
 // static void	rra_pa_ra_ra_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 // {
@@ -51,121 +51,96 @@ static void	sort_3(t_stack *st_a)
 		sa_wrapper(st_a->st, st_a->h);
 }
 
-static void	sort_4(t_stack *st_a, t_stack *st_b)
-{
-	if (st_a->h <= 3)
-	{
-		sort_3(st_a);
-		return ;
-	}
-	pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	sort_3(st_a);
-	if (st_b->st[0] < st_a->st[0])
-		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	else if (st_b->st[0] > st_a->st[st_a->h - 1])
-		pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	else if (st_b->st[0] > st_a->st[0] && st_b->st[0] < st_a->st[1])
-	{
-		ra_wrapper(st_a->st, st_a->h);
-		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-		rra_wrapper(st_a->st, st_a->h);
-	}
-	else
-	{
-		rra_wrapper(st_a->st, st_a->h);
-		pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-		ra_wrapper(st_a->st, st_a->h);
-	}
-}
+// static void	sort_4(t_stack *st_a, t_stack *st_b)
+// {
+// 	if (st_a->h <= 3)
+// 	{
+// 		sort_3(st_a);
+// 		return ;
+// 	}
+// 	pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+// 	sort_3(st_a);
+// 	if (st_b->st[0] < st_a->st[0])
+// 		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+// 	else if (st_b->st[0] > st_a->st[st_a->h - 1])
+// 		pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+// 	else if (st_b->st[0] > st_a->st[0] && st_b->st[0] < st_a->st[1])
+// 	{
+// 		ra_wrapper(st_a->st, st_a->h);
+// 		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+// 		rra_wrapper(st_a->st, st_a->h);
+// 	}
+// 	else
+// 	{
+// 		rra_wrapper(st_a->st, st_a->h);
+// 		pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+// 		ra_wrapper(st_a->st, st_a->h);
+// 	}
+// }
 
 /// @brief Sorts 5 or less elements
 /// @param st_a stack a struct
 /// @param st_b stack b struct
-void	sort_5(t_stack *st_a, t_stack *st_b)
+void	sort_7(t_stack *st_a, t_stack *st_b)
 {
-	if (st_a->h <= 4)
+	int	min_el;
+	int	i;
+	int	n;
+
+	i = 0;
+	n = st_a->h;
+	while (i++ < n - 3)
 	{
-		sort_4(st_a, st_b);
-		return ;
+		min_el = smallest_element_a(st_a);
+		if (count_rotate(st_a, min_el) < count_reverse_rotate(st_a, min_el))
+			while (st_a->st[0] != min_el)
+				ra_wrapper(st_a->st, st_a->h);
+		else
+			while (st_a->st[0] != min_el)
+				rra_wrapper(st_a->st, st_a->h);
+		if (is_sorted(st_a) && st_b->h == 0)
+			return ;
+		pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 	}
-	pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 	sort_3(st_a);
-	st_a->runs = 1;
-	if (st_b->st[0] > st_b->st[1])
-		sb_wrapper(st_b->st, st_b->h);
-	st_b->runs = 1;
-	merge_to_a(st_a, st_b);
-	st_b->runs = 0;
-	// write(1, "------", 6);
-	// sort_4(st_a, st_b);
-	// write(1, "------", 6);
-	// if (st_b->st[0] < st_a->st[0])
-	// 	pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	// else if (st_b->st[0] > st_a->st[st_a->h - 1])
-	// 	pa_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	// else if (st_b->st[0] > st_a->st[0] && st_b->st[0] < st_a->st[1])
-	// {
-	// 	ra_wrapper(st_a->st, st_a->h);
-	// 	pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	// 	rra_wrapper(st_a->st, st_a->h);
-	// }
-	// else if (st_b->st[0] > st_a->st[1] && st_b->st[0] < st_a->st[2])
-	// {
-	// 	rra_wrapper(st_a->st, st_a->h);
-	// 	rra_pa_ra_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-	// 	ra_wrapper(st_a->st, st_a->h);
-	// }
-	// else
-	// 	rra_pa_ra_ra_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+	i = 0;
+	while (i++ < n - 3)
+		pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 }
 
-// void	sort_6(t_stack *st_a, t_stack *st_b)
-// {
-// 	if (st_a->h <= 4)
-// 	{
-// 		sort_4(st_a, st_b);
-// 		return ;
-// 	}
-// 	if (st_a->h > 3)
-// 		pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-// 	if (st_a->h > 3)
-// 		pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-// 	if (st_a->h > 3)
-// 		pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-// 	sort_3_a(st_a);
-// 	st_a->runs = 1;
-// 	sort_3_b(st_b);
-// 	st_b->runs = 1;
-// 	if (st_b->h > 0)
-// 		merge_to_a(st_a, st_b);
-// }
+static int	smallest_element(t_stack *st)
+{
+	int	i;
+	int	min;
 
-// int	main(void)
-// {
-// 	t_stack st_a, st_b;
-//     st_a.stack = (int*)malloc(sizeof(int) * 6);
-//     st_b.stack = (int*)malloc(sizeof(int) * 6);
-//     st_a.height = 6;
-//     st_b.height = 0;
+	i = -1;
+	min = st->st[0];
+	while (++i < st->h)
+	{
+		if (st->st[i] < min)
+			min = st->st[i];
+	}
+	return (min);
+}
 
-//     // Fill st_a with some test data
-//     st_a.stack[0] = 3;
-//     st_a.stack[1] = 1;
-//     st_a.stack[2] = 6;
-//     st_a.stack[3] = 4;
-//     st_a.stack[4] = 2;
-//     st_a.stack[5] = 5;
+static int	count_rotate(t_stack *st, int min_el)
+{
+	int	count;
 
-//     // Call sort_6_a
-//     sort_6_a(&st_a, &st_b);
+	count = 0;
+	while (st->st[count] != min_el)
+		count++;
+	return (count);
+}
 
-//     // Check if the elements in st_a are sorted in ascending order
-//     for (int i = 0; i < st_a.height; i++) {
-//         printf("value: %d\n", st_a.stack[i]);
-//     }
+static int	count_reverse_rotate(t_stack *st, int min_el)
+{
+	int	i;
+	int	count;
 
-//     // Clean up
-//     free(st_a.stack);
-//     free(st_b.stack);
-// }
+	i = st->h - 1;
+	count = 0;
+	while (st->st[i--] != min_el)
+		count++;
+	return (count);
+}
