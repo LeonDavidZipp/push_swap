@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:15 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/22 12:21:10 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/02 17:38:04 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	sort(t_stack *st_a, t_stack *st_b)
 {
 	int		stack_flag;
 
-	if (st_a->h <= 5)
+	if (st_a->h <= 7)
 	{
-		sort_5(st_a, st_b);
+		sort_7(st_a, st_b);
 		return ;
 	}
 	if (distribute_runs(st_a, st_b) == -1)
