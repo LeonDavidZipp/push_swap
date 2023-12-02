@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:37:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/21 18:36:36 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/02 21:19:15 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,33 +60,70 @@
 //     pa
 //     ra
 
+// void	merge_to_a(t_stack *st_a, t_stack *st_b)
+// {
+// 	if (st_b->st[0] < st_a->st[0])
+// 		pa_wrapper(st_a->st, st_b->st,
+// 			&(st_a->h), &(st_b->h));
+// 	ra_wrapper(st_a->st, st_a->h);
+// 	while (st_a->st[st_a->h -1] < st_a->st[0])
+// 	{
+// 		printf("\n1st while-----a------\n");
+// 		if (st_b->h > 0 && st_b->st[0] < st_a->st[0])
+// 			pa_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
+// 		ra_wrapper(st_a->st, st_a->h);
+// 	}
+// 	while (st_b->h > 0 && st_b->st[st_b->h - 1] < st_a->st[0])
+// 	{
+// 		printf("\n2nd while-----a------\n");
+// 		pa_wrapper(st_a->st, st_b->st,
+// 			&(st_a->h), &(st_b->h));
+// 		ra_wrapper(st_a->st, st_a->h);
+// 	}
+// 	while (st_b->h > 0 && st_b->st[0] > st_a->st[0])
+// 	{
+// 		printf("\n3rd while------a-----\n");
+// 		pa_wrapper(st_a->st, st_b->st,
+// 			&(st_a->h), &(st_b->h));
+// 		ra_wrapper(st_a->st, st_a->h);
+// 	}
+// }
+
 void	merge_to_a(t_stack *st_a, t_stack *st_b)
 {
-	if (st_b->st[0] < st_a->st[0])
-		pa_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
-	ra_wrapper(st_a->st, st_a->h);
-	while (st_a->st[st_a->h -1] < st_a->st[0])
+	int		run_len;
+	int		i;
+	int		temp;
+
+	run_len = 0;
+	while (run_len < st_a->h - 1 && st_a->st[run_len] < st_a->st[run_len + 1])
+		run_len++;
+	printf("height: %d\n", st_a->h);
+	printf("run_len: %d\n", run_len);
+	temp = st_b->st[0];
+	i = 0;
+	while (st_b->h > 0 && st_b->st[0] <= temp && i <= run_len)
 	{
-		printf("\n1st while-----a------\n");
-		if (st_b->h > 0 && st_b->st[0] < st_a->st[0])
-			pa_wrapper(st_a->st, st_b->st, &(st_a->h), &(st_b->h));
-		ra_wrapper(st_a->st, st_a->h);
-	}
-	while (st_b->h > 0 && st_b->st[st_b->h - 1] < st_a->st[0])
-	{
-		printf("\n2nd while-----a------\n");
-		pa_wrapper(st_a->st, st_b->st,
-			&(st_a->h), &(st_b->h));
-		ra_wrapper(st_a->st, st_a->h);
-	}
-	while (st_b->h > 0 && st_b->st[0] > st_a->st[0])
-	{
-		printf("\n3rd while------a-----\n");
-		pa_wrapper(st_a->st, st_b->st,
-			&(st_a->h), &(st_b->h));
-		ra_wrapper(st_a->st, st_a->h);
+		
+		temp = st_b->st[0];
+		if (st_b->st[0] < st_a->st[0])
+		{
+			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+			ra_wrapper(st_a->st, st_a->h);
+		}
+		else if (i == run_len && st_b->st[0] > st_a->st[0])
+		{
+			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
+			ra_wrapper(st_a->st, st_a->h);
+		}
+		else
+		{
+			ra_wrapper(st_a->st, st_a->h);
+			i++;
+		}
 	}
 }
+
 // #include <stdio.h>
 // int main() {
 //     t_stack *st_a = (t_stack *)ft_calloc(1, sizeof(t_stack));

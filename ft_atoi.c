@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:29:13 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/02 22:18:56 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/10/13 13:17:14 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int			i;
-	long		sign;
-	long		result;
+	int		i;
+	int		sign;
+	int		result;
 
 	i = 0;
 	sign = 1;
@@ -40,3 +38,26 @@ long	ft_atoi(const char *str)
 	}
 	return ((result * sign));
 }
+// #include <stdio.h>
+// #include <stdlib.h>
+// int	main(void)
+// {
+// 	printf("ft_atoi: expected output: 0 | %d\n", ft_atoi(NULL));
+//     printf("atoi: expected output: 0 | %d\n", atoi("a\n123"));
+//     printf("ft_atoi: expected output: -123 | %d\n", ft_atoi("     -123"));
+//     printf("atoi: expected output: -123 | %d\n", atoi("     -123"));
+//     printf("ft_atoi: expected output: 0 | %d\n", ft_atoi("0"));
+//     printf("atoi: expected output: 0 | %d\n", atoi("0"));
+//     printf("ft_atoi: expected output: 123 | %d\n", ft_atoi("  123"));
+//     printf("atoi: expected output: 123 | %d\n", atoi("  123"));
+//     printf("ft_atoi: expected output: 123 | %d\n", ft_atoi("123 456"));
+//     printf("atoi: expected output: 123 | %d\n", atoi("123 456"));
+//     printf("ft_atoi: expected output: 123 | %d\n", ft_atoi("  +123"));
+//     printf("atoi: expected output: 123 | %d\n", atoi("  +123"));
+//     printf("ft_atoi: expected output: -123 | %d\n", ft_atoi("  -123"));
+//     printf("atoi: expected output: -123 | %d\n", atoi("  -123"));
+//     printf("ft_atoi: expected output: 123 | %d\n", ft_atoi("123abc"));
+//     printf("atoi: expected output: 123 | %d\n", atoi("123abc"));
+// 	printf("atoi: expected output: 123 | %d\n", atoi("123abc"));
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/12 16:35:21 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/02 17:49:53 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ typedef struct s_stack {
 	int	runs;
 }	t_stack;
 
+// helper functions
+int		count_rotate(t_stack *st, int min_el);
+int		count_reverse_rotate(t_stack *st, int min_el);
+
 // stack creation
 t_stack	*make_stack_a(int argc, char **argv);
 t_stack	*make_stack_b(t_stack *st_a);
@@ -36,7 +40,7 @@ void	merge_to_a(t_stack *st_a, t_stack *st_b);
 void	merge_to_b(t_stack *st_a, t_stack *st_b);
 
 // sorting functions
-void	sort_5(t_stack *st_a, t_stack *st_b);
+void	sort_7(t_stack *st_a, t_stack *st_b);
 void	sort(t_stack *st_a, t_stack *st_b);
 
 // stack manipulation functions
