@@ -6,12 +6,12 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 15:08:34 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 17:45:47 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 static int	*ft_sort_int_tab(int *tab, int h)
 {
 	int	*result;
@@ -22,7 +22,13 @@ static int	*ft_sort_int_tab(int *tab, int h)
 	result = ft_calloc(h, sizeof(int));
 	if (!result)
 		return (NULL);
-	result = ft_memmove(result, tab, h);
+	i = -1;
+	while (++i < h)
+		result[i] = tab[i];
+	printf("height: %d\n", h);
+	for (int i = 0; i < h; i++)
+		printf("%d\n", result[i]);
+	printf("sorted:\n");
 	not_sorted = 1;
 	while (not_sorted == 1)
 	{
@@ -70,24 +76,22 @@ static int	ft_sqrt(int nb)
 	return (0);
 }
 
-static int	*k_sort1(t_stack *st_a, t_stack *st_b, int length)
+static void	sort_to_b(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 {
 	int	i;
 	int	range;
-	int	*sorted;
 
 	i = 0;
 	range = ft_sqrt(length) * 14 / 10;
-	sorted = ft_sort_int_tab(st_a->st, st_a->h);
 	while (st_a->h > 0)
 	{
-		if (get_index(st_a->st, st_a->st[0]) <= i)
+		if (get_index(sorted, st_a->st[0]) <= i)
 		{
 			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			rb_wrapper(st_b->st, st_b->h);
 			i++;
 		}
-		else if (get_index(st_a->st, st_a->st[0]) <= i + range)
+		else if (get_index(sorted, st_a->st[0]) <= i + range)
 		{
 			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			i++;
@@ -95,10 +99,9 @@ static int	*k_sort1(t_stack *st_a, t_stack *st_b, int length)
 		else
 			ra_wrapper(st_a->st, st_a->h);
 	}
-	return (sorted);
 }
 
-void	k_sort2(t_stack *st_a, t_stack *st_b, int length, int *sorted)
+void	sort_to_a(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 {
 	int	rb_count;
 	int	rrb_count;
@@ -127,12 +130,17 @@ void	k_sort2(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 		}
 	}
 }
-
+#include <stdio.h>
 void	k_sort(t_stack *st_a, t_stack *st_b)
 {
 	int	length;
 	int	*sorted;
 
+	sorted = ft_sort_int_tab(st_a->st, st_a->h);
+	if (!sorted)
+		return ;
+	// for (int i = 0; i < st_a->h; i++)
+	// 	printf("%d\n", sorted[i]);
 	length = st_a->h;
 	if (is_sorted(st_a))
 		return ;
@@ -142,10 +150,8 @@ void	k_sort(t_stack *st_a, t_stack *st_b)
 		sort_7(st_a, st_b);
 	else
 	{
-		sorted = k_sort1(st_a, st_b, length);
-		if (!sorted)
-			return ;
-		k_sort2(st_a, st_b, length, sorted);
-		free(sorted);
+		sort_to_b(st_a, st_b, length, sorted);
+		// sort_to_a(st_a, st_b, length, sorted);
+		// free(sorted);
 	}
 }
