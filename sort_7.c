@@ -3,40 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_7.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/02 19:44:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 02:24:24 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_sort_int_tab(int *tab, int h)
-{
-	int	temp;
-	int	i;
-	int	not_sorted;
-
-	not_sorted = 1;
-	h = h - 1;
-	while (not_sorted == 1)
-	{
-		i = 0;
-		not_sorted = 0;
-		while (i < h)
-		{
-			if (tab[i] > tab[i + 1])
-			{
-				temp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = temp;
-				not_sorted = 1;
-			}
-			i++;
-		}
-	}
-}
 
 static void	sort_3(t_stack *st_a)
 {

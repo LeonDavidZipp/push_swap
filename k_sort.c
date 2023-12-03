@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   k_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/02 18:43:20 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 02:34:51 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	*ft_sort_int_tab(int *tab, int h)
+{
+	int	*result;
+	int	temp;
+	int	i;
+	int	not_sorted;
+
+	not_sorted = 1;
+	result = ft_calloc(h, sizeof(int));
+	result = ft_memmove(result, tab, h);
+	while (not_sorted == 1)
+	{
+		i = -1;
+		not_sorted = 0;
+		while (++i < h - 1)
+		{
+			if (result[i] > result[i + 1])
+			{
+				temp = result[i];
+				result[i] = result[i + 1];
+				result[i + 1] = temp;
+				not_sorted = 1;
+			}
+		}
+	}
+	return (result);
+}
 
 static int	ft_sqrt(int nb)
 {
@@ -40,30 +68,40 @@ static int	ft_sqrt(int nb)
 	return (0);
 }
 
-void	k_sort1(t_stack *st_a, t_stack *st_b, int length)
+static int	ft_get_index(int *tab, int nb)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i] != nb)
+		i++;
+	return (i);
+}
+
+void	k_sort1(t_stack *st_a, t_stack *st_b)
 {
 	int	i;
 	int	range;
+	int	*sorted;
 
 	i = 0;
-	range = ft_sqrt(length) * 14 / 10;
+	range = ft_sqrt(st_a->h) * 14 / 10;
+	sorted = ft_sort_int_tab(st_a->st, st_a->h);
 	while (st_a->h > 0)
 	{
-		if (st_a->head->s_index <= i)
-		// if (st_a-st[0])
+		if (ft_get_index(st_a->st, st_a->st[0]) <= i)
 		{
 			pb_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
 			rb_wrapper(st_b->st, st_b->h);
 			i++;
 		}
-		else if (st_a->head->s_index <= i + range)
-		// else if (st_a->st[0] <= i + range)
+		else if (ft_get_index(st_a->st, st_a->st[0]) <= i + range)
 		{
 			pb_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
 			i++;
 		}
 		else
-			ra_wrapper(stack_a->st, stack_a->h);
+			ra_wrapper(st_a->st, st_a->h);
 	}
 }
 
@@ -74,8 +112,9 @@ void	k_sort2(t_stack *st_a, t_stack *st_b, int length)
 
 	while (length - 1 >= 0)
 	{
-		rb_count = count_r(stack_b->head, length - 1);
-		rrb_count = (length + 3) - rb_count;
+		// rb_count = count_r(stack_b->head, length - 1);
+		// rrb_count = (length + 3) - rb_count;
+		rb_count = count_rotate(st_b, st_b->st[length - 1]);
 		if (rb_count <= rrb_count)
 		{
 			while (stack_b->head->s_index != length - 1)
