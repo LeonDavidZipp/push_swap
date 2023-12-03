@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 02:34:51 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 11:35:20 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ static int	ft_get_index(int *tab, int nb)
 	return (i);
 }
 
-void	k_sort1(t_stack *st_a, t_stack *st_b)
+static int	*k_sort1(t_stack *st_a, t_stack *st_b, int length)
 {
 	int	i;
 	int	range;
 	int	*sorted;
 
 	i = 0;
-	range = ft_sqrt(st_a->h) * 14 / 10;
+	range = ft_sqrt(length) * 14 / 10;
 	sorted = ft_sort_int_tab(st_a->st, st_a->h);
 	while (st_a->h > 0)
 	{
@@ -103,9 +103,10 @@ void	k_sort1(t_stack *st_a, t_stack *st_b)
 		else
 			ra_wrapper(st_a->st, st_a->h);
 	}
+	return (sorted);
 }
 
-void	k_sort2(t_stack *st_a, t_stack *st_b, int length)
+void	k_sort2(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 {
 	int	rb_count;
 	int	rrb_count;
@@ -115,16 +116,19 @@ void	k_sort2(t_stack *st_a, t_stack *st_b, int length)
 		// rb_count = count_r(stack_b->head, length - 1);
 		// rrb_count = (length + 3) - rb_count;
 		rb_count = count_rotate(st_b, st_b->st[length - 1]);
+		rrb_count = length + 3 - rb_count;
 		if (rb_count <= rrb_count)
 		{
-			while (stack_b->head->s_index != length - 1)
-				rb_wrapper(stack_b->st, stack_b->h);
-			pa_wrapper(stack_a->st, stack_b->st, stack_a->h, stack_b->h);
+			// while (stack_b->head->s_index != length - 1)
+			while (ft_get_index(st_b->st, st_a->st[0]) != length - 1)
+				rb_wrapper(st_b->st, st_b->h);
+			pa_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
 			length--;
 		}
 		else
 		{
-			while (st_b->head->s_index != length - 1)
+			// while (st_b->head->s_index != length - 1)
+			while (ft_get_index(st_b->st, st_b->st[0]) != length -1)
 				rrb_wrapper(st_b->st, st_b->h);
 			pa_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
 			length--;
