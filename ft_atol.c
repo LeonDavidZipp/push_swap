@@ -6,15 +6,17 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:29:13 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/13 13:17:14 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 13:23:42 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include <stdio.h>
+
+long	ft_atol(const char *str)
 {
 	int		i;
-	int		sign;
-	int		result;
+	long	sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -26,6 +28,7 @@ int	ft_atoi(const char *str)
 	{
 		sign = -1;
 		i++;
+		printf("sign is -1\n");
 	}
 	else if (str[i] == '+')
 		i++;
@@ -36,15 +39,18 @@ int	ft_atoi(const char *str)
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
+	printf("result is %ld\n", result);
+	printf("sign is %ld\n", sign);
+	printf("result * sign is %ld\n", result * sign);
 	return ((result * sign));
 }
 // #include <stdio.h>
 // #include <stdlib.h>
 // int	main(void)
 // {
-// 	printf("ft_atoi: expected output: 0 | %d\n", ft_atoi(NULL));
-//     printf("atoi: expected output: 0 | %d\n", atoi("a\n123"));
-//     printf("ft_atoi: expected output: -123 | %d\n", ft_atoi("     -123"));
+// 	// printf("ft_atoi: expected output: 0 | %d\n", ft_atoi(NULL));
+//     // printf("atoi: expected output: 0 | %d\n", atoi("a\n123"));
+//     printf("ft_atoi: expected output: -123 | %d\n", ft_atoi("     -1"));
 //     printf("atoi: expected output: -123 | %d\n", atoi("     -123"));
 //     printf("ft_atoi: expected output: 0 | %d\n", ft_atoi("0"));
 //     printf("atoi: expected output: 0 | %d\n", atoi("0"));

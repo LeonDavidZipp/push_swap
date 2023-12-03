@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/02 17:49:53 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 13:23:48 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct s_stack {
 }	t_stack;
 
 // helper functions
+int		is_sorted(t_stack *st);
+int		get_index(int *tab, int nb);
+int		smallest_element(t_stack *st);
 int		count_rotate(t_stack *st, int min_el);
 int		count_reverse_rotate(t_stack *st, int min_el);
 
@@ -40,8 +43,9 @@ void	merge_to_a(t_stack *st_a, t_stack *st_b);
 void	merge_to_b(t_stack *st_a, t_stack *st_b);
 
 // sorting functions
+void	sort_3(t_stack *st_a);
 void	sort_7(t_stack *st_a, t_stack *st_b);
-void	sort(t_stack *st_a, t_stack *st_b);
+void	k_sort(t_stack *st_a, t_stack *st_b);
 
 // stack manipulation functions
 void	pa(int *st_a, int *st_b, int *h_a, int *h_b);
@@ -74,7 +78,7 @@ void	rrr_wrapper(int *st_a, int *st_b, int h_a, int h_b);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep);
-long	ft_atoi(const char *str);
+long	ft_atol(const char *str);
 int		ft_isdigit(int c);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strdup(const char *s1);

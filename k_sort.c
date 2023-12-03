@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 11:35:20 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 12:45:51 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ static int	*ft_sort_int_tab(int *tab, int h)
 	int	i;
 	int	not_sorted;
 
-	not_sorted = 1;
 	result = ft_calloc(h, sizeof(int));
+	if (!result)
+		return (NULL);
 	result = ft_memmove(result, tab, h);
+	not_sorted = 1;
 	while (not_sorted == 1)
 	{
 		i = -1;
@@ -68,16 +70,6 @@ static int	ft_sqrt(int nb)
 	return (0);
 }
 
-static int	ft_get_index(int *tab, int nb)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i] != nb)
-		i++;
-	return (i);
-}
-
 static int	*k_sort1(t_stack *st_a, t_stack *st_b, int length)
 {
 	int	i;
@@ -89,15 +81,15 @@ static int	*k_sort1(t_stack *st_a, t_stack *st_b, int length)
 	sorted = ft_sort_int_tab(st_a->st, st_a->h);
 	while (st_a->h > 0)
 	{
-		if (ft_get_index(st_a->st, st_a->st[0]) <= i)
+		if (get_index(st_a->st, st_a->st[0]) <= i)
 		{
-			pb_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
+			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			rb_wrapper(st_b->st, st_b->h);
 			i++;
 		}
-		else if (ft_get_index(st_a->st, st_a->st[0]) <= i + range)
+		else if (get_index(st_a->st, st_a->st[0]) <= i + range)
 		{
-			pb_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
+			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			i++;
 		}
 		else
@@ -120,18 +112,40 @@ void	k_sort2(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 		if (rb_count <= rrb_count)
 		{
 			// while (stack_b->head->s_index != length - 1)
-			while (ft_get_index(st_b->st, st_a->st[0]) != length - 1)
+			while (get_index(sorted, st_a->st[0]) != length - 1)
 				rb_wrapper(st_b->st, st_b->h);
-			pa_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
+			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			length--;
 		}
 		else
 		{
 			// while (st_b->head->s_index != length - 1)
-			while (ft_get_index(st_b->st, st_b->st[0]) != length -1)
+			while (get_index(sorted, st_b->st[0]) != length -1)
 				rrb_wrapper(st_b->st, st_b->h);
-			pa_wrapper(st_a->st, st_b->st, st_a->h, st_b->h);
+			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			length--;
 		}
+	}
+}
+
+void	k_sort(t_stack *st_a, t_stack *st_b)
+{
+	int	length;
+	int	*sorted;
+
+	length = st_a->h;
+	if (is_sorted(st_a))
+		return ;
+	else if (length == 3)
+		sort_3(st_a);
+	else if (length <= 7)
+		sort_7(st_a, st_b);
+	else
+	{
+		sorted = k_sort1(st_a, st_b, length);
+		if (!sorted)
+			return ;
+		k_sort2(st_a, st_b, length, sorted);
+		free(sorted);
 	}
 }

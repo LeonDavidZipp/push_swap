@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_7.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:42:59 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 02:24:24 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 12:43:10 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort_3(t_stack *st_a)
+void	sort_3(t_stack *st_a)
 {
 	if (st_a->h <= 2)
 	{
@@ -35,34 +35,6 @@ static void	sort_3(t_stack *st_a)
 		rra_wrapper(st_a->st, st_a->h);
 	if (st_a->st[0] > st_a->st[1])
 		sa_wrapper(st_a->st, st_a->h);
-}
-
-static int	smallest_element(t_stack *st)
-{
-	int	i;
-	int	min;
-
-	i = -1;
-	min = st->st[0];
-	while (++i < st->h)
-	{
-		if (st->st[i] < min)
-			min = st->st[i];
-	}
-	return (min);
-}
-
-static int	is_sorted(t_stack *st)
-{
-	int	i;
-
-	i = -1;
-	while (++i < st->h - 1)
-	{
-		if (st->st[i] > st->st[i + 1])
-			return (0);
-	}
-	return (1);
 }
 
 /// @brief Sorts 7 or less elements

@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/12/02 17:34:03 by lzipp            ###   ########.fr        #
+#    Updated: 2023/12/03 13:24:02 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ CC = cc
 
 CFLAGS = -Wextra -Wall -Werror
 
-SOURCES = distribute_runs.c \
-ft_atoi.c \
+SOURCES = ft_atol.c \
 ft_calloc.c \
 ft_isdigit.c \
 ft_memmove.c \
@@ -29,8 +28,6 @@ ft_strsepjoin.c \
 ft_substr.c \
 make_stack_a.c \
 make_stack_b.c \
-merge_to_a.c \
-merge_to_b.c \
 pa.c \
 pb.c \
 push_swap.c \
@@ -43,8 +40,10 @@ rrr.c \
 sa.c \
 sb.c \
 sort_7.c \
-sort.c \
-ss.c
+k_sort.c \
+ss.c \
+utils.c \
+count_rotations.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
