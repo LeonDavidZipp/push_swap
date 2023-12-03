@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 13:25:18 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 14:15:22 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static int	check_numeric(int argc, char **argv)
 		}
 		i++;
 	}
-	printf("found no illegal chars\n");
 	return (1);
 }
 
@@ -60,7 +59,6 @@ static int	check_unique(int argc, char **argv)
 		}
 		i++;
 	}
-	printf("found no duplicates\n");
 	return (1);
 }
 

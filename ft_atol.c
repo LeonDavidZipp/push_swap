@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:29:13 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 13:23:42 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 14:12:58 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ long	ft_atol(const char *str)
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	printf("result is %ld\n", result);
-	printf("sign is %ld\n", sign);
-	printf("result * sign is %ld\n", result * sign);
 	return ((result * sign));
 }
 // #include <stdio.h>

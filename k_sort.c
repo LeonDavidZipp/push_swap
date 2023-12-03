@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 12:45:51 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 15:08:34 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	k_sort2(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 		// rb_count = count_r(stack_b->head, length - 1);
 		// rrb_count = (length + 3) - rb_count;
 		rb_count = count_rotate(st_b, st_b->st[length - 1]);
-		rrb_count = length + 3 - rb_count;
+		rrb_count = count_reverse_rotate(st_b, st_b->st[length - 1]);
 		if (rb_count <= rrb_count)
 		{
 			// while (stack_b->head->s_index != length - 1)

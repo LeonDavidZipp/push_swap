@@ -61,3 +61,6 @@ test
 checker_Mac
 push_swap
 .DS_Store
+*.ini
+visualizer
+push_swap_visualizer
