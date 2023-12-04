@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 13:23:48 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:06:57 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_stack {
 int		is_sorted(t_stack *st);
 int		get_index(int *tab, int nb);
 int		smallest_element(t_stack *st);
-int		count_rotate(t_stack *st, int min_el);
-int		count_reverse_rotate(t_stack *st, int min_el);
+int		count_rotate(t_stack *st, int el);
+int		count_reverse_rotate(t_stack *st, int el);
 
 // stack creation
 t_stack	*make_stack_a(int argc, char **argv);

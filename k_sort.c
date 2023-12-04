@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 20:47:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:01:41 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	*ft_sort_int_tab(int *tab, int h)
 	i = -1;
 	while (++i < h)
 		result[i] = tab[i];
-	printf("height: %d\n", h);
-	for (int i = 0; i < h; i++)
-		printf("%d\n", result[i]);
+	// printf("height: %d\n", h);
+	// for (int i = 0; i < h; i++)
+	// 	printf("%d\n", result[i]);
 	not_sorted = 1;
 	while (not_sorted == 1)
 	{
@@ -61,7 +61,7 @@ static int	ft_sqrt(int nb)
 		i++;
 	if (i * i > nb)
 	{
-		if ((i * i - nb) < ((i - 1) * (i - 1) + (-nb)))
+		if ((i * i - nb) < ((i - 1) * (i - 1) - nb))
 			return (i);
 	}
 	return (i - 1);
@@ -74,23 +74,16 @@ static void	sort_to_b(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 
 	i = 0;
 	range = ft_sqrt(length) * 14 / 10;
-	printf("length: %d\n", length);
-	printf("root: %d\n", ft_sqrt(length));
-	printf("range: %d\n", range);
 	while (st_a->h > 0)
 	{
-		printf("top of stack: %d | ", st_a->st[0]);
-		printf("index of top of stack: %d\n", get_index(sorted, st_a->st[0]));
 		if (get_index(sorted, st_a->st[0]) <= i)
 		{
-			printf("if 1\n");
 			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			rb_wrapper(st_b->st, st_b->h);
 			i++;
 		}
 		else if (get_index(sorted, st_a->st[0]) <= i + range)
 		{
-			printf("if 2\n");
 			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			i++;
 		}
@@ -106,26 +99,23 @@ void	sort_to_a(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 
 	while (length - 1 >= 0)
 	{
-		// rb_count = count_r(stack_b->head, length - 1);
-		// rrb_count = (length + 3) - rb_count;
 		rb_count = count_rotate(st_b, st_b->st[length - 1]);
-		rrb_count = count_reverse_rotate(st_b, st_b->st[length - 1]);
+		rrb_count = (length + 3) - rb_count;
 		if (rb_count <= rrb_count)
 		{
-			// while (stack_b->head->s_index != length - 1)
-			while (get_index(sorted, st_a->st[0]) != length - 1)
+			while (get_index(sorted, st_b->st[0]) != length - 1)
+			{
 				rb_wrapper(st_b->st, st_b->h);
+			}
 			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-			length--;
 		}
 		else
 		{
-			// while (st_b->head->s_index != length - 1)
 			while (get_index(sorted, st_b->st[0]) != length -1)
 				rrb_wrapper(st_b->st, st_b->h);
 			pa_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
-			length--;
 		}
+		length--;
 	}
 }
 #include <stdio.h>
@@ -149,7 +139,7 @@ void	k_sort(t_stack *st_a, t_stack *st_b)
 	else
 	{
 		sort_to_b(st_a, st_b, length, sorted);
-		// sort_to_a(st_a, st_b, length, sorted);
-		// free(sorted);
+		sort_to_a(st_a, st_b, length, sorted);
+		free(sorted);
 	}
 }
