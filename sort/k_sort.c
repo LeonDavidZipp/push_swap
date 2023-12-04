@@ -6,25 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:38:57 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:46:14 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static int	*ft_sort_int_tab(int *tab, int h)
-{
-	int	*result;
-	int	i;
-
-	result = ft_calloc(h, sizeof(int));
-	if (!result)
-		return (NULL);
-	i = -1;
-	while (++i < h)
-		result[i] = tab[i];
-	return (sort(result, h));
-}
 
 static int	*sort(int *result, int h)
 {
@@ -51,21 +37,18 @@ static int	*sort(int *result, int h)
 	return (result);
 }
 
-static int	ft_sqrt(int nb)
+static int	*ft_sort_int_tab(int *tab, int h)
 {
+	int	*result;
 	int	i;
 
-	if (nb < 4)
-		return (1);
-	i = 2;
-	while (i * i < nb)
-		i++;
-	if (i * i > nb)
-	{
-		if ((i * i - nb) < ((i - 1) * (i - 1) - nb))
-			return (i);
-	}
-	return (i - 1);
+	result = ft_calloc(h, sizeof(int));
+	if (!result)
+		return (NULL);
+	i = -1;
+	while (++i < h)
+		result[i] = tab[i];
+	return (sort(result, h));
 }
 
 static void	sort_to_b(t_stack *st_a, t_stack *st_b, int length, int *sorted)
@@ -93,7 +76,7 @@ static void	sort_to_b(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 	}
 }
 
-void	sort_to_a(t_stack *st_a, t_stack *st_b, int length, int *sorted)
+static void	sort_to_a(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 {
 	int	rb_count;
 	int	rrb_count;

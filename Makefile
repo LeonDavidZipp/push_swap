@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/12/04 14:36:26 by lzipp            ###   ########.fr        #
+#    Updated: 2023/12/04 14:50:45 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,38 +16,36 @@ CC = cc
 
 CFLAGS = -Wextra -Wall -Werror
 
-HELPERDIR = ./helpers/
-STACKOPSDIR = ./stack_ops/
-SORTDIR = ./sort/
+HELPERDIR = ./helpers
+STACKOPSDIR = ./stack_ops
+SORTDIR = ./sort
 
-SOURCES = ft_atol.c \
-ft_calloc.c \
-ft_isdigit.c \
-ft_memmove.c \
-ft_split.c \
-ft_strcmp.c \
-ft_strdup.c \
-ft_strlen.c \
-ft_strsepjoin.c \
-ft_substr.c \
-make_stack_a.c \
-make_stack_b.c \
-pa.c \
-pb.c \
-push_swap.c \
-ra.c \
-rb.c \
-rr.c \
-rra.c \
-rrb.c \
-rrr.c \
-sa.c \
-sb.c \
-sort_7.c \
-k_sort.c \
-ss.c \
-utils.c \
-count_rotations.c
+SOURCES = \
+$(HELPERDIR)/ft_atol.c \
+$(HELPERDIR)/ft_calloc.c \
+$(HELPERDIR)/ft_isdigit.c \
+$(HELPERDIR)/ft_memmove.c \
+$(HELPERDIR)/ft_split.c \
+$(HELPERDIR)/ft_strcmp.c \
+$(HELPERDIR)/ft_strdup.c \
+$(HELPERDIR)/ft_strlen.c \
+$(HELPERDIR)/ft_strsepjoin.c \
+$(HELPERDIR)/ft_substr.c \
+$(HELPERDIR)/ft_sqrt.c \
+$(STACKOPSDIR)/make_stack_a.c \
+$(STACKOPSDIR)/make_stack_b.c \
+$(STACKOPSDIR)/pa.c \
+$(STACKOPSDIR)/pb.c \
+$(STACKOPSDIR)/ra.c \
+$(STACKOPSDIR)/rb.c \
+$(STACKOPSDIR)/rra.c \
+$(STACKOPSDIR)/rrb.c \
+$(STACKOPSDIR)/sa.c \
+$(STACKOPSDIR)/sb.c \
+$(SORTDIR)/sort_7.c \
+$(SORTDIR)/k_sort.c \
+$(HELPERDIR)/utils.c \
+push_swap.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

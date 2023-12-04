@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 15:06:25 by lzipp            ###   ########.fr       */
+/*   Created: 2023/12/04 14:46:00 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 14:46:21 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_sqrt(int nb)
 {
-	t_stack	*st_a;
-	t_stack	*st_b;
+	int	i;
 
-	if (argc < 2)
-		return (0);
-	st_a = make_stack_a(argc, argv);
-	if (!st_a)
+	if (nb < 4)
+		return (1);
+	i = 2;
+	while (i * i < nb)
+		i++;
+	if (i * i > nb)
 	{
-		write(2, "Error\n", 6);
-		return (1);
+		if ((i * i - nb) < ((i - 1) * (i - 1) - nb))
+			return (i);
 	}
-	st_b = make_stack_b(st_a);
-	if (!st_b)
-		return (1);
-	k_sort(st_a, st_b);
-	free(st_a->st);
-	free(st_a);
-	free(st_b->st);
-	free(st_b);
-	return (0);
+	return (i - 1);
 }

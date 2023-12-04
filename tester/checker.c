@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 15:06:25 by lzipp            ###   ########.fr       */
+/*   Created: 2023/12/04 14:54:51 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 15:07:51 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -28,7 +28,14 @@ int	main(int argc, char **argv)
 	st_b = make_stack_b(st_a);
 	if (!st_b)
 		return (1);
-	k_sort(st_a, st_b);
+	while (1)
+	{
+		read(STDIN_FILENO, &ch, 1);
+		if (ch == 'd')
+		{
+			break ;
+		}
+	}
 	free(st_a->st);
 	free(st_a);
 	free(st_b->st);
