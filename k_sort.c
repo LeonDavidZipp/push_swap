@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lzipp <lzipp@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 17:45:47 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/03 20:47:37 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static int	*ft_sort_int_tab(int *tab, int h)
 	printf("height: %d\n", h);
 	for (int i = 0; i < h; i++)
 		printf("%d\n", result[i]);
-	printf("sorted:\n");
 	not_sorted = 1;
 	while (not_sorted == 1)
 	{
@@ -45,35 +44,27 @@ static int	*ft_sort_int_tab(int *tab, int h)
 			}
 		}
 	}
+	// printf("sorted:\n");
+	// for (int i = 0; i < h; i++)
+	// 	printf("%d\n", result[i]);
 	return (result);
 }
 
 static int	ft_sqrt(int nb)
 {
-	int	rt_up;
-	int	rt_down;
-	int	max_loop;
+	int	i;
 
-	rt_up = nb / 3;
-	rt_down = 0;
-	max_loop = 46341;
-	if (nb <= 0)
-		return (0);
-	else if (nb == 1)
+	if (nb < 4)
 		return (1);
-	if (nb == 4)
-		return (2);
-	while (rt_up >= rt_down && max_loop)
+	i = 2;
+	while (i * i < nb)
+		i++;
+	if (i * i > nb)
 	{
-		if (rt_up * rt_up == nb)
-			return (rt_up);
-		else if (rt_down * rt_down == nb)
-			return (rt_down);
-		rt_up--;
-		rt_down++;
-		max_loop--;
+		if ((i * i - nb) < ((i - 1) * (i - 1) + (-nb)))
+			return (i);
 	}
-	return (0);
+	return (i - 1);
 }
 
 static void	sort_to_b(t_stack *st_a, t_stack *st_b, int length, int *sorted)
@@ -83,16 +74,23 @@ static void	sort_to_b(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 
 	i = 0;
 	range = ft_sqrt(length) * 14 / 10;
+	printf("length: %d\n", length);
+	printf("root: %d\n", ft_sqrt(length));
+	printf("range: %d\n", range);
 	while (st_a->h > 0)
 	{
+		printf("top of stack: %d | ", st_a->st[0]);
+		printf("index of top of stack: %d\n", get_index(sorted, st_a->st[0]));
 		if (get_index(sorted, st_a->st[0]) <= i)
 		{
+			printf("if 1\n");
 			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			rb_wrapper(st_b->st, st_b->h);
 			i++;
 		}
 		else if (get_index(sorted, st_a->st[0]) <= i + range)
 		{
+			printf("if 2\n");
 			pb_wrapper(st_a->st, st_b->st, &st_a->h, &st_b->h);
 			i++;
 		}
