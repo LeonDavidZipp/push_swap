@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:01:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 16:50:15 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 17:28:41 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define CHECKER_H
 
 # include "../push_swap.h"
+# include "get_next_line/get_next_line.h"
 
-int	execute_commands(t_stack *st_a, t_stack *st_b)
+int	execute_commands(t_stack *st_a, t_stack *st_b);
 
 #endif
