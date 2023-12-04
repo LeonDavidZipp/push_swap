@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   get_commands.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 16:01:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 16:02:00 by lzipp            ###   ########.fr       */
+/*   Created: 2023/12/04 16:01:14 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 16:04:26 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "checker.h"
 
-# include "../push_swap.h"
-
-void	get_commands(t_stack *st_a, t_stack *st_b);
-
-#endif
+void	get_commands()
+{
+	;
+}
