@@ -6,12 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:17:39 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:38:11 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -30,18 +29,6 @@ int	main(int argc, char **argv)
 	if (!st_b)
 		return (0);
 	k_sort(st_a, st_b);
-	// printf("stack a:\n");
-	// for (int i = 0; i < st_a->h; i++)
-	// {
-	// 	printf("%d ", st_a->st[i]);
-	// }
-	// printf("\n");
-	// printf("stack b: ");
-	// for (int i = 0; i < st_b->h; i++)
-	// {
-	// 	printf("%d ", st_b->st[i]);
-	// }
-	// printf("\n----------------------\n");
 	free(st_a->st);
 	free(st_a);
 	free(st_b->st);

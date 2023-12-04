@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 11:33:56 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 11:51:02 by lzipp            ###   ########.fr       */
+/*   Created: 2023/10/08 11:29:26 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	j;
-	size_t	s_len;
-	char	*res;
+	void	*ptr;
+	char	*cptr;
+	size_t	total;
 
-	if (!s)
+	total = count * size;
+	if ((count != 0 && total / count != size)
+		|| (size != 0 && total / size != count))
 		return (NULL);
-	j = 0;
-	s_len = ft_strlen(s);
-	while (j + start < s_len && s[j + start] && j < len)
-		j++;
-	res = (char *)malloc((j + 1) * sizeof(char));
-	if (!res)
+	ptr = (void *)malloc(total);
+	if (!ptr)
 		return (NULL);
-	j = 0;
-	while (start < s_len && s[start] && len > 0)
+	cptr = (char *)ptr;
+	while (total > 0)
 	{
-		res[j++] = s[start++];
-		len--;
+		*cptr = 0;
+		cptr++;
+		total--;
 	}
-	res[j] = '\0';
-	return (res);
+	return (ptr);
 }

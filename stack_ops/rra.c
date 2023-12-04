@@ -6,11 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /// @brief Shift down all elements of stack a by 1.
 /// The last element becomes the first one

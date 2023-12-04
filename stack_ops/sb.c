@@ -6,11 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 14:25:03 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /// @brief Swaps the first 2 elements at the top of stack b.
 /// Do nothing if there is only one or no elements.

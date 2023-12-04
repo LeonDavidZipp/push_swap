@@ -6,11 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:23 by lzipp             #+#    #+#             */
-/*   Updated: 2023/11/11 17:07:02 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	ft_count_words(const char *s, char c)
 {
@@ -77,26 +77,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (result);
 }
-// #include <stdio.h>
-// int main() {
-//     const char *input = "This is a test string";
-//     char **result = ft_split(input, ' ');
-// 	system("leaks a.out");
-
-//     if (!result) {
-//         // printf("Memory allocation error in ft_split\n");
-//         return 1;
-//     }
-
-//     // Print the split strings
-//     for (int i = 0; result[i] != NULL; i++) {
-//         // printf("Token %d: %s\n", i, result[i]);
-//     }
-
-//     // Free the memory allocated by ft_split
-//     for (int i = 0; result[i] != NULL; i++) {
-//         free(result[i]);
-//     }
-//     free(result);
-//     return 0;
-// }

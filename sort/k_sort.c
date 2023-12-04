@@ -6,18 +6,16 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:08:23 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:38:57 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
+
 static int	*ft_sort_int_tab(int *tab, int h)
 {
 	int	*result;
-	int	temp;
 	int	i;
-	int	not_sorted;
 
 	result = ft_calloc(h, sizeof(int));
 	if (!result)
@@ -25,9 +23,15 @@ static int	*ft_sort_int_tab(int *tab, int h)
 	i = -1;
 	while (++i < h)
 		result[i] = tab[i];
-	// printf("height: %d\n", h);
-	// for (int i = 0; i < h; i++)
-	// 	printf("%d\n", result[i]);
+	return (sort(result, h));
+}
+
+static int	*sort(int *result, int h)
+{
+	int	temp;
+	int	i;
+	int	not_sorted;
+
 	not_sorted = 1;
 	while (not_sorted == 1)
 	{
@@ -44,9 +48,6 @@ static int	*ft_sort_int_tab(int *tab, int h)
 			}
 		}
 	}
-	// printf("sorted:\n");
-	// for (int i = 0; i < h; i++)
-	// 	printf("%d\n", result[i]);
 	return (result);
 }
 
@@ -118,7 +119,7 @@ void	sort_to_a(t_stack *st_a, t_stack *st_b, int length, int *sorted)
 		length--;
 	}
 }
-#include <stdio.h>
+
 void	k_sort(t_stack *st_a, t_stack *st_b)
 {
 	int	length;
@@ -127,8 +128,6 @@ void	k_sort(t_stack *st_a, t_stack *st_b)
 	sorted = ft_sort_int_tab(st_a->st, st_a->h);
 	if (!sorted)
 		return ;
-	// for (int i = 0; i < st_a->h; i++)
-	// 	printf("%d\n", sorted[i]);
 	length = st_a->h;
 	if (is_sorted(st_a))
 		return ;

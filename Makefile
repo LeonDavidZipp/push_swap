@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/12/03 13:24:02 by lzipp            ###   ########.fr        #
+#    Updated: 2023/12/04 14:36:26 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,10 @@ NAME = push_swap
 CC = cc
 
 CFLAGS = -Wextra -Wall -Werror
+
+HELPERDIR = ./helpers/
+STACKOPSDIR = ./stack_ops/
+SORTDIR = ./sort/
 
 SOURCES = ft_atol.c \
 ft_calloc.c \

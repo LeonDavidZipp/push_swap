@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 11:32:37 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 11:43:23 by lzipp            ###   ########.fr       */
+/*   Created: 2023/10/08 11:33:56 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*dest;
-	int		i;
+	size_t	j;
+	size_t	s_len;
+	char	*res;
 
-	if (!s1)
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (s1[i])
-		i++;
-	dest = (char *)ft_calloc((i + 1), sizeof (char));
-	if (!dest)
+	j = 0;
+	s_len = ft_strlen(s);
+	while (j + start < s_len && s[j + start] && j < len)
+		j++;
+	res = (char *)malloc((j + 1) * sizeof(char));
+	if (!res)
 		return (NULL);
-	i = 0;
-	while (s1[i])
+	j = 0;
+	while (start < s_len && s[start] && len > 0)
 	{
-		dest[i] = s1[i];
-		i++;
+		res[j++] = s[start++];
+		len--;
 	}
-	return (dest);
+	res[j] = '\0';
+	return (res);
 }

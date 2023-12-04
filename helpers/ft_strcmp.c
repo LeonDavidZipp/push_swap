@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 11:33:05 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 11:48:35 by lzipp            ###   ########.fr       */
+/*   Created: 2023/10/31 11:17:40 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strcmp(char *s1, char *s2)
 {
-	size_t	len;
+	int	i;
 
-	if (!s)
-		return (0);
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = 0;
+	while (1)
+	{
+		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
+			break ;
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

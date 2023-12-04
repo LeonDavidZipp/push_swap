@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 11:30:04 by lzipp             #+#    #+#             */
-/*   Updated: 2023/10/31 11:22:34 by lzipp            ###   ########.fr       */
+/*   Created: 2023/10/08 11:33:05 by lzipp             #+#    #+#             */
+/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_isdigit(int c)
+size_t	ft_strlen(const char *s)
 {
-	if (!('0' <= c && '9' >= c))
+	size_t	len;
+
+	if (!s)
 		return (0);
-	return (1);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
