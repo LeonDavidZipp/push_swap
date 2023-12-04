@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/03 14:15:22 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/04 14:24:09 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,29 +130,3 @@ t_stack	*make_stack_a(int argc, char **argv)
 		h_a++;
 	return (build_stack(num_strings, h_a));
 }
-// #include <stdio.h>
-// int	main(int argc, char **argv)
-// {
-// 	t_stack	*st_a;
-// 	int		h_a;
-// 	int		*stack;
-
-// 	if (argc == 1)
-// 		return (0);
-// 	st_a = make_stack_a(argc, argv);
-// 	if (!st_a)
-// 	{
-// 		write(2, "Error\n", 6);
-// 		return (0);
-// 	}
-// 	h_a = st_a->h;
-// 	stack = st_a->st;
-// 	for (int i = 0; i < h_a; i++)
-// 	{
-// 		// printf("|%d|\n", stack[i]);
-// 	}
-// 	// printf("\n");
-// 	return (0);
-// }
-// cc make_stack_a.c ft_strdup.c ft_isdigit.c ft_strcmp.c ft_strsepjoin.c
-// ft_calloc.c ft_strlen.c ft_atoi.c ft_split.c ft_substr.c
