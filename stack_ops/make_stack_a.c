@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 11:36:31 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 12:54:01 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ static t_stack	*build_stack(char **num_strings, int h_a)
 		return (NULL);
 	st_a->st = stack;
 	st_a->h = h_a;
-	st_a->runs = 0;
 	return (st_a);
 }
 
@@ -116,6 +115,7 @@ t_stack	*make_stack_a(int argc, char **argv)
 	char	*num_string;
 	char	**num_strings;
 	int		h_a;
+	t_stack	*st_a;
 
 	num_string = join_input(argc, argv);
 	if (!check_numeric(argc, argv) || !check_unique(argc, argv) || !num_string)
@@ -127,5 +127,9 @@ t_stack	*make_stack_a(int argc, char **argv)
 	h_a = 0;
 	while (num_strings[h_a] != NULL)
 		h_a++;
-	return (build_stack(num_strings, h_a));
+	st_a = build_stack(num_strings, h_a);
+	while (h_a-- > 0)
+		free (num_strings[h_a]);
+	free (num_strings);
+	return (st_a);
 }

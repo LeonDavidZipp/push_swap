@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:19:48 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 17:09:38 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 12:52:50 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,5 @@ int	main(int argc, char **argv)
 	free_stacks(st_a, st_b);
 	return (0);
 }
+// Insert this snippet before return for leak testing:
+// system("leaks push_swap");

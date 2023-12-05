@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 18:05:15 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 12:54:08 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef struct s_stack {
 	int	*st;
 	int	h;
-	int	runs;
 }	t_stack;
 
 // helper functions
