@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:51:52 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 11:53:29 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 11:54:32 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,9 @@ static void	sort_to_a(t_stack *st_a, t_stack *st_b, int h_a, int *sorted)
 	}
 }
 
+/// @brief sorts stack a
+/// @param st_a stack a
+/// @param st_b stack b
 void	k_sort(t_stack *st_a, t_stack *st_b)
 {
 	int		h_a;
