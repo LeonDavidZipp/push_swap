@@ -6,11 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:54:51 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 17:19:10 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 11:39:47 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "./checker.h"
 
 static void	free_stacks(t_stack *st_a, t_stack *st_b)
 {
@@ -20,9 +20,9 @@ static void	free_stacks(t_stack *st_a, t_stack *st_b)
 	free(st_b);
 }
 
-static void	print_result(t_stack *st_a)
+static void	print_result(t_stack *st_a, t_stack *st_b)
 {
-	if (is_sorted(st_a))
+	if (is_sorted(st_a) && st_b->h == 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -44,13 +44,13 @@ int	main(int argc, char **argv)
 	st_b = make_stack_b(st_a);
 	if (!st_b)
 		return (1);
-	write(1, "Enter Instructions. Press d + Enter to end\n", 42);
+	write(1, "Enter Instructions. Press d + Enter to end\n", 43);
 	if (execute_commands(st_a, st_b) == 1)
 	{
-		write(2, "Error: Incorrect Instructions\n", 6);
+		write(2, "Error: Incorrect Instructions\n", 30);
 		return (1);
 	}
-	print_result(st_a);
+	print_result(st_a, st_b);
 	free_stacks(st_a, st_b);
 	return (0);
 }

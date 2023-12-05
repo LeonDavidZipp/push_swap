@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:15:46 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 11:36:18 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,4 @@ void	rrb_wrapper(int *st_b, int h_b)
 	rrb(st_b, h_b);
 	write(1, "rrb\n", 4);
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	int st_b[6] = {1, 2, 3, 4, 5, 6};
-// 	int h_b = 6;
-// 	ra(st_b, h_b);
-// 	ra(st_b, h_b);
-// 	ra(st_b, h_b);
-// 	// printf("pa worked\n");
-// 	// printf("h_b: %d\n", h_b);
-// 	// printf("st_b: %d, %d, %d, %d, %d, %d\n", st_b[0], st_b[1],
-// st_b[2], st_b[3], st_b[4], st_b[5]);
-// 	return (0);
-// }
+

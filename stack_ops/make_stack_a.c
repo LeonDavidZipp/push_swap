@@ -6,12 +6,11 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 11:36:31 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 static int	check_numeric(int argc, char **argv)
 {

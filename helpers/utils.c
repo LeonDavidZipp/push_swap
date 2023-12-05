@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 11:45:19 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:44:32 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 11:09:30 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	is_sorted(t_stack *st)
 {
 	int	i;
 
-	i = -1;
-	while (++i < st->h - 1)
+	i = 0;
+	while (i < st->h - 1)
 	{
 		if (st->st[i] > st->st[i + 1])
 			return (0);
+		i++;
 	}
 	return (1);
 }

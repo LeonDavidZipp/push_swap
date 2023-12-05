@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:32:14 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 11:14:48 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ void	sb(int *st_b, int h_b)
 
 	if (h_b <= 1)
 		return ;
-	if (st_b[0] > st_b[1])
-	{
-		temp = st_b[0];
-		st_b[0] = st_b[1];
-		st_b[1] = temp;
-	}
+	temp = st_b[0];
+	st_b[0] = st_b[1];
+	st_b[1] = temp;
+
 }
 
 /// @brief wrapper for sb writing "sb\n" to stdout

@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/12/04 18:03:29 by lzipp            ###   ########.fr        #
+#    Updated: 2023/12/05 10:57:41 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,13 @@ $(HELPERDIR)/ft_isdigit.c \
 $(HELPERDIR)/ft_memmove.c \
 $(HELPERDIR)/ft_split.c \
 $(HELPERDIR)/ft_strcmp.c \
+$(HELPERDIR)/ft_strncmp.c \
 $(HELPERDIR)/ft_strdup.c \
 $(HELPERDIR)/ft_strlen.c \
 $(HELPERDIR)/ft_strsepjoin.c \
 $(HELPERDIR)/ft_substr.c \
 $(HELPERDIR)/ft_sqrt.c \
 $(HELPERDIR)/utils.c \
-$(HELPERDIR)/ft_strncmp.c \
 $(STACKOPSDIR)/make_stack_a.c \
 $(STACKOPSDIR)/make_stack_b.c \
 $(STACKOPSDIR)/pa.c \
@@ -47,6 +47,7 @@ $(STACKOPSDIR)/sb.c \
 $(SORTDIR)/sort_7.c \
 $(SORTDIR)/k_sort.c \
 push_swap.c
+
 OBJECTS = $(SOURCES:.c=.o)
 
 BONUSDIR = ./bonus
@@ -55,7 +56,27 @@ BONUS_SOURCES = \
 $(BONUSDIR)/checker.c \
 $(BONUSDIR)/execute_commands.c \
 $(BONUSDIR)$(NEXTLINEDIR)/get_next_line_utils_bonus.c \
-$(BONUSDIR)$(NEXTLINEDIR)/get_next_line_bonus.c
+$(BONUSDIR)$(NEXTLINEDIR)/get_next_line_bonus.c \
+$(STACKOPSDIR)/pa.c \
+$(STACKOPSDIR)/pb.c \
+$(STACKOPSDIR)/ra.c \
+$(STACKOPSDIR)/rb.c \
+$(STACKOPSDIR)/rra.c \
+$(STACKOPSDIR)/rrb.c \
+$(STACKOPSDIR)/sa.c \
+$(STACKOPSDIR)/sb.c \
+$(STACKOPSDIR)/make_stack_a.c \
+$(STACKOPSDIR)/make_stack_b.c \
+$(HELPERDIR)/ft_atol.c \
+$(HELPERDIR)/ft_isdigit.c \
+$(HELPERDIR)/ft_memmove.c \
+$(HELPERDIR)/ft_split.c \
+$(HELPERDIR)/ft_strcmp.c \
+$(HELPERDIR)/ft_strncmp.c \
+$(HELPERDIR)/ft_strdup.c \
+$(HELPERDIR)/ft_strsepjoin.c \
+$(HELPERDIR)/ft_sqrt.c \
+$(HELPERDIR)/utils.c \
 
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
@@ -64,8 +85,9 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS)
 	
-bonus: $(BONUS_OBJECTS)
-	$(CC) $(CFLAGS) -o checker $(BONUS_OBJECTS)
+bonus: $(BONUS_OBJECTS) $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OBJECTS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
@@ -82,4 +104,4 @@ cm: bonus clean
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: all clean fclean re cm
+.PHONY: all bonus clean fclean re cm
