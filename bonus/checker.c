@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:54:51 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 13:00:08 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 13:02:54 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	st_b = make_stack_b(st_a);
 	if (!st_b)
 		return (1);
-	write(1, "Enter Instructions. Exit: 'stop', then press enter.\n", 51);
+	write(1, "Enter Instructions. Exit: 'stop', then press enter.\n", 52);
 	if (execute_commands(st_a, st_b) == 1)
 	{
 		write(2, "Error: Incorrect Instructions\n", 30);
@@ -52,7 +52,6 @@ int	main(int argc, char **argv)
 	}
 	print_result(st_a, st_b);
 	free_stacks(st_a, st_b);
-	system("leaks checker");
 	return (0);
 }
 // Insert this snippet before return for leak testing:

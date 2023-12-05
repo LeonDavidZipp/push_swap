@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:09:30 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 12:58:11 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/05 13:01:58 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	execute_commands(t_stack *st_a, t_stack *st_b)
 	command = ft_calloc(3, sizeof(char));
 	while (command)
 	{
+		free(command);
 		command = get_next_line(0);
 		if (ft_strncmp(command, "stop\n", 5) == 0)
 			break ;
