@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/06 13:29:58 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,4 @@ void	pb_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 {
 	pb(st_a, st_b, h_a, h_b);
 	write(1, "pb\n", 3);
-	// // printf("height b and a after pb wrapper: %d %d\n", *h_a, *h_b);
 }

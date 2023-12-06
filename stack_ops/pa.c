@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/06 13:30:07 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	pa(int *st_a, int *st_b, int *h_a, int *h_b)
 	(*h_a)++;
 	(*h_b)--;
 }
+
 /// @brief Wrapper of pa writing "pa\n" to stdout
 /// @param st_a stack a
 /// @param st_b stack b
