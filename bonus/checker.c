@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:54:51 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 15:06:26 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/06 13:33:39 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	t_stack	*st_b;
 
 	if (argc < 2)
-		return (1);
+		return (0);
 	st_a = make_stack_a(argc, argv);
 	if (!st_a)
 	{
