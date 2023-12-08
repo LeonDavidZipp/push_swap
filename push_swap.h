@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:43:43 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 12:54:08 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/08 14:30:12 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		count_reverse_rotate(t_stack *st, int el);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strsepjoin(char const *s1, char const *s2, char const *sep);
-long	ft_atol(const char *str);
+long	ft_atoll(const char *str);
 int		ft_isdigit(int c);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

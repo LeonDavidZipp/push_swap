@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/12/05 12:27:01 by lzipp            ###   ########.fr        #
+#    Updated: 2023/12/08 14:31:47 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ STACKOPSDIR = ./stack_ops
 SORTDIR = ./sort
 
 SOURCES = \
-$(HELPERDIR)/ft_atol.c \
+$(HELPERDIR)/ft_atoll.c \
 $(HELPERDIR)/ft_calloc.c \
 $(HELPERDIR)/ft_isdigit.c \
 $(HELPERDIR)/ft_memmove.c \
@@ -67,7 +67,7 @@ $(STACKOPSDIR)/sa.c \
 $(STACKOPSDIR)/sb.c \
 $(STACKOPSDIR)/make_stack_a.c \
 $(STACKOPSDIR)/make_stack_b.c \
-$(HELPERDIR)/ft_atol.c \
+$(HELPERDIR)/ft_atoll.c \
 $(HELPERDIR)/ft_isdigit.c \
 $(HELPERDIR)/ft_memmove.c \
 $(HELPERDIR)/ft_split.c \

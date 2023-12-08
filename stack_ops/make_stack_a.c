@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/08 11:46:58 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/08 14:31:25 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static t_stack	*build_stack(char **num_strings, int h_a)
 	h_a = -1;
 	while (num_strings[++h_a] != NULL)
 	{
-		num = ft_atol(num_strings[h_a]);
+		num = ft_atoll(num_strings[h_a]);
 		if (num > INT_MAX || num < INT_MIN || ft_strlen(num_strings[h_a]) > 11)
 			return (NULL);
 		stack[h_a] = (int)num;
