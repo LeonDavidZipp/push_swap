@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:54:51 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/07 15:48:44 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/08 15:45:37 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	st_b = make_stack_b(st_a);
 	if (!st_b)
 		return (1);
-	write(1, "Enter Instructions. Exit: stop\n", 31);
+	write(1, "Enter Instructions. Exit: d + Enter\n", 36);
 	if (execute_commands(st_a, st_b) == 1)
 	{
 		write(2, "Error: Incorrect Instructions\n", 30);
