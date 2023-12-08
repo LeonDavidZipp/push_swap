@@ -6,15 +6,15 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:29:13 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/05 10:34:32 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/08 11:46:11 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atol(const char *str)
+long	ft_atoll(const char *str)
 {
-	int		i;
-	long	sign;
-	long	result;
+	int			i;
+	long long	sign;
+	long long	result;
 
 	i = 0;
 	sign = 1;
