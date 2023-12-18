@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:34:45 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/08 14:31:25 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/18 14:38:44 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static t_stack	*build_stack(char **num_strings, int h_a)
 	int		*stack;
 	long	num;
 
-	stack = (int *)ft_calloc(h_a, sizeof(int));
+	stack = (int *)ft_calloc(h_a + 1, sizeof(int));
 	if (!stack)
 		return (NULL);
 	h_a = -1;

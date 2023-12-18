@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:54:51 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/08 15:45:37 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/18 12:41:18 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,6 @@ int	main(int argc, char **argv)
 }
 // Insert this snippet before return for leak testing:
 // system("leaks checker");
+// # ifndef OPEN_MAX
+// #  define OPEN_MAX 10240
+// # endif

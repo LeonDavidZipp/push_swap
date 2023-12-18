@@ -66,3 +66,5 @@ push_swap
 visualizer
 push_swap_visualizer
 .devcontainer
+*.dSYM
+*.o

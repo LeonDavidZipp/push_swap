@@ -6,7 +6,7 @@
 /*   By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:47:38 by lzipp             #+#    #+#             */
-/*   Updated: 2023/12/06 13:29:58 by lzipp            ###   ########.fr       */
+/*   Updated: 2023/12/18 14:37:20 by lzipp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,81 @@ void	pb_wrapper(int *st_a, int *st_b, int *h_a, int *h_b)
 	pb(st_a, st_b, h_a, h_b);
 	write(1, "pb\n", 3);
 }
+
+// #include <stdio.h>
+// void print_arrays(int *st_a, int *st_b, int h_a, int h_b) {
+//     int i;
+
+//     (void)h_b;
+// 	printf("st_a: ");
+//     for(i = 0; i < h_a; i++) {
+//         printf("%d ", st_a[i]);
+//     }
+//     printf("\n");
+
+//     printf("st_b: ");
+//     for(i = 0; i < 20; i++) {
+//         printf("%d ", st_b[i]);
+//     }
+//     printf("\n");
+// }
+
+// int main() {
+//     int st_a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//     int st_b[10] = {0};
+//     int h_a = 10;
+//     int h_b = 0;
+
+//     print_arrays(st_a, st_b, h_a, h_b);
+
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// 	printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+// 	pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// 	printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+// 	pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// 	printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+// 	pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+//     pb(st_a, st_b, &h_a, &h_b);
+//     print_arrays(st_a, st_b, h_a, h_b);
+// 	printf("h_a: %d\n", h_a);
+// 	printf("h_b: %d\n", h_b);
+
+//     return 0;
+// }
