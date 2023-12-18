@@ -6,7 +6,7 @@
 #    By: lzipp <lzipp@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 19:14:44 by lzipp             #+#    #+#              #
-#    Updated: 2023/12/18 14:41:19 by lzipp            ###   ########.fr        #
+#    Updated: 2023/12/18 15:14:14 by lzipp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 BONUS_NAME = checker
 
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -fsanitize=address
+CFLAGS = -Wextra -Wall -Werror
 
 HELPERDIR = ./helpers
 STACKOPSDIR = ./stack_ops
